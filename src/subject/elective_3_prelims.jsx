@@ -65,6 +65,7 @@ export default function ExamApp({ subject, setCurrentPage, setSelectedSubject })
   const [answers, setAnswers] = useState({});
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
+  const [showReview, setShowReview] = useState(false);
   const [shuffled, setShuffled] = useState(questionsJson);
 
   const goBackToSubjects = () => {
@@ -90,12 +91,14 @@ export default function ExamApp({ subject, setCurrentPage, setSelectedSubject })
     if (index > 0) setIndex(i => i - 1);
   }
 
+
+
   function computeScore() {
     let s = 0;
     for (const item of shuffled) {
       const given = answers[item.id];
       if (item.type === "true_false") {
-        if (given && given.toLowerCase() === item.answer) s += 1;
+        if (given && given === item.answer) s += 1;
       } else if (item.type === "multiple_choice" || item.type === "situational") {
         if (given !== undefined && Number(given) === item.answer) s += 1;
       } else if (item.type === "identification") {
@@ -114,6 +117,7 @@ export default function ExamApp({ subject, setCurrentPage, setSelectedSubject })
     setIndex(0);
     setShowResult(false);
     setScore(0);
+    setShowReview(false);
   }
 
   function downloadJSON() {
@@ -168,68 +172,181 @@ export default function ExamApp({ subject, setCurrentPage, setSelectedSubject })
           </div>
         </header>
 
-        <div className="mb-4 text-sm text-gray-600">Question {index + 1} of {shuffled.length}</div>
+        {!showResult ? (
+          <div className="flex flex-col h-96">
+            <div className="flex-1 flex flex-col">
+              <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="text-sm text-gray-500 mb-4">
+              Question {index + 1} of {shuffled.length}
+            </div>
+            
+            <h2 className="text-lg font-medium mb-4 text-gray-800">
+              {q?.question}
+            </h2>
 
-        <div className="p-4 border rounded-lg mb-4 bg-gray-50">
-          <div className="font-medium mb-2">{q.type === 'true_false' ? '(True/False)' : q.type === 'multiple_choice' ? '(Multiple Choice)' : q.type === 'situational' ? '(Situational)' : '(Identification)'} </div>
-          <div className="text-lg">{q.question}</div>
-
-          <div className="mt-4">
-            {q.type === 'true_false' && (
-              <div className="flex gap-2">
-                {["true","false"].map(v => (
-                  <button key={v} onClick={() => recordAnswer(q.id, v)} className={`px-3 py-1 rounded ${answers[q.id]===v? 'bg-indigo-500 text-white' : 'bg-white border'}`}>{v.toUpperCase()}</button>
+            {q?.type === "true_false" && (
+              <div className="space-y-3">
+                {["true", "false"].map((option) => (
+                  <label key={option} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                    <input
+                      type="radio"
+                      name={`question-${index}`}
+                      value={option}
+                      checked={(answers[q.id] || '') === option}
+                      onChange={(e) => recordAnswer(q.id, e.target.value)}
+                      className="mt-0.5 text-indigo-600"
+                    />
+                    <span className="text-sm text-gray-700">{option.toUpperCase()}</span>
+                  </label>
                 ))}
               </div>
             )}
 
-            {(q.type === 'multiple_choice' || q.type === 'situational') && (
-              <div className="grid gap-2 mt-2">
-                {q.options.map((opt, i) => (
-                  <button key={i} onClick={() => recordAnswer(q.id, i)} className={`text-left p-3 rounded border ${answers[q.id]===i? 'bg-indigo-500 text-white' : 'bg-white'}`}>
-                    <div className="font-medium">{String.fromCharCode(65+i)}. {opt}</div>
-                  </button>
+            {(q?.type === "multiple_choice" || q?.type === "situational") && (
+              <div className="space-y-3">
+                {q.options.map((option, optIndex) => (
+                  <label key={optIndex} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                    <input
+                      type="radio"
+                      name={`question-${index}`}
+                      value={optIndex}
+                      checked={(answers[q.id] || '') === optIndex}
+                      onChange={(e) => recordAnswer(q.id, parseInt(e.target.value))}
+                      className="mt-0.5 text-indigo-600"
+                    />
+                    <span className="text-sm text-gray-700">{String.fromCharCode(65 + optIndex)}. {option}</span>
+                  </label>
                 ))}
               </div>
             )}
 
-            {q.type === 'identification' && (
-              <div className="mt-2">
-                <input value={answers[q.id] || ''} onChange={e=>recordAnswer(q.id, e.target.value)} className="w-full p-2 border rounded" placeholder="Type your answer (identification)" />
+            {q?.type === "identification" && (
+              <div className="mb-4">
+                <input
+                  type="text"
+                  placeholder="Type your answer here..."
+                  value={answers[q.id] || ''}
+                  onChange={(e) => recordAnswer(q.id, e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                />
               </div>
             )}
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex gap-2">
-            <button onClick={prev} disabled={index===0} className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50">Previous</button>
-            <button onClick={next} disabled={index===shuffled.length-1} className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50">Next</button>
+            {/* Navigation */}
+            <div className="flex justify-between items-center mt-6">
+              <button 
+                onClick={prev} 
+                disabled={index === 0}
+                className="px-4 py-2 bg-gray-200 text-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 transition-colors"
+              >
+                Previous
+              </button>
+              
+              <div className="text-sm text-gray-500">
+                {Object.keys(answers).length} of {shuffled.length} answered
+              </div>
+              
+              {index === shuffled.length - 1 ? (
+                <button 
+                  onClick={computeScore}
+                  className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+                >
+                  Submit
+                </button>
+              ) : (
+                <button 
+                  onClick={next}
+                  className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition-colors"
+                >
+                  Next
+                </button>
+              )}
+            </div>
           </div>
+        ) : (
+          <div className="text-center py-8">
+            <div className="text-6xl mb-4">
+              {score / shuffled.length >= 0.8 ? "🎉" : score / shuffled.length >= 0.6 ? "👍" : "📚"}
+            </div>
+            <h2 className="text-2xl font-bold mb-2">Exam Complete!</h2>
+            <div className="text-lg mb-6">
+              Your Score: <span className="font-bold text-indigo-600">{score}/{shuffled.length}</span>
+              <span className="text-gray-500 ml-2">({Math.round((score / shuffled.length) * 100)}%)</span>
+            </div>
+            
+            {/* Score breakdown */}
+            <div className="max-w-md mx-auto mb-6">
+              <div className="bg-gray-100 rounded-full h-3 mb-2">
+                <div 
+                  className="bg-indigo-600 h-3 rounded-full transition-all duration-500" 
+                  style={{ width: `${(score / shuffled.length) * 100}%` }}
+                ></div>
+              </div>
+              <div className="text-sm text-gray-600 grid grid-cols-3 gap-2">
+                <div className="text-green-600">Correct: {score}</div>
+                <div className="text-red-600">Wrong: {shuffled.length - score}</div>
+                <div className="text-gray-500">Total: {shuffled.length}</div>
+              </div>
+            </div>
 
-          <div className="flex gap-2">
-            <button onClick={computeScore} className="px-3 py-1 bg-green-600 text-white rounded">Submit & Score</button>
+            <div className="flex gap-3 justify-center">
+              <button onClick={() => setShowReview(!showReview)} className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                {showReview ? 'Hide' : 'Review'} Answers
+              </button>
+              <button onClick={restart} className="px-6 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition-colors">
+                Try Again
+              </button>
+              <button onClick={goBackToSubjects} className="px-6 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors">
+                Back to Subjects
+              </button>
+            </div>
           </div>
-        </div>
+        )}
 
-        {showResult && (
-          <div className="mt-6 p-4 bg-white border rounded">
-            <div className="text-xl font-semibold">Result</div>
-            <div className="mt-2">Score: <span className="font-medium">{score} / {shuffled.length}</span></div>
-            <div className="mt-2 text-sm text-gray-600">Percentage: {(score/shuffled.length*100).toFixed(1)}%</div>
-            <div className="mt-4">
-              <details className="text-sm">
-                <summary className="cursor-pointer">Show answer breakdown</summary>
-                <ol className="mt-2 ml-4 list-decimal">
-                  {shuffled.map(item => (
-                    <li key={item.id} className="mb-2">
-                      <div className="font-medium">Q {item.id}:</div>
-                      <div className="text-sm">Your answer: {String(answers[item.id] ?? '')}</div>
-                      <div className="text-sm">Correct: {item.type==='multiple_choice' || item.type==='situational' ? String.fromCharCode(65+item.answer) : item.type==='true_false' ? item.answer.toUpperCase() : item.answer_text}</div>
-                    </li>
-                  ))}
-                </ol>
-              </details>
+        {/* Answer Review Section */}
+        {showReview && showResult && (
+          <div className="mt-6 border-t pt-6">
+            <h3 className="text-xl font-bold mb-4">Answer Review</h3>
+            <div className="space-y-4 max-h-96 overflow-y-auto">
+              {shuffled.map((q, idx) => {
+                const userAnswer = answers[q.id];
+                let isCorrect = false;
+                let correctAnswerText = '';
+                let userAnswerText = '';
+                
+                if (q.type === "true_false") {
+                  isCorrect = userAnswer === q.answer;
+                  correctAnswerText = q.answer;
+                  userAnswerText = userAnswer || 'No answer';
+                } else if (q.type === "multiple_choice" || q.type === "situational") {
+                  isCorrect = Number(userAnswer) === q.answer;
+                  correctAnswerText = q.options[q.answer];
+                  userAnswerText = userAnswer !== undefined ? q.options[userAnswer] : 'No answer';
+                } else if (q.type === "identification") {
+                  const normalize = str => str ? str.trim().toLowerCase() : '';
+                  isCorrect = normalize(userAnswer) === normalize(q.answer_text);
+                  correctAnswerText = q.answer_text;
+                  userAnswerText = userAnswer || 'No answer';
+                }
+                
+                return (
+                  <div key={q.id} className={`p-4 rounded-lg border ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+                    <div className="flex items-start justify-between mb-2">
+                      <span className="text-sm font-medium text-gray-600">Question {idx + 1}</span>
+                      <span className={`text-sm px-2 py-1 rounded ${isCorrect ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                        {isCorrect ? 'Correct' : 'Incorrect'}
+                      </span>
+                    </div>
+                    <p className="text-gray-800 mb-3">{q.question}</p>
+                    <div className="grid gap-2 text-sm">
+                      <div><strong>Your Answer:</strong> <span className={isCorrect ? 'text-green-600' : 'text-red-600'}>{userAnswerText}</span></div>
+                      <div><strong>Correct Answer:</strong> <span className="text-green-600">{correctAnswerText}</span></div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}

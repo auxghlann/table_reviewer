@@ -11,29 +11,32 @@ export default function SubjectSelection({ setCurrentPage, setSelectedSubject })
       duration: "Self-paced",
       difficulty: "Intermediate",
       icon: "🤖",
-      color: "from-blue-500 to-indigo-600"
+      color: "from-blue-500 to-indigo-600",
+      component: "elective_3_prelims"
     },
     {
       id: "social-issues",
       title: "Social Issues",
       description: "Explore contemporary social challenges, ethical considerations, and societal impacts of technology.",
       topics: ["Digital Divide", "Privacy Rights", "Social Media Impact", "Technology Ethics"],
-      questions: 40,
+      questions: 50,
       duration: "Self-paced", 
       difficulty: "Beginner",
       icon: "🌍",
-      color: "from-green-500 to-emerald-600"
+      color: "from-green-500 to-emerald-600",
+      component: "soci_prelims"
     },
     {
       id: "ethics",
       title: "Ethics",
       description: "Fundamental principles of ethical reasoning, moral philosophy, and professional conduct standards.",
       topics: ["Moral Philosophy", "Professional Ethics", "Decision Making", "Case Studies"],
-      questions: 35,
+      questions: 50,
       duration: "Self-paced",
       difficulty: "Intermediate", 
       icon: "⚖️",
-      color: "from-purple-500 to-violet-600"
+      color: "from-purple-500 to-violet-600",
+      component: "ethics_prelims"
     }
   ];
 
