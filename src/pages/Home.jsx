@@ -1,0 +1,114 @@
+import React from "react";
+
+export default function Home({ setCurrentPage }) {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold mb-6">Master Artificial Intelligence</h1>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            Test your knowledge with our comprehensive AI examination platform. 
+            Covering everything from fundamentals to advanced concepts.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => setCurrentPage("exam")}
+              className="bg-white text-indigo-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+            >
+              Start Exam Now
+            </button>
+            <button
+              onClick={() => setCurrentPage("about")}
+              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Our AI Exam?</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Our platform offers a comprehensive assessment experience designed by AI experts.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-md text-center">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-semibold mb-4">Comprehensive Coverage</h3>
+              <p className="text-gray-600">
+                50 carefully crafted questions covering AI fundamentals, applications, 
+                agent systems, and search algorithms.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-md text-center">
+              <div className="text-4xl mb-4">📊</div>
+              <h3 className="text-xl font-semibold mb-4">Instant Results</h3>
+              <p className="text-gray-600">
+                Get immediate feedback with detailed score breakdown and correct answers 
+                to enhance your learning experience.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-md text-center">
+              <div className="text-4xl mb-4">🎓</div>
+              <h3 className="text-xl font-semibold mb-4">Multiple Formats</h3>
+              <p className="text-gray-600">
+                Test different aspects of knowledge with True/False, Multiple Choice, 
+                Situational, and Identification questions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="bg-indigo-600 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 text-center text-white">
+            <div>
+              <div className="text-4xl font-bold mb-2">50+</div>
+              <div className="text-lg">Expert Questions</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">4</div>
+              <div className="text-lg">Question Types</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">100%</div>
+              <div className="text-lg">Interactive</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">∞</div>
+              <div className="text-lg">Attempts</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Test Your AI Knowledge?</h2>
+          <p className="text-lg text-gray-600 mb-8">
+            Join thousands of students and professionals who have improved their AI understanding 
+            through our comprehensive examination platform.
+          </p>
+          <button
+            onClick={() => setCurrentPage("exam")}
+            className="bg-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-700 transition-colors shadow-lg"
+          >
+            Begin Assessment
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
