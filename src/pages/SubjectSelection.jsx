@@ -18,7 +18,7 @@ export default function SubjectSelection({ setCurrentPage, setSelectedSubject })
       id: "social-issues",
       title: "Social Issues",
       description: "Explore contemporary social challenges, ethical considerations, and societal impacts of technology.",
-      topics: ["Digital Divide", "Privacy Rights", "Social Media Impact", "Technology Ethics"],
+      topics: ["Morality", "Law", "Moral Code", "Natural & Conventional Law"],
       questions: 50,
       duration: "Self-paced", 
       difficulty: "Beginner",

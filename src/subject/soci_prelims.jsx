@@ -173,7 +173,7 @@ export default function SOCIExam({ subject, setCurrentPage, setSelectedSubject }
                           type="radio"
                           name={`question-${index}`}
                           value={option}
-                          checked={(answers[q.id] || '') === option}
+                          checked={answers[q.id] === option}
                           onChange={(e) => recordAnswer(q.id, e.target.value)}
                           className="mt-0.5 text-indigo-600"
                         />
@@ -191,7 +191,7 @@ export default function SOCIExam({ subject, setCurrentPage, setSelectedSubject }
                           type="radio"
                           name={`question-${index}`}
                           value={optIndex}
-                          checked={(answers[q.id] || '') === optIndex}
+                          checked={answers[q.id] === optIndex}
                           onChange={(e) => recordAnswer(q.id, parseInt(e.target.value))}
                           className="mt-0.5 text-indigo-600"
                         />
