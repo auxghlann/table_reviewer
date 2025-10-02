@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Header({ currentPage, setCurrentPage }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -37,32 +38,45 @@ export default function Header({ currentPage, setCurrentPage }) {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button className="text-gray-700 hover:text-indigo-600 focus:outline-none">
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-700 hover:text-indigo-600 focus:outline-none"
+              aria-label="Toggle mobile menu"
+            >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
               </svg>
             </button>
           </div>
         </div>
 
         {/* Mobile navigation */}
-        <div className="md:hidden pb-4">
-          <div className="flex flex-col space-y-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setCurrentPage(item.id)}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-left ${
-                  currentPage === item.id
-                    ? "bg-indigo-100 text-indigo-700"
-                    : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+        {isMobileMenuOpen && (
+          <div className="md:hidden pb-4">
+            <div className="flex flex-col space-y-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setCurrentPage(item.id);
+                    setIsMobileMenuOpen(false); // Close menu when item is clicked
+                  }}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-left ${
+                    currentPage === item.id
+                      ? "bg-indigo-100 text-indigo-700"
+                      : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );
