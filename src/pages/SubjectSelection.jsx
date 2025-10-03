@@ -16,7 +16,7 @@ export default function SubjectSelection({ setCurrentPage, setSelectedSubject })
     },
     {
       id: "social-issues",
-      title: "Social Issues",
+      title: "Social Issues (Prelims)",
       description: "Explore contemporary social challenges, ethical considerations, and societal impacts of technology.",
       topics: ["Morality", "Law", "Moral Code", "Natural & Conventional Law"],
       questions: 50,
@@ -28,7 +28,7 @@ export default function SubjectSelection({ setCurrentPage, setSelectedSubject })
     },
     {
       id: "ethics",
-      title: "Ethics",
+      title: "Ethics (Prelims)",
       description: "Fundamental principles of ethical reasoning, moral philosophy, and professional conduct standards.",
       topics: ["Moral Philosophy", "Ethics", "Conscience", "Human Acts & Acts of Man"],
       questions: 50,
