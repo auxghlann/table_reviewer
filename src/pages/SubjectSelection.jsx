@@ -2,6 +2,20 @@ import React from "react";
 
 export default function SubjectSelection({ setCurrentPage, setSelectedSubject }) {
   const subjects = [
+    // NEW EXAMS - Insert new subjects at the top (index 0)
+    {
+      id: "softeng-2",
+      title: "Soft-Eng 2 (Prelims)",
+      description: "Software engineering fundamentals covering requirements analysis, system design, and quality assurance principles.",
+      topics: ["Requirements Engineering", "System Boundaries", "UML Diagrams", "SQL & Databases"],
+      questions: 50,
+      duration: "Self-paced",
+      difficulty: "Beginner",
+      icon: "⚙️",
+      color: "from-teal-500 to-cyan-600",
+      component: "softeng2_prelims"
+    },
+    // EXISTING EXAMS - Moved down to maintain chronological order
     {
       id: "cs-elective-3",
       title: "CS - Elective 3 (Prelims)",

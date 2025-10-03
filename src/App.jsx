@@ -8,6 +8,7 @@ import SubjectSelection from "./pages/SubjectSelection";
 import Elective3Exam from "./subject/elective_3_prelims";
 import EthicsExam from "./subject/ethics_prelims";
 import SociExam from "./subject/soci_prelims";
+import SoftEng2Exam from "./subject/softeng2_prelims";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -31,6 +32,8 @@ export default function App() {
               return <EthicsExam subject={selectedSubject} setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
             case "soci_prelims":
               return <SociExam subject={selectedSubject} setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
+            case "softeng2_prelims":
+              return <SoftEng2Exam subject={selectedSubject} setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
             default:
               return <Elective3Exam subject={selectedSubject} setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
           }
