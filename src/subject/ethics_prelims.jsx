@@ -18,50 +18,50 @@ const QUESTIONS = [
   { id: 10, type: "tf", question: "Pragmatism holds that truth is what works, is useful, and produces beneficial results.", answer: "True" },
 
   // Multiple Choice 11-30
-  { id: 11, type: "mc", question: "'Philo' and 'Sophia' mean:", options: ["Wisdom & Knowledge","Love & Wisdom","Truth & Philosophy","Study & Logic"], answer: "Love & Wisdom" },
-  { id: 12, type: "mc", question: "Which branch of philosophy studies correct reasoning?", options: ["Metaphysics","Ethics","Logic","Epistemology"], answer: "Logic" },
-  { id: 13, type: "mc", question: "Which of the following is NOT a benefit of philosophy according to Babor?", options: ["Grasping the meaning of life","Understanding God and the divine","Mastery of physical sciences","Understanding self and others"], answer: "Mastery of physical sciences" },
-  { id: 14, type: "mc", question: "Metaethics is concerned with:", options: ["Application of moral principles in daily life","Criteria of right and wrong","The origin and meaning of moral principles","None of the above"], answer: "The origin and meaning of moral principles" },
-  { id: 15, type: "mc", question: "Ethics and Law may conflict when:", options: ["The law is unjust but ethical action is required","Religion is involved","Society approves of the law","The law is always higher than ethics"], answer: "The law is unjust but ethical action is required" },
-  { id: 16, type: "mc", question: "Which philosopher said, 'Man is condemned to be free'?", options: ["Martin Heidegger","Jean-Paul Sartre","Aristotle","Immanuel Kant"], answer: "Jean-Paul Sartre" },
-  { id: 17, type: "mc", question: "A person acting without knowledge or free will is performing:", options: ["Human Act","Act of Man","Moral Act","Indifferent Act"], answer: "Act of Man" },
-  { id: 18, type: "mc", question: "Which is NOT an impediment to human acts?", options: ["Ignorance","Fear","Freedom","Violence"], answer: "Freedom" },
-  { id: 19, type: "mc", question: "Which principle applies: 'The end does not justify the means'?", options: ["Circumstance principle","Conscience principle","Morality of human acts","Pragmatism principle"], answer: "Morality of human acts" },
-  { id: 20, type: "mc", question: "A conscience that judges good acts as bad is called:", options: ["Scrupulous conscience","False conscience","Lax conscience","Certain conscience"], answer: "False conscience" },
-  { id: 21, type: "mc", question: "Kohlberg’s Stage 2 morality is focused on:", options: ["Law and Order","Punishment avoidance","Rewards and self-interest","Universal principles"], answer: "Rewards and self-interest" },
-  { id: 22, type: "mc", question: "Which moral dilemma case is most famously used by Kohlberg?", options: ["Trolley Problem","Euthanasia case","Heinz Dilemma","Prisoner’s Dilemma"], answer: "Heinz Dilemma" },
-  { id: 23, type: "mc", question: "Realism (Aristotle) asserts that:", options: ["Reality exists only in the mind","Universals exist apart from particulars","Reality exists independently of the human mind","Truth is relative"], answer: "Reality exists independently of the human mind" },
-  { id: 24, type: "mc", question: "Which is an example of applied ethics?", options: ["Discussing the origin of morality","Debating whether euthanasia is moral","Questioning the meaning of right and wrong","Defining obligation"], answer: "Debating whether euthanasia is moral" },
-  { id: 25, type: "mc", question: "The 'Golden Rule' is an example of:", options: ["Religious law","Social custom","Ethical standard","Personal preference"], answer: "Ethical standard" },
-  { id: 26, type: "mc", question: "Existentialism emphasizes:", options: ["Society as the ultimate source of values","Individual freedom and responsibility","Divine authority as the only moral guide","Universal principles that are absolute"], answer: "Individual freedom and responsibility" },
-  { id: 27, type: "mc", question: "Which kind of ignorance cannot be removed and does not incur culpability?", options: ["Vincible Ignorance","Supine Ignorance","Invincible Ignorance","Affected Ignorance"], answer: "Invincible Ignorance" },
-  { id: 28, type: "mc", question: "Which condition is NOT required for valid self-defense?", options: ["Aggression must be unjust","Aggression must be actual","Violence must be proportional","Aggression must be legal"], answer: "Aggression must be legal" },
-  { id: 29, type: "mc", question: "A person who cheats and later feels guilt is showing which type of conscience?", options: ["Antecedent","Consequent","False","Scrupulous"], answer: "Consequent" },
-  { id: 30, type: "mc", question: "Pragmatism defines truth as:", options: ["What corresponds to universal ideals","What is consistent with reason alone","What is practical and useful","What society approves"], answer: "What is practical and useful" },
+  { id: 11, type: "mcq", question: "'Philo' and 'Sophia' mean:", options: ["Wisdom & Knowledge","Love & Wisdom","Truth & Philosophy","Study & Logic"], answer: "Love & Wisdom" },
+  { id: 12, type: "mcq", question: "Which branch of philosophy studies correct reasoning?", options: ["Metaphysics","Ethics","Logic","Epistemology"], answer: "Logic" },
+  { id: 13, type: "mcq", question: "Which of the following is NOT a benefit of philosophy according to Babor?", options: ["Grasping the meaning of life","Understanding God and the divine","Mastery of physical sciences","Understanding self and others"], answer: "Mastery of physical sciences" },
+  { id: 14, type: "mcq", question: "Metaethics is concerned with:", options: ["Application of moral principles in daily life","Criteria of right and wrong","The origin and meaning of moral principles","None of the above"], answer: "The origin and meaning of moral principles" },
+  { id: 15, type: "mcq", question: "Ethics and Law may conflict when:", options: ["The law is unjust but ethical action is required","Religion is involved","Society approves of the law","The law is always higher than ethics"], answer: "The law is unjust but ethical action is required" },
+  { id: 16, type: "mcq", question: "Which philosopher said, 'Man is condemned to be free'?", options: ["Martin Heidegger","Jean-Paul Sartre","Aristotle","Immanuel Kant"], answer: "Jean-Paul Sartre" },
+  { id: 17, type: "mcq", question: "A person acting without knowledge or free will is performing:", options: ["Human Act","Act of Man","Moral Act","Indifferent Act"], answer: "Act of Man" },
+  { id: 18, type: "mcq", question: "Which is NOT an impediment to human acts?", options: ["Ignorance","Fear","Freedom","Violence"], answer: "Freedom" },
+  { id: 19, type: "mcq", question: "Which principle applies: 'The end does not justify the means'?", options: ["Circumstance principle","Conscience principle","Morality of human acts","Pragmatism principle"], answer: "Morality of human acts" },
+  { id: 20, type: "mcq", question: "A conscience that judges good acts as bad is called:", options: ["Scrupulous conscience","False conscience","Lax conscience","Certain conscience"], answer: "False conscience" },
+  { id: 21, type: "mcq", question: "Kohlberg’s Stage 2 morality is focused on:", options: ["Law and Order","Punishment avoidance","Rewards and self-interest","Universal principles"], answer: "Rewards and self-interest" },
+  { id: 22, type: "mcq", question: "Which moral dilemma case is most famously used by Kohlberg?", options: ["Trolley Problem","Euthanasia case","Heinz Dilemma","Prisoner’s Dilemma"], answer: "Heinz Dilemma" },
+  { id: 23, type: "mcq", question: "Realism (Aristotle) asserts that:", options: ["Reality exists only in the mind","Universals exist apart from particulars","Reality exists independently of the human mind","Truth is relative"], answer: "Reality exists independently of the human mind" },
+  { id: 24, type: "mcq", question: "Which is an example of applied ethics?", options: ["Discussing the origin of morality","Debating whether euthanasia is moral","Questioning the meaning of right and wrong","Defining obligation"], answer: "Debating whether euthanasia is moral" },
+  { id: 25, type: "mcq", question: "The 'Golden Rule' is an example of:", options: ["Religious law","Social custom","Ethical standard","Personal preference"], answer: "Ethical standard" },
+  { id: 26, type: "mcq", question: "Existentialism emphasizes:", options: ["Society as the ultimate source of values","Individual freedom and responsibility","Divine authority as the only moral guide","Universal principles that are absolute"], answer: "Individual freedom and responsibility" },
+  { id: 27, type: "mcq", question: "Which kind of ignorance cannot be removed and does not incur culpability?", options: ["Vincible Ignorance","Supine Ignorance","Invincible Ignorance","Affected Ignorance"], answer: "Invincible Ignorance" },
+  { id: 28, type: "mcq", question: "Which condition is NOT required for valid self-defense?", options: ["Aggression must be unjust","Aggression must be actual","Violence must be proportional","Aggression must be legal"], answer: "Aggression must be legal" },
+  { id: 29, type: "mcq", question: "A person who cheats and later feels guilt is showing which type of conscience?", options: ["Antecedent","Consequent","False","Scrupulous"], answer: "Consequent" },
+  { id: 30, type: "mcq", question: "Pragmatism defines truth as:", options: ["What corresponds to universal ideals","What is consistent with reason alone","What is practical and useful","What society approves"], answer: "What is practical and useful" },
 
   // Situational 31-40 (treated as MCQ with scenario)
-  { id: 31, type: "situational", question: "A student refuses to cheat in an exam despite knowing classmates are doing it. Which type of conscience is at work?", options: ["Scrupulous","Lax","Correct","False"], answer: "Correct" },
-  { id: 32, type: "situational", question: "A doctor steals medicine to save a poor patient’s life. According to the principle 'the end does not justify the means,' the act is:", options: ["Good, because intention is pure","Bad, because the act is wrong regardless of intention","Indifferent","Acceptable in ethics"], answer: "Bad, because the act is wrong regardless of intention" },
-  { id: 33, type: "situational", question: "A soldier follows an order to attack civilians because the law requires it. Which Kohlberg stage is this?", options: ["Stage 2 – Rewards/Self-interest","Stage 3 – Good Boy","Stage 4 – Law & Order","Stage 5 – Social Contract"], answer: "Stage 4 – Law & Order" },
-  { id: 34, type: "situational", question: "A man pretends ignorance of rules to escape responsibility for his wrong act. This is:", options: ["Invincible Ignorance","Vincible Ignorance – Affected","Vincible Ignorance – Supine","Indifferent"], answer: "Vincible Ignorance – Affected" },
-  { id: 35, type: "situational", question: "Choosing to donate money only because it improves one’s reputation is an act influenced by:", options: ["Correct Conscience","False Conscience","Rewards/Self-interest stage","Social Contract"], answer: "Rewards/Self-interest stage" },
-  { id: 36, type: "situational", question: "A woman resists theft but under grave threat gives up her wallet. Her act is:", options: ["Fully culpable","Less culpable due to grave fear","Not culpable at all","A virtue"], answer: "Less culpable due to grave fear" },
-  { id: 37, type: "situational", question: "A student studies hard because he values learning and wisdom. This reflects which philosophical root?", options: ["Metaphysics","Philosophy as love of wisdom","Existentialism","Pragmatism"], answer: "Philosophy as love of wisdom" },
-  { id: 38, type: "situational", question: "A leader enforces a corrupt law because 'everyone else is doing it.' This shows influence of:", options: ["Ethics and Religion","Ethics and Sociology","Ethics and Psychology","Applied Ethics"], answer: "Ethics and Sociology" },
-  { id: 39, type: "situational", question: "A father disciplines his child moderately to guide him well. Which Aristotelian idea applies?", options: ["Happiness through moderation","Existence precedes essence","Social Contract","Pragmatic Ethics"], answer: "Happiness through moderation" },
-  { id: 40, type: "situational", question: "An athlete loses his career due to injury and questions his purpose. This is an example of:", options: ["Realism","Existential Crisis","Pragmatism","Idealism"], answer: "Existential Crisis" },
+  { id: 31, type: "smcq", question: "A student refuses to cheat in an exam despite knowing classmates are doing it. Which type of conscience is at work?", options: ["Scrupulous","Lax","Correct","False"], answer: "Correct" },
+  { id: 32, type: "smcq", question: "A doctor steals medicine to save a poor patient’s life. According to the principle 'the end does not justify the means,' the act is:", options: ["Good, because intention is pure","Bad, because the act is wrong regardless of intention","Indifferent","Acceptable in ethics"], answer: "Bad, because the act is wrong regardless of intention" },
+  { id: 33, type: "smcq", question: "A soldier follows an order to attack civilians because the law requires it. Which Kohlberg stage is this?", options: ["Stage 2 – Rewards/Self-interest","Stage 3 – Good Boy","Stage 4 – Law & Order","Stage 5 – Social Contract"], answer: "Stage 4 – Law & Order" },
+  { id: 34, type: "smcq", question: "A man pretends ignorance of rules to escape responsibility for his wrong act. This is:", options: ["Invincible Ignorance","Vincible Ignorance – Affected","Vincible Ignorance – Supine","Indifferent"], answer: "Vincible Ignorance – Affected" },
+  { id: 35, type: "smcq", question: "Choosing to donate money only because it improves one’s reputation is an act influenced by:", options: ["Correct Conscience","False Conscience","Rewards/Self-interest stage","Social Contract"], answer: "Rewards/Self-interest stage" },
+  { id: 36, type: "smcq", question: "A woman resists theft but under grave threat gives up her wallet. Her act is:", options: ["Fully culpable","Less culpable due to grave fear","Not culpable at all","A virtue"], answer: "Less culpable due to grave fear" },
+  { id: 37, type: "smcq", question: "A student studies hard because he values learning and wisdom. This reflects which philosophical root?", options: ["Metaphysics","Philosophy as love of wisdom","Existentialism","Pragmatism"], answer: "Philosophy as love of wisdom" },
+  { id: 38, type: "smcq", question: "A leader enforces a corrupt law because 'everyone else is doing it.' This shows influence of:", options: ["Ethics and Religion","Ethics and Sociology","Ethics and Psychology","Applied Ethics"], answer: "Ethics and Sociology" },
+  { id: 39, type: "smcq", question: "A father disciplines his child moderately to guide him well. Which Aristotelian idea applies?", options: ["Happiness through moderation","Existence precedes essence","Social Contract","Pragmatic Ethics"], answer: "Happiness through moderation" },
+  { id: 40, type: "smcq", question: "An athlete loses his career due to injury and questions his purpose. This is an example of:", options: ["Realism","Existential Crisis","Pragmatism","Idealism"], answer: "Existential Crisis" },
 
   // Identification 41-50
-  { id: 41, type: "id", question: "Philosophy literally means __________.", answer: "love of wisdom" },
-  { id: 42, type: "id", question: "The branch of philosophy dealing with knowledge and truth is called __________.", answer: "epistemology" },
-  { id: 43, type: "id", question: "The study of morality and moral concepts is known as __________.", answer: "ethics" },
-  { id: 44, type: "id", question: "Acts done without knowledge or free will are called __________.", answer: "acts of man" },
-  { id: 45, type: "id", question: "'Being-there' is the concept of __________ (philosopher).", answer: "dasein" },
-  { id: 46, type: "id", question: "The principle stating 'Always follow your __________' is a key in moral decision-making.", answer: "conscience" },
-  { id: 47, type: "id", question: "The type of conscience that is overly fearful of committing mistakes is __________.", answer: "scrupulous conscience" },
-  { id: 48, type: "id", question: "The six stages of moral reasoning were proposed by __________.", answer: "lawrence kohlberg" },
-  { id: 49, type: "id", question: "The view that 'truth is what works' is central to __________.", answer: "pragmatism" },
-  { id: 50, type: "id", question: "The philosophical school that emphasizes the realm of Forms or Ideas is __________.", answer: "idealism" }
+  { id: 41, type: "iden", question: "Philosophy literally means __________.", answer: "love of wisdom" },
+  { id: 42, type: "iden", question: "The branch of philosophy dealing with knowledge and truth is called __________.", answer: "epistemology" },
+  { id: 43, type: "iden", question: "The study of morality and moral concepts is known as __________.", answer: "ethics" },
+  { id: 44, type: "iden", question: "Acts done without knowledge or free will are called __________.", answer: "acts of man" },
+  { id: 45, type: "iden", question: "'Being-there' is the concept of __________ (philosopher).", answer: "dasein" },
+  { id: 46, type: "iden", question: "The principle stating 'Always follow your __________' is a key in moral decision-making.", answer: "conscience" },
+  { id: 47, type: "iden", question: "The type of conscience that is overly fearful of committing mistakes is __________.", answer: "scrupulous conscience" },
+  { id: 48, type: "iden", question: "The six stages of moral reasoning were proposed by __________.", answer: "lawrence kohlberg" },
+  { id: 49, type: "iden", question: "The view that 'truth is what works' is central to __________.", answer: "pragmatism" },
+  { id: 50, type: "iden", question: "The philosophical school that emphasizes the realm of Forms or Ideas is __________.", answer: "idealism" }
 ];
 
 function shuffle(arr) {
@@ -105,7 +105,7 @@ export default function EthicsExam({ subject, setCurrentPage, setSelectedSubject
       const given = answers[item.id];
       if (item.type === "tf") {
         if (given && given === item.answer) s += 1;
-      } else if (item.type === "mc" || item.type === "situational") {
+      } else if (item.type === "mcq" || item.type === "smcq") {
         if (given && given === item.answer) s += 1;
       } else if (item.type === "identification") {
         if (typeof given === "string" && item.answer) {
@@ -189,7 +189,7 @@ export default function EthicsExam({ subject, setCurrentPage, setSelectedSubject
                   {q?.question}
                 </h2>
 
-                {q?.type === "mc" && (
+                {q?.type === "mcq" && (
                   <div className="space-y-3">
                     {q.options.map((option, optIndex) => (
                       <label key={optIndex} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
@@ -225,7 +225,7 @@ export default function EthicsExam({ subject, setCurrentPage, setSelectedSubject
                   </div>
                 )}
 
-                {q?.type === "id" && (
+                {q?.type === "iden" && (
                   <div className="mb-4">
                     <input
                       type="text"
@@ -237,7 +237,7 @@ export default function EthicsExam({ subject, setCurrentPage, setSelectedSubject
                   </div>
                 )}
 
-                {q?.type === "situational" && (
+                {q?.type === "smcq" && (
                   <div className="space-y-3">
                     {q.options.map((option, optIndex) => (
                       <label key={optIndex} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
@@ -330,11 +330,11 @@ export default function EthicsExam({ subject, setCurrentPage, setSelectedSubject
                   isCorrect = userAnswer === q.answer;
                   correctAnswerText = q.answer;
                   userAnswerText = userAnswer || 'No answer';
-                } else if (q.type === "mc" || q.type === "situational") {
+                } else if (q.type === "mcq" || q.type === "smcq") {
                   isCorrect = userAnswer === q.answer;
                   correctAnswerText = q.answer;
                   userAnswerText = userAnswer || 'No answer';
-                } else if (q.type === "id") {
+                } else if (q.type === "iden") {
                   const normalize = str => str ? str.trim().toLowerCase() : '';
                   isCorrect = normalize(userAnswer) === normalize(q.answer);
                   correctAnswerText = q.answer;

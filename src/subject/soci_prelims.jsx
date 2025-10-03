@@ -4,16 +4,16 @@ import React, { useState, useEffect } from 'react';
 
 const questions = [
   // True/False (10)
-  { id: 1, type: 'true_false', q: 'Morality refers to social conventions about right and wrong that form a consensus.', a: 'true' },
-  { id: 2, type: 'true_false', q: 'Morality always leads to the same rules across all cultures.', a: 'false' },
-  { id: 3, type: 'true_false', q: 'James Moor distinguishes between directive rules and social policy.', a: 'true' },
-  { id: 4, type: 'true_false', q: 'Bernard Gert\'s moral system is informal, public, rational, and impartial.', a: 'true' },
-  { id: 5, type: 'true_false', q: 'The Golden Rule states: Do not treat others in ways you don’t want to be treated.', a: 'false' },
-  { id: 6, type: 'true_false', q: 'Natural law is written and enforced by government institutions.', a: 'false' },
-  { id: 7, type: 'true_false', q: 'Conventional law is created by people or governments for social order.', a: 'true' },
-  { id: 8, type: 'true_false', q: 'Declarative law affirms general principles of morality in legal form.', a: 'true' },
-  { id: 9, type: 'true_false', q: 'Determinative law resolves specific disputes through court decisions.', a: 'true' },
-  { id: 10, type: 'true_false', q: 'Morality and law have identical modes of enforcement.', a: 'false' },
+  { id: 1, type: 'tf', q: 'Morality refers to social conventions about right and wrong that form a consensus.', a: 'true' },
+  { id: 2, type: 'tf', q: 'Morality always leads to the same rules across all cultures.', a: 'false' },
+  { id: 3, type: 'tf', q: 'James Moor distinguishes between directive rules and social policy.', a: 'true' },
+  { id: 4, type: 'tf', q: 'Bernard Gert\'s moral system is informal, public, rational, and impartial.', a: 'true' },
+  { id: 5, type: 'tf', q: 'The Golden Rule states: Do not treat others in ways you don’t want to be treated.', a: 'false' },
+  { id: 6, type: 'tf', q: 'Natural law is written and enforced by government institutions.', a: 'false' },
+  { id: 7, type: 'tf', q: 'Conventional law is created by people or governments for social order.', a: 'true' },
+  { id: 8, type: 'tf', q: 'Declarative law affirms general principles of morality in legal form.', a: 'true' },
+  { id: 9, type: 'tf', q: 'Determinative law resolves specific disputes through court decisions.', a: 'true' },
+  { id: 10, type: 'tf', q: 'Morality and law have identical modes of enforcement.', a: 'false' },
 
   // Multiple Choice (20)
   { id: 11, type: 'mcq', q: 'Which factor does NOT typically influence moral beliefs?', options: ['Age','Education','Gravity','Religion'], a: 2 },
@@ -38,28 +38,28 @@ const questions = [
   { id: 30, type: 'mcq', q: 'Which best describes conventional law?', options: ['Made by people/groups for order','Always unwritten','Same as natural law','Never enforced'], a: 0 },
 
   // Situational (10)
-  { id: 31, type: 'situational', q: 'A community enacts a recycling ordinance with fines for noncompliance. This is an example of:', options: ['Natural law','Conventional law','Golden Rule','Moral code'], a: 1 },
-  { id: 32, type: 'situational', q: 'A family favors hiring relatives for jobs. Which rule best describes this?', options: ['Bronze Rule','Nepotism Rule','Silver Rule','Declarative law'], a: 1 },
-  { id: 33, type: 'situational', q: 'A government establishes healthcare reform to reduce poverty. This is:', options: ['Directive rule','Social policy','Determinative law','Nepotism'], a: 1 },
-  { id: 34, type: 'situational', q: 'A court interprets a statute in a specific case and sets a precedent. This is:', options: ['Declarative law','Determinative law','Golden Rule','Natural law'], a: 1 },
-  { id: 35, type: 'situational', q: 'A person lies but suffers social shame rather than legal punishment. This illustrates:', options: ['Law enforcement','Moral enforcement','Determinative law','Declarative law'], a: 1 },
-  { id: 36, type: 'situational', q: 'A society where everyone knows common courtesy norms: which Gert characteristic does this show?', options: ['Informal','Public','Arbitrary','Deterministic'], a: 1 },
-  { id: 37, type: 'situational', q: 'Traffic speed limits set by government are examples of which two concepts?', options: ['Natural law & moral code','Conventional law & directive rule','Silver Rule & bronze rule','Nepotism & iron rule'], a: 1 },
-  { id: 38, type: 'situational', q: 'An activist argues a law is unjust because it violates basic human rights. Which law type would they appeal to?', options: ['Declarative law','Natural law','Tin Rule','Determinative law'], a: 1 },
-  { id: 39, type: 'situational', q: 'A workplace has an unwritten expectation to help colleagues. This best fits:', options: ['Moral norm','Determinative law','Declarative statute','Court precedent'], a: 0 },
-  { id: 40, type: 'situational', q: 'A legislature passes an anti-discrimination statute that applies to all citizens. This is an example of:', options: ['Declarative law','Nepotism rule','Iron rule','Bronze rule'], a: 0 },
+  { id: 31, type: 'smcq', q: 'A community enacts a recycling ordinance with fines for noncompliance. This is an example of:', options: ['Natural law','Conventional law','Golden Rule','Moral code'], a: 1 },
+  { id: 32, type: 'smcq', q: 'A family favors hiring relatives for jobs. Which rule best describes this?', options: ['Bronze Rule','Nepotism Rule','Silver Rule','Declarative law'], a: 1 },
+  { id: 33, type: 'smcq', q: 'A government establishes healthcare reform to reduce poverty. This is:', options: ['Directive rule','Social policy','Determinative law','Nepotism'], a: 1 },
+  { id: 34, type: 'smcq', q: 'A court interprets a statute in a specific case and sets a precedent. This is:', options: ['Declarative law','Determinative law','Golden Rule','Natural law'], a: 1 },
+  { id: 35, type: 'smcq', q: 'A person lies but suffers social shame rather than legal punishment. This illustrates:', options: ['Law enforcement','Moral enforcement','Determinative law','Declarative law'], a: 1 },
+  { id: 36, type: 'smcq', q: 'A society where everyone knows common courtesy norms: which Gert characteristic does this show?', options: ['Informal','Public','Arbitrary','Deterministic'], a: 1 },
+  { id: 37, type: 'smcq', q: 'Traffic speed limits set by government are examples of which two concepts?', options: ['Natural law & moral code','Conventional law & directive rule','Silver Rule & bronze rule','Nepotism & iron rule'], a: 1 },
+  { id: 38, type: 'smcq', q: 'An activist argues a law is unjust because it violates basic human rights. Which law type would they appeal to?', options: ['Declarative law','Natural law','Tin Rule','Determinative law'], a: 1 },
+  { id: 39, type: 'smcq', q: 'A workplace has an unwritten expectation to help colleagues. This best fits:', options: ['Moral norm','Determinative law','Declarative statute','Court precedent'], a: 0 },
+  { id: 40, type: 'smcq', q: 'A legislature passes an anti-discrimination statute that applies to all citizens. This is an example of:', options: ['Declarative law','Nepotism rule','Iron rule','Bronze rule'], a: 0 },
 
   // Identification (10)
-  { id: 41, type: 'id', q: 'Who defined morality as social conventions and emphasized virtues like compassion?', a_text: 'No single author — concept described in the module (answer: general definition of morality)' },
-  { id: 42, type: 'id', q: 'Who proposed the two types of rules: directive and social policy (2004)?', a_text: 'James Moor' },
-  { id: 43, type: 'id', q: 'Which thinker described a moral system as public, informal, rational, and impartial?', a_text: 'Bernard Gert' },
-  { id: 44, type: 'id', q: 'Name the rule summarized as "Do unto others as you would have them do unto you."', a_text: 'Golden Rule' },
-  { id: 45, type: 'id', q: 'Name the rule that advises not to treat others in ways you would not want to be treated.', a_text: 'Silver Rule' },
-  { id: 46, type: 'id', q: 'What is law defined as by Webster — in short?', a_text: 'A rule of conduct recognized by custom or formal enactment' },
-  { id: 47, type: 'id', q: 'What form of law is established through court decisions and precedents?', a_text: 'Determinative law' },
-  { id: 48, type: 'id', q: 'What form of conventional law states broad principles and affirms natural morality?', a_text: 'Declarative law' },
-  { id: 49, type: 'id', q: 'Give an example of a social policy.', a_text: 'Welfare program (or healthcare reform)' },
-  { id: 50, type: 'id', q: 'Which moral rule emphasizes favoring in-group or relatives?', a_text: 'Nepotism Rule' }
+  { id: 41, type: 'iden', q: 'Who defined morality as social conventions and emphasized virtues like compassion?', a_text: 'No single author — concept described in the module (answer: general definition of morality)' },
+  { id: 42, type: 'iden', q: 'Who proposed the two types of rules: directive and social policy (2004)?', a_text: 'James Moor' },
+  { id: 43, type: 'iden', q: 'Which thinker described a moral system as public, informal, rational, and impartial?', a_text: 'Bernard Gert' },
+  { id: 44, type: 'iden', q: 'Name the rule summarized as "Do unto others as you would have them do unto you."', a_text: 'Golden Rule' },
+  { id: 45, type: 'iden', q: 'Name the rule that advises not to treat others in ways you would not want to be treated.', a_text: 'Silver Rule' },
+  { id: 46, type: 'iden', q: 'What is law defined as by Webster — in short?', a_text: 'A rule of conduct recognized by custom or formal enactment' },
+  { id: 47, type: 'iden', q: 'What form of law is established through court decisions and precedents?', a_text: 'Determinative law' },
+  { id: 48, type: 'iden', q: 'What form of conventional law states broad principles and affirms natural morality?', a_text: 'Declarative law' },
+  { id: 49, type: 'iden', q: 'Give an example of a social policy.', a_text: 'Welfare program (or healthcare reform)' },
+  { id: 50, type: 'iden', q: 'Which moral rule emphasizes favoring in-group or relatives?', a_text: 'Nepotism Rule' }
 ];
 
 export default function SOCIExam({ subject, setCurrentPage, setSelectedSubject }) {
@@ -89,9 +89,9 @@ export default function SOCIExam({ subject, setCurrentPage, setSelectedSubject }
     let s=0;
     for (const question of questions) {
       const given = answers[question.id];
-      if (question.type==='true_false') { if (given && given.toLowerCase()===question.a) s++; }
-      else if (question.type==='mcq' || question.type==='situational') { if (given!==undefined && Number(given)===question.a) s++; }
-      else if (question.type==='id') { if (typeof given==='string' && given.trim().toLowerCase()===question.a_text.trim().toLowerCase()) s++; }
+      if (question.type==='tf') { if (given && given.toLowerCase()===question.a) s++; }
+      else if (question.type==='mcq' || question.type==='smcq') { if (given!==undefined && Number(given)===question.a) s++; }
+      else if (question.type==='iden') { if (typeof given==='string' && given.trim().toLowerCase()===question.a_text.trim().toLowerCase()) s++; }
     }
     setScore(s); 
     setShowResult(true);
@@ -165,7 +165,7 @@ export default function SOCIExam({ subject, setCurrentPage, setSelectedSubject }
                   {q?.q}
                 </h2>
 
-                {q?.type === "true_false" && (
+                {q?.type === "tf" && (
                   <div className="space-y-3">
                     {["true", "false"].map((option) => (
                       <label key={option} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
@@ -183,7 +183,7 @@ export default function SOCIExam({ subject, setCurrentPage, setSelectedSubject }
                   </div>
                 )}
 
-                {(q?.type === "mcq" || q?.type === "situational") && (
+                {(q?.type === "mcq" || q?.type === "smcq") && (
                   <div className="space-y-3">
                     {q.options.map((option, optIndex) => (
                       <label key={optIndex} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
@@ -201,7 +201,7 @@ export default function SOCIExam({ subject, setCurrentPage, setSelectedSubject }
                   </div>
                 )}
 
-                {q?.type === "id" && (
+                {q?.type === 'iden' && (
                   <div className="mb-4">
                     <input
                       type="text"
@@ -284,15 +284,15 @@ export default function SOCIExam({ subject, setCurrentPage, setSelectedSubject }
                 let correctAnswerText = '';
                 let userAnswerText = '';
                 
-                if (q.type === "true_false") {
+                if (q.type === "tf") {
                   isCorrect = userAnswer && userAnswer.toLowerCase() === q.a;
                   correctAnswerText = q.a;
                   userAnswerText = userAnswer || 'No answer';
-                } else if (q.type === "mcq" || q.type === "situational") {
+                } else if (q.type === "mcq" || q.type === "smcq") {
                   isCorrect = userAnswer !== undefined && Number(userAnswer) === q.a;
                   correctAnswerText = q.options[q.a];
                   userAnswerText = userAnswer !== undefined ? q.options[userAnswer] : 'No answer';
-                } else if (q.type === "id") {
+                } else if (q.type === 'iden') {
                   const normalize = str => str ? str.trim().toLowerCase() : '';
                   isCorrect = normalize(userAnswer) === normalize(q.a_text);
                   correctAnswerText = q.a_text;

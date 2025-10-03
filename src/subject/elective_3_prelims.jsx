@@ -5,59 +5,59 @@
 import React, { useState, useEffect } from "react";
 
 const questionsJson = [
-  { id: 1, type: "true_false", question: "John McCarthy is considered the father of Artificial Intelligence.", answer: "true" },
-  { id: 2, type: "true_false", question: "AI without learning ability can still generalize new information.", answer: "false" },
-  { id: 3, type: "true_false", question: "The Turing Test evaluates whether a machine can imitate human intelligence.", answer: "true" },
-  { id: 4, type: "true_false", question: "Expert systems rely on a knowledge base and inference engine.", answer: "true" },
-  { id: 5, type: "true_false", question: "Deductive reasoning starts from specific observations and generalizes them.", answer: "false" },
-  { id: 6, type: "true_false", question: "Robotics is a research area of AI concerned with language understanding.", answer: "false" },
-  { id: 7, type: "true_false", question: "Voice recognition focuses on identifying what is being said, not who.", answer: "false" },
-  { id: 8, type: "true_false", question: "BFS always guarantees the shortest path in a search problem.", answer: "true" },
-  { id: 9, type: "true_false", question: "A rational agent always acts to maximize performance.", answer: "true" },
-  { id: 10, type: "true_false", question: "Inaccessible environments give the agent full information about the system.", answer: "false" },
+  { id: 1, type: "tf", question: "John McCarthy is considered the father of Artificial Intelligence.", answer: "true" },
+  { id: 2, type: "tf", question: "AI without learning ability can still generalize new information.", answer: "false" },
+  { id: 3, type: "tf", question: "The Turing Test evaluates whether a machine can imitate human intelligence.", answer: "true" },
+  { id: 4, type: "tf", question: "Expert systems rely on a knowledge base and inference engine.", answer: "true" },
+  { id: 5, type: "tf", question: "Deductive reasoning starts from specific observations and generalizes them.", answer: "false" },
+  { id: 6, type: "tf", question: "Robotics is a research area of AI concerned with language understanding.", answer: "false" },
+  { id: 7, type: "tf", question: "Voice recognition focuses on identifying what is being said, not who.", answer: "false" },
+  { id: 8, type: "tf", question: "BFS always guarantees the shortest path in a search problem.", answer: "true" },
+  { id: 9, type: "tf", question: "A rational agent always acts to maximize performance.", answer: "true" },
+  { id: 10, type: "tf", question: "Inaccessible environments give the agent full information about the system.", answer: "false" },
 
-  { id: 11, type: "multiple_choice", question: "Who coined the term 'Artificial Intelligence'?", options: ["Alan Turing","John McCarthy","Marvin Minsky","Herbert Simon"], answer: 1 },
-  { id: 12, type: "multiple_choice", question: "Which of the following is not a contributor to AI?", options: ["Psychology","Biology","Literature","Linguistics"], answer: 2 },
-  { id: 13, type: "multiple_choice", question: "Which is an application of NLP?", options: ["Google Translate","Shakey Robot","Stanford Cart","Deep Blue"], answer: 0 },
-  { id: 14, type: "multiple_choice", question: "Which milestone introduced the concept of machines imitating human conversation?", options: ["ELIZA (1965)","Deep Blue (1997)","Rossum's Universal Robots (1923)","Turing Test (1950)"], answer: 0 },
-  { id: 15, type: "multiple_choice", question: "Which type of intelligence relates to body and motor skills?", options: ["Spatial","Bodily-Kinesthetic","Interpersonal","Logical-Mathematical"], answer: 1 },
-  { id: 16, type: "multiple_choice", question: "Which is an example of inductive reasoning?", options: ["If it rains...","Observing many dogs barking...","Using algebra...","Following a recipe..."], answer: 1 },
-  { id: 17, type: "multiple_choice", question: "Which type of learning involves imitating others?", options: ["Perceptual","Relational","Observational","Spatial"], answer: 2 },
-  { id: 18, type: "multiple_choice", question: "Which is a limitation of machine intelligence compared to humans?", options: ["Use of algorithms","Completion of missing information","Storing data by rules","Execution speed"], answer: 1 },
-  { id: 19, type: "multiple_choice", question: "Which AI area is focused on reasoning with vague or imprecise data?", options: ["Robotics","Neural Networks","Fuzzy Logic","NLP"], answer: 2 },
-  { id: 20, type: "multiple_choice", question: "Which is an expert task for AI?", options: ["Chess playing","Fault finding in systems","Common-sense reasoning","Recognizing handwriting"], answer: 1 },
-  { id: 21, type: "multiple_choice", question: "What does the 'P' in PEAS stand for?", options: ["Planning","Performance measure","Prediction","Perception"], answer: 1 },
-  { id: 22, type: "multiple_choice", question: "Which type of agent only reacts to the current percept?", options: ["Utility-based agent","Goal-based agent","Simple reflex agent","Model-based agent"], answer: 2 },
-  { id: 23, type: "multiple_choice", question: "In which environment is information complete and available to the agent?", options: ["Inaccessible","Partially Observable","Observable","Non-Episodic"], answer: 2 },
-  { id: 24, type: "multiple_choice", question: "Which environment type includes randomness?", options: ["Deterministic","Static","Non-Deterministic","Discrete"], answer: 2 },
-  { id: 25, type: "multiple_choice", question: "Which search algorithm uses a FIFO queue?", options: ["DFS","BFS","A*","Hill Climbing"], answer: 1 },
-  { id: 26, type: "multiple_choice", question: "What is the space complexity of BFS?", options: ["O(bm)","O(b^d)","O(n)","O(log n)"], answer: 1 },
-  { id: 27, type: "multiple_choice", question: "Which agent structure maintains an internal state of the world?", options: ["Simple reflex","Goal-based","Utility-based","Model-based reflex"], answer: 3 },
-  { id: 28, type: "multiple_choice", question: "The Stanford Cart is notable for being:", options: ["The first chatbot","An autonomous vehicle","A machine translation system","An early expert system"], answer: 1 },
-  { id: 29, type: "multiple_choice", question: "Which of the following is a formal task in AI?", options: ["Medicine diagnosis","Playing chess","Fault detection","Autonomous driving"], answer: 1 },
-  { id: 30, type: "multiple_choice", question: "Which learning type is remembering sequences of events?", options: ["Episodic","Motor","Stimulus-response","Relational"], answer: 0 },
+  { id: 11, type: "mcq", question: "Who coined the term 'Artificial Intelligence'?", options: ["Alan Turing","John McCarthy","Marvin Minsky","Herbert Simon"], answer: 1 },
+  { id: 12, type: "mcq", question: "Which of the following is not a contributor to AI?", options: ["Psychology","Biology","Literature","Linguistics"], answer: 2 },
+  { id: 13, type: "mcq", question: "Which is an application of NLP?", options: ["Google Translate","Shakey Robot","Stanford Cart","Deep Blue"], answer: 0 },
+  { id: 14, type: "mcq", question: "Which milestone introduced the concept of machines imitating human conversation?", options: ["ELIZA (1965)","Deep Blue (1997)","Rossum's Universal Robots (1923)","Turing Test (1950)"], answer: 0 },
+  { id: 15, type: "mcq", question: "Which type of intelligence relates to body and motor skills?", options: ["Spatial","Bodily-Kinesthetic","Interpersonal","Logical-Mathematical"], answer: 1 },
+  { id: 16, type: "mcq", question: "Which is an example of inductive reasoning?", options: ["If it rains...","Observing many dogs barking...","Using algebra...","Following a recipe..."], answer: 1 },
+  { id: 17, type: "mcq", question: "Which type of learning involves imitating others?", options: ["Perceptual","Relational","Observational","Spatial"], answer: 2 },
+  { id: 18, type: "mcq", question: "Which is a limitation of machine intelligence compared to humans?", options: ["Use of algorithms","Completion of missing information","Storing data by rules","Execution speed"], answer: 1 },
+  { id: 19, type: "mcq", question: "Which AI area is focused on reasoning with vague or imprecise data?", options: ["Robotics","Neural Networks","Fuzzy Logic","NLP"], answer: 2 },
+  { id: 20, type: "mcq", question: "Which is an expert task for AI?", options: ["Chess playing","Fault finding in systems","Common-sense reasoning","Recognizing handwriting"], answer: 1 },
+  { id: 21, type: "mcq", question: "What does the 'P' in PEAS stand for?", options: ["Planning","Performance measure","Prediction","Perception"], answer: 1 },
+  { id: 22, type: "mcq", question: "Which type of agent only reacts to the current percept?", options: ["Utility-based agent","Goal-based agent","Simple reflex agent","Model-based agent"], answer: 2 },
+  { id: 23, type: "mcq", question: "In which environment is information complete and available to the agent?", options: ["Inaccessible","Partially Observable","Observable","Non-Episodic"], answer: 2 },
+  { id: 24, type: "mcq", question: "Which environment type includes randomness?", options: ["Deterministic","Static","Non-Deterministic","Discrete"], answer: 2 },
+  { id: 25, type: "mcq", question: "Which search algorithm uses a FIFO queue?", options: ["DFS","BFS","A*","Hill Climbing"], answer: 1 },
+  { id: 26, type: "mcq", question: "What is the space complexity of BFS?", options: ["O(bm)","O(b^d)","O(n)","O(log n)"], answer: 1 },
+  { id: 27, type: "mcq", question: "Which agent structure maintains an internal state of the world?", options: ["Simple reflex","Goal-based","Utility-based","Model-based reflex"], answer: 3 },
+  { id: 28, type: "mcq", question: "The Stanford Cart is notable for being:", options: ["The first chatbot","An autonomous vehicle","A machine translation system","An early expert system"], answer: 1 },
+  { id: 29, type: "mcq", question: "Which of the following is a formal task in AI?", options: ["Medicine diagnosis","Playing chess","Fault detection","Autonomous driving"], answer: 1 },
+  { id: 30, type: "mcq", question: "Which learning type is remembering sequences of events?", options: ["Episodic","Motor","Stimulus-response","Relational"], answer: 0 },
 
-  { id: 31, type: "situational", question: "A self-driving car in traffic reacts to other cars moving independently. Which environment type is this?", options: ["Static","Dynamic","Discrete","Episodic"], answer: 1 },
-  { id: 32, type: "situational", question: "A washing machine adjusts water usage based on clothes load. Which AI approach is applied?", options: ["Expert System","Fuzzy Logic","Robotics","Neural Networks"], answer: 1 },
-  { id: 33, type: "situational", question: "You're playing poker against an AI. Since the AI doesn't know your cards, the environment is:", options: ["Observable","Partially Observable","Accessible","Deterministic"], answer: 1 },
-  { id: 34, type: "situational", question: "An AI is trained to classify photos of cats and dogs. Each photo is analyzed independently. This is:", options: ["Episodic","Non-episodic","Continuous","Multi-agent"], answer: 0 },
-  { id: 35, type: "situational", question: "An agent maximizing customer satisfaction in a recommendation system is an example of:", options: ["Reflex Agent","Utility-based Agent","Model-based Agent","Goal-based Agent"], answer: 1 },
-  { id: 36, type: "situational", question: "A voice-activated banking app identifies the account holder's unique voice. This is:", options: ["Speech recognition","NLP","Voice recognition","Vision system"], answer: 2 },
-  { id: 37, type: "situational", question: "If a robot is vacuuming but remembers the areas it has already cleaned, it is acting as a:", options: ["Goal-based agent","Simple reflex agent","Model-based reflex agent","Utility-based agent"], answer: 2 },
-  { id: 38, type: "situational", question: "An AI doctor system gives treatment recommendations based on a knowledge base. This is:", options: ["NLP","Expert System","Robotics","Neural Network"], answer: 1 },
-  { id: 39, type: "situational", question: "A Rubik's cube solver explores one branch deeply before backtracking. This uses:", options: ["BFS","DFS","A*","Brute-force search"], answer: 1 },
-  { id: 40, type: "situational", question: "When rolling dice, the AI cannot predict outcomes with certainty. This environment is:", options: ["Deterministic","Non-Deterministic","Static","Inaccessible"], answer: 1 },
+  { id: 31, type: "smcq", question: "A self-driving car in traffic reacts to other cars moving independently. Which environment type is this?", options: ["Static","Dynamic","Discrete","Episodic"], answer: 1 },
+  { id: 32, type: "smcq", question: "A washing machine adjusts water usage based on clothes load. Which AI approach is applied?", options: ["Expert System","Fuzzy Logic","Robotics","Neural Networks"], answer: 1 },
+  { id: 33, type: "smcq", question: "You're playing poker against an AI. Since the AI doesn't know your cards, the environment is:", options: ["Observable","Partially Observable","Accessible","Deterministic"], answer: 1 },
+  { id: 34, type: "smcq", question: "An AI is trained to classify photos of cats and dogs. Each photo is analyzed independently. This is:", options: ["Episodic","Non-episodic","Continuous","Multi-agent"], answer: 0 },
+  { id: 35, type: "smcq", question: "An agent maximizing customer satisfaction in a recommendation system is an example of:", options: ["Reflex Agent","Utility-based Agent","Model-based Agent","Goal-based Agent"], answer: 1 },
+  { id: 36, type: "smcq", question: "A voice-activated banking app identifies the account holder's unique voice. This is:", options: ["Speech recognition","NLP","Voice recognition","Vision system"], answer: 2 },
+  { id: 37, type: "smcq", question: "If a robot is vacuuming but remembers the areas it has already cleaned, it is acting as a:", options: ["Goal-based agent","Simple reflex agent","Model-based reflex agent","Utility-based agent"], answer: 2 },
+  { id: 38, type: "smcq", question: "An AI doctor system gives treatment recommendations based on a knowledge base. This is:", options: ["NLP","Expert System","Robotics","Neural Network"], answer: 1 },
+  { id: 39, type: "smcq", question: "A Rubik's cube solver explores one branch deeply before backtracking. This uses:", options: ["BFS","DFS","A*","Brute-force search"], answer: 1 },
+  { id: 40, type: "smcq", question: "When rolling dice, the AI cannot predict outcomes with certainty. This environment is:", options: ["Deterministic","Non-Deterministic","Static","Inaccessible"], answer: 1 },
 
-  { id: 41, type: "identification", question: "Father of AI", answer_text: "John McCarthy" },
-  { id: 42, type: "identification", question: "AI system that uses sensors and actuators to interact with the physical world", answer_text: "Robot or Robotics" },
-  { id: 43, type: "identification", question: "The test that checks if humans can distinguish between machine and human responses", answer_text: "Turing Test" },
-  { id: 44, type: "identification", question: "Type of reasoning that goes from general rules to specific conclusions", answer_text: "Deductive reasoning" },
-  { id: 45, type: "identification", question: "The first chatbot created in 1965", answer_text: "ELIZA" },
-  { id: 46, type: "identification", question: "System designed to mimic human experts using knowledge base and inference engine", answer_text: "Expert System" },
-  { id: 47, type: "identification", question: "The game where IBM's Deep Blue defeated Kasparov", answer_text: "Chess" },
-  { id: 48, type: "identification", question: "Environment property where multiple agents act and interact", answer_text: "Multi-agent" },
-  { id: 49, type: "identification", question: "AI technique where truth values can be between 0 and 1", answer_text: "Fuzzy Logic" },
-  { id: 50, type: "identification", question: "Search strategy that explores nodes level by level", answer_text: "Breadth-first search (BFS)" }
+  { id: 41, type: "iden", question: "Father of AI", answer_text: "John McCarthy" },
+  { id: 42, type: "iden", question: "AI system that uses sensors and actuators to interact with the physical world", answer_text: "Robot or Robotics" },
+  { id: 43, type: "iden", question: "The test that checks if humans can distinguish between machine and human responses", answer_text: "Turing Test" },
+  { id: 44, type: "iden", question: "Type of reasoning that goes from general rules to specific conclusions", answer_text: "Deductive reasoning" },
+  { id: 45, type: "iden", question: "The first chatbot created in 1965", answer_text: "ELIZA" },
+  { id: 46, type: "iden", question: "System designed to mimic human experts using knowledge base and inference engine", answer_text: "Expert System" },
+  { id: 47, type: "iden", question: "The game where IBM's Deep Blue defeated Kasparov", answer_text: "Chess" },
+  { id: 48, type: "iden", question: "Environment property where multiple agents act and interact", answer_text: "Multi-agent" },
+  { id: 49, type: "iden", question: "AI technique where truth values can be between 0 and 1", answer_text: "Fuzzy Logic" },
+  { id: 50, type: "iden", question: "Search strategy that explores nodes level by level", answer_text: "Breadth-first search (BFS)" }
 ];
 
 export default function ExamApp({ subject, setCurrentPage, setSelectedSubject }) {
@@ -97,11 +97,11 @@ export default function ExamApp({ subject, setCurrentPage, setSelectedSubject })
     let s = 0;
     for (const item of shuffled) {
       const given = answers[item.id];
-      if (item.type === "true_false") {
+      if (item.type === "tf") {
         if (given && given === item.answer) s += 1;
-      } else if (item.type === "multiple_choice" || item.type === "situational") {
+      } else if (item.type === "mcq" || item.type === "smcq") {
         if (given !== undefined && Number(given) === item.answer) s += 1;
-      } else if (item.type === "identification") {
+      } else if (item.type === "iden") {
         if (typeof given === "string" && item.answer_text) {
           const normalize = str => str.trim().toLowerCase();
           if (normalize(given) === normalize(item.answer_text)) s += 1;
@@ -184,7 +184,7 @@ export default function ExamApp({ subject, setCurrentPage, setSelectedSubject })
               {q?.question}
             </h2>
 
-            {q?.type === "true_false" && (
+            {q?.type === "tf" && (
               <div className="space-y-3">
                 {["true", "false"].map((option) => (
                   <label key={option} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
@@ -202,7 +202,7 @@ export default function ExamApp({ subject, setCurrentPage, setSelectedSubject })
               </div>
             )}
 
-            {(q?.type === "multiple_choice" || q?.type === "situational") && (
+            {(q?.type === "mcq" || q?.type === "smcq") && (
               <div className="space-y-3">
                 {q.options.map((option, optIndex) => (
                   <label key={optIndex} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
@@ -220,7 +220,7 @@ export default function ExamApp({ subject, setCurrentPage, setSelectedSubject })
               </div>
             )}
 
-            {q?.type === "identification" && (
+            {q?.type === "iden" && (
               <div className="mb-4">
                 <input
                   type="text"
@@ -316,15 +316,15 @@ export default function ExamApp({ subject, setCurrentPage, setSelectedSubject })
                 let correctAnswerText = '';
                 let userAnswerText = '';
                 
-                if (q.type === "true_false") {
+                if (q.type === "tf") {
                   isCorrect = userAnswer === q.answer;
                   correctAnswerText = q.answer;
                   userAnswerText = userAnswer || 'No answer';
-                } else if (q.type === "multiple_choice" || q.type === "situational") {
+                } else if (q.type === "mcq" || q.type === "smcq") {
                   isCorrect = Number(userAnswer) === q.answer;
                   correctAnswerText = q.options[q.answer];
                   userAnswerText = userAnswer !== undefined ? q.options[userAnswer] : 'No answer';
-                } else if (q.type === "identification") {
+                } else if (q.type === "iden") {
                   const normalize = str => str ? str.trim().toLowerCase() : '';
                   isCorrect = normalize(userAnswer) === normalize(q.answer_text);
                   correctAnswerText = q.answer_text;
