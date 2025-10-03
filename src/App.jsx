@@ -1,18 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SubjectSelection from "./pages/SubjectSelection";
-import Elective3Exam from "./subject/elective_3_prelims";
-import EthicsExam from "./subject/ethics_prelims";
-import SociExam from "./subject/soci_prelims";
-import SoftEng2Exam from "./subject/softeng2_prelims";
+import ExamEngine from "./components/ExamEngine";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [selectedSubject, setSelectedSubject] = useState(null);
+  const [examQuestions, setExamQuestions] = useState([]);
+
+  // Load exam questions when a subject is selected
+  useEffect(() => {
+    if (selectedSubject && selectedSubject.questionsFile) {
+      loadExamQuestions(selectedSubject.questionsFile);
+    }
+  }, [selectedSubject]);
+
+  const loadExamQuestions = async (questionsFile) => {
+    try {
+      // Import the JSON file dynamically
+      /* @vite-ignore */
+      const questionsModule = await import(`./data/questions/${questionsFile.split('/').pop()}`);
+      setExamQuestions(questionsModule.default || questionsModule);
+    } catch (error) {
+      console.error('Failed to load exam questions:', error);
+      setExamQuestions([]);
+    }
+  };
 
   const renderPage = () => {
     switch (currentPage) {
@@ -24,19 +41,14 @@ export default function App() {
         return <Contact />;
       case "exam":
         if (selectedSubject) {
-          // Route to the correct exam component based on selected subject
-          switch (selectedSubject.component) {
-            case "elective_3_prelims":
-              return <Elective3Exam subject={selectedSubject} setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
-            case "ethics_prelims":
-              return <EthicsExam subject={selectedSubject} setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
-            case "soci_prelims":
-              return <SociExam subject={selectedSubject} setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
-            case "softeng2_prelims":
-              return <SoftEng2Exam subject={selectedSubject} setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
-            default:
-              return <Elective3Exam subject={selectedSubject} setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
-          }
+          return (
+            <ExamEngine 
+              subject={selectedSubject} 
+              questions={examQuestions}
+              setCurrentPage={setCurrentPage} 
+              setSelectedSubject={setSelectedSubject} 
+            />
+          );
         } else {
           return <SubjectSelection setCurrentPage={setCurrentPage} setSelectedSubject={setSelectedSubject} />;
         }

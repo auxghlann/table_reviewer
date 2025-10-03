@@ -1,58 +1,9 @@
 import React from "react";
+import subjectsData from "../data/subjects.json";
 
 export default function SubjectSelection({ setCurrentPage, setSelectedSubject }) {
-  const subjects = [
-    // NEW EXAMS - Insert new subjects at the top (index 0)
-    {
-      id: "softeng-2",
-      title: "Soft-Eng 2 (Prelims)",
-      description: "Software engineering fundamentals covering requirements analysis, system design, and quality assurance principles.",
-      topics: ["Requirements Engineering", "System Boundaries", "UML Diagrams", "SQL & Databases"],
-      questions: 50,
-      duration: "Self-paced",
-      difficulty: "Beginner",
-      icon: "⚙️",
-      color: "from-teal-500 to-cyan-600",
-      component: "softeng2_prelims"
-    },
-    // EXISTING EXAMS - Moved down to maintain chronological order
-    {
-      id: "cs-elective-3",
-      title: "CS - Elective 3 (Prelims)",
-      description: "Comprehensive examination covering AI fundamentals, machine learning basics, and expert systems.",
-      topics: ["AI History", "Research in AI", "AI Technique", "Search Algorithms"],
-      questions: 50,
-      duration: "Self-paced",
-      difficulty: "Intermediate",
-      icon: "🤖",
-      color: "from-blue-500 to-indigo-600",
-      component: "elective_3_prelims"
-    },
-    {
-      id: "social-issues",
-      title: "Social Issues (Prelims)",
-      description: "Explore contemporary social challenges, ethical considerations, and societal impacts of technology.",
-      topics: ["Morality", "Law", "Moral Code", "Natural & Conventional Law"],
-      questions: 50,
-      duration: "Self-paced", 
-      difficulty: "Beginner",
-      icon: "🌍",
-      color: "from-green-500 to-emerald-600",
-      component: "soci_prelims"
-    },
-    {
-      id: "ethics",
-      title: "Ethics (Prelims)",
-      description: "Fundamental principles of ethical reasoning, moral philosophy, and professional conduct standards.",
-      topics: ["Moral Philosophy", "Ethics", "Conscience", "Human Acts & Acts of Man"],
-      questions: 50,
-      duration: "Self-paced",
-      difficulty: "Intermediate", 
-      icon: "⚖️",
-      color: "from-purple-500 to-violet-600",
-      component: "ethics_prelims"
-    }
-  ];
+  // Load subjects from JSON file
+  const subjects = subjectsData;
 
   const handleSubjectSelect = (subject) => {
     setSelectedSubject(subject);
