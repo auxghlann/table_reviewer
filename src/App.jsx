@@ -15,15 +15,34 @@ export default function App() {
   // Load exam questions when a subject is selected
   useEffect(() => {
     if (selectedSubject && selectedSubject.questionsFile) {
-      loadExamQuestions(selectedSubject.questionsFile);
+      loadExamQuestions(selectedSubject.id);
     }
   }, [selectedSubject]);
 
-  const loadExamQuestions = async (questionsFile) => {
+  const loadExamQuestions = async (subjectId) => {
     try {
-      // Import the JSON file dynamically
-      /* @vite-ignore */
-      const questionsModule = await import(`./data/questions/${questionsFile.split('/').pop()}`);
+      let questionsModule;
+      
+      // Map subject IDs to their corresponding JSON files with explicit imports
+      switch (subjectId) {
+        case 'softeng-2':
+          questionsModule = await import('./data/questions/softeng2_prelims.json');
+          break;
+        case 'cs-elective-3':
+          questionsModule = await import('./data/questions/elective3_prelims.json');
+          break;
+        case 'social-issues':
+          questionsModule = await import('./data/questions/soci_prelims.json');
+          break;
+        case 'ethics':
+          questionsModule = await import('./data/questions/ethics_prelims.json');
+          break;
+        default:
+          console.error('Unknown subject ID:', subjectId);
+          setExamQuestions([]);
+          return;
+      }
+      
       setExamQuestions(questionsModule.default || questionsModule);
     } catch (error) {
       console.error('Failed to load exam questions:', error);
