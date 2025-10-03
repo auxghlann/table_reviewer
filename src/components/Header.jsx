@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logo from "../assets/logo.png";
 
 export default function Header({ currentPage, setCurrentPage }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,8 +16,8 @@ export default function Header({ currentPage, setCurrentPage }) {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-indigo-600">Table Reviewer</div>
-            <div className="ml-2 text-sm text-gray-500">Learning Platform</div>
+            <img src={logo} alt="Table Reviewer" className="h-10 w-auto" />
+            <div className="ml-2 text-sm text-gray-500">Table Reviewer</div>
           </div>
 
           {/* Navigation */}
