@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function ExamEngine({ subject, questions, setCurrentPage, setSelectedSubject }) {
+export default function ExamEngine({ subject, questions, setSelectedSubject }) {
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [showResult, setShowResult] = useState(false);
@@ -10,6 +12,7 @@ export default function ExamEngine({ subject, questions, setCurrentPage, setSele
 
   const goBackToSubjects = () => {
     setSelectedSubject(null);
+    navigate("/exam");
   };
 
   useEffect(() => {

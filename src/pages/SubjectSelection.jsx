@@ -1,13 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import subjectsData from "../data/subjects.json";
 
-export default function SubjectSelection({ setCurrentPage, setSelectedSubject }) {
+export default function SubjectSelection({ setSelectedSubject }) {
+  const navigate = useNavigate();
+  
   // Load subjects from JSON file
   const subjects = subjectsData;
 
   const handleSubjectSelect = (subject) => {
     setSelectedSubject(subject);
-    setCurrentPage("exam");
+    navigate(`/exam/${subject.id}`);
   };
 
   const getDifficultyColor = (difficulty) => {

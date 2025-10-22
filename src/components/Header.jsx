@@ -1,39 +1,50 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-export default function Header({ currentPage, setCurrentPage }) {
+export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "exam", label: "Take Exam" },
-    { id: "contact", label: "Contact" }
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/exam", label: "Take Exam" },
+    { path: "/reviewer", label: "Study Materials" },
+    { path: "/contact", label: "Contact" }
   ];
+
+  const isActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} alt="Table Reviewer" className="h-10 w-auto" />
             <div className="ml-2 text-sm text-gray-500">Table Reviewer</div>
-          </div>
+          </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setCurrentPage(item.id)}
+              <Link
+                key={item.path}
+                to={item.path}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  currentPage === item.id
+                  isActive(item.path)
                     ? "bg-indigo-100 text-indigo-700"
                     : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -60,20 +71,18 @@ export default function Header({ currentPage, setCurrentPage }) {
           <div className="md:hidden pb-4">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    setCurrentPage(item.id);
-                    setIsMobileMenuOpen(false); // Close menu when item is clicked
-                  }}
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-left ${
-                    currentPage === item.id
+                    isActive(item.path)
                       ? "bg-indigo-100 text-indigo-700"
                       : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
                   }`}
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
