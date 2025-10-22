@@ -6,10 +6,9 @@ export default function Home({ setCurrentPage }) {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">Master Artificial Intelligence</h1>
+          <h1 className="text-5xl font-bold mb-6">Sana Makagraduate hehe :D</h1>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Test your knowledge with our comprehensive AI examination platform. 
-            Covering everything from fundamentals to advanced concepts.
+            Test your knowledge with our comprehensive examination platform. 
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -32,9 +31,9 @@ export default function Home({ setCurrentPage }) {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Our AI Exam?</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose this Platform?</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our platform offers a comprehensive assessment experience designed by AI experts.
+              The platform offers a comprehensive assessment experience designed by sleepdeprivedtable.
             </p>
           </div>
 
@@ -43,8 +42,7 @@ export default function Home({ setCurrentPage }) {
               <div className="text-4xl mb-4">🎯</div>
               <h3 className="text-xl font-semibold mb-4">Comprehensive Coverage</h3>
               <p className="text-gray-600">
-                50 carefully crafted questions covering AI fundamentals, applications, 
-                agent systems, and search algorithms.
+                carefully crafted questions covering subjects from university courses.
               </p>
             </div>
 
@@ -62,7 +60,7 @@ export default function Home({ setCurrentPage }) {
               <h3 className="text-xl font-semibold mb-4">Multiple Formats</h3>
               <p className="text-gray-600">
                 Test different aspects of knowledge with True/False, Multiple Choice, 
-                Situational, and Identification questions.
+                Situational.
               </p>
             </div>
           </div>
@@ -96,10 +94,9 @@ export default function Home({ setCurrentPage }) {
       {/* CTA Section */}
       <section className="py-16 bg-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Test Your AI Knowledge?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Test Your Knowledge?</h2>
           <p className="text-lg text-gray-600 mb-8">
-            Join thousands of students and professionals who have improved their AI understanding 
-            through our comprehensive examination platform.
+            basta makapasa kayo happy na ako HAHAHAHAHHAH.
           </p>
           <button
             onClick={() => setCurrentPage("exam")}
