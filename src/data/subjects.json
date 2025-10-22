@@ -1,7 +1,7 @@
 [
   {
     "id": "softeng-2",
-    "title": "Soft-Eng 2 (Prelims)",
+    "title": "Soft-Eng 2",
     "description": "Software engineering fundamentals covering requirements analysis, system design, and quality assurance principles.",
     "topics": ["Requirements Engineering", "System Boundaries", "UML Diagrams", "SQL & Databases"],
     "questions": 50,
@@ -13,7 +13,7 @@
   },
   {
     "id": "cs-elective-3",
-    "title": "CS - Elective 3 (Prelims)",
+    "title": "CS - Elective 3",
     "description": "Comprehensive examination covering AI fundamentals, machine learning basics, and expert systems.",
     "topics": ["AI History", "Research in AI", "AI Technique", "Search Algorithms"],
     "questions": 50,
@@ -25,7 +25,7 @@
   },
   {
     "id": "social-issues",
-    "title": "Social Issues (Prelims)",
+    "title": "Social Issues",
     "description": "Explore contemporary social challenges, ethical considerations, and societal impacts of technology.",
     "topics": ["Morality", "Law", "Moral Code", "Natural & Conventional Law"],
     "questions": 50,
@@ -37,7 +37,7 @@
   },
   {
     "id": "ethics",
-    "title": "Ethics (Prelims)",
+    "title": "Ethics",
     "description": "Fundamental principles of ethical reasoning, moral philosophy, and professional conduct standards.",
     "topics": ["Moral Philosophy", "Ethics", "Conscience", "Human Acts & Acts of Man"],
     "questions": 50,
