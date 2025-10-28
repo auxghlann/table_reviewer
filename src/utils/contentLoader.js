@@ -12,7 +12,7 @@ export const loadReviewMaterials = async (subjectId) => {
     // Map subject IDs to their folder names in md_files
     const subjectFolderMap = {
       'ethics': 'ethics',
-      'softeng-2': 'softeng2',
+      'softeng-2': 'softeng-2',
       'cs-elective-3': 'elective3',
       'social-issues': 'soci'
     };
