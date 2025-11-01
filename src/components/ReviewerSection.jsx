@@ -140,12 +140,14 @@ export default function ReviewerSection() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-purple-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-16">
+      <section className="bg-purple-100 py-16 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold mb-6">Study Materials</h1>
-          <p className="text-xl max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold mb-6 text-black border-4 border-black bg-white inline-block px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            Study Materials
+          </h1>
+          <p className="text-xl max-w-3xl mx-auto font-bold text-black mt-8">
             Select a subject to review comprehensive study materials and enhance your learning.
           </p>
         </div>
@@ -153,46 +155,50 @@ export default function ReviewerSection() {
 
       {/* Subject Cards Section (visible when no subject is selected) */}
       {!selectedSubject && (
-        <section className="py-16">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Choose a Subject</h2>
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-black border-4 border-black bg-purple-200 inline-block px-8 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                Choose a Subject
+              </h2>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {subjects.map((subject) => (
                 <div
                   key={subject.id}
                   onClick={() => handleSubjectSelect(subject)}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer overflow-hidden"
+                  className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all cursor-pointer"
                 >
                   {/* Card Header */}
-                  <div className={`bg-gradient-to-r ${subject.color} p-4 text-white`}>
+                  <div className="bg-purple-300 p-4 border-b-4 border-black">
                     <div className="flex items-center mb-2">
                       <div className="text-3xl">{subject.icon}</div>
-                      <h3 className="text-xl font-bold ml-3">{subject.title.split(' ')[0]}</h3>
+                      <h3 className="text-xl font-bold ml-3 text-black">{subject.title.split(' ')[0]}</h3>
                     </div>
                   </div>
                   
                   {/* Card Body */}
                   <div className="p-5">
-                    <p className="text-gray-600 text-sm mb-4">
+                    <p className="text-black font-medium text-sm mb-4">
                       Review materials for {subject.title}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {subject.topics.slice(0, 2).map((topic, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs"
+                          className="px-2 py-1 bg-purple-100 text-black font-medium border-2 border-black text-xs"
                         >
                           {topic}
                         </span>
                       ))}
                       {subject.topics.length > 2 && (
-                        <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">
+                        <span className="px-2 py-1 bg-purple-200 text-black font-medium border-2 border-black text-xs">
                           +{subject.topics.length - 2} more
                         </span>
                       )}
                     </div>
                     <button
-                      className={`w-full bg-gradient-to-r ${subject.color} text-white py-2 rounded-lg text-sm font-medium hover:opacity-90`}
+                      className="w-full bg-purple-500 text-white py-2 text-sm font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
                     >
                       View Materials
                     </button>
@@ -206,33 +212,33 @@ export default function ReviewerSection() {
 
       {/* Reviewer Section with Sidebar (visible when subject is selected) */}
       {selectedSubject && (
-        <div className="flex min-h-[calc(100vh-30rem)]">
+        <div className="flex min-h-[calc(100vh-30rem)] bg-white">
           {/* Sidebar */}
           <div 
-            className={`bg-white shadow-md transition-all duration-300 ${
+            className={`bg-purple-100 border-r-4 border-black transition-all duration-300 ${
               sidebarOpen ? 'w-80' : 'w-0 overflow-hidden'
             }`}
           >
-            <div className="p-4 border-b">
+            <div className="p-4 border-b-4 border-black bg-purple-200">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <span className="text-2xl mr-2">{selectedSubject.icon}</span>
-                  <h3 className="font-semibold truncate">{selectedSubject.title}</h3>
+                  <h3 className="font-bold truncate text-black">{selectedSubject.title}</h3>
                 </div>
               </div>
             </div>
             
             <div className="p-4">
-              <h4 className="text-sm font-semibold text-gray-500 mb-3">MATERIALS</h4>
-              <ul className="space-y-2">
+              <h4 className="text-sm font-bold text-black mb-3 bg-white px-3 py-1 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] inline-block">MATERIALS</h4>
+              <ul className="space-y-2 mt-4">
                 {materials.map(material => (
                   <li key={material.id}>
                     <button
                       onClick={() => handleMaterialSelect(material)}
-                      className={`w-full text-left px-3 py-2 rounded text-sm transition-colors ${
+                      className={`w-full text-left px-3 py-2 text-sm font-bold border-4 border-black transition-all ${
                         selectedMaterial && selectedMaterial.id === material.id
-                          ? 'bg-indigo-50 text-indigo-700 font-medium'
-                          : 'text-gray-700 hover:bg-gray-50'
+                          ? 'bg-purple-400 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                          : 'bg-white text-black hover:bg-purple-200 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px]'
                       }`}
                     >
                       {material.title}
@@ -244,35 +250,39 @@ export default function ReviewerSection() {
           </div>
           
           {/* Main Content */}
-          <div className={`flex-grow bg-gray-50 transition-all duration-300 ${sidebarOpen ? 'pl-0' : 'pl-0'}`}>
+          <div className={`flex-grow bg-white transition-all duration-300 ${sidebarOpen ? 'pl-0' : 'pl-0'}`}>
             {/* Toggle Button and Header */}
-            <div className="bg-white shadow-sm p-4 flex items-center sticky top-0 z-10">
+            <div className="bg-purple-100 border-b-4 border-black p-4 flex items-center sticky top-0 z-10">
               <button 
                 onClick={toggleSidebar}
-                className="mr-4 p-2 rounded-md hover:bg-gray-100 text-gray-700"
+                className="mr-4 p-2 bg-white border-4 border-black text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
               >
                 {sidebarOpen ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
                   </svg>
                 ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                   </svg>
                 )}
               </button>
-              <div className="flex items-center">
+              <div className="flex items-center flex-wrap gap-3">
                 <button 
                   onClick={() => setSelectedSubject(null)}
-                  className="mr-4 text-gray-600 hover:text-indigo-600 transition-colors text-sm flex items-center"
+                  className="text-black font-bold bg-white px-4 py-2 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all text-sm flex items-center"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                   </svg>
                   Back to Subjects
                 </button>
                 
-                {selectedMaterial && <h2 className="text-lg font-medium text-gray-800">{selectedMaterial.title}</h2>}
+                {selectedMaterial && (
+                  <h2 className="text-lg font-bold text-black bg-purple-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    {selectedMaterial.title}
+                  </h2>
+                )}
               </div>
             </div>
             
@@ -280,24 +290,24 @@ export default function ReviewerSection() {
             <div className="p-6">
               {isLoading ? (
                 <div className="flex justify-center items-center h-64">
-                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+                  <div className="w-16 h-16 border-4 border-black border-t-purple-500 animate-spin"></div>
                 </div>
               ) : error ? (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-6 text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                   </svg>
-                  <h3 className="text-lg font-medium text-red-800 mb-2">{error}</h3>
+                  <h3 className="text-lg font-bold text-black mb-2">{error}</h3>
                   <button 
                     onClick={() => loadMaterials(selectedSubject.id)} 
-                    className="mt-3 px-4 py-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-lg font-medium"
+                    className="mt-3 px-4 py-2 bg-purple-500 text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
                   >
                     Try Again
                   </button>
                 </div>
               ) : selectedMaterial ? (
                 <div className="max-w-none">
-                  <div className="bg-white rounded-lg shadow-lg p-8">
+                  <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8">
                     <ErrorBoundary 
                       resetAction={() => setContent(selectedMaterial.content)}
                       fallbackAction={() => setContent(String(selectedMaterial.content || '').replace(/[#*_`]/g, ''))}
@@ -318,8 +328,10 @@ export default function ReviewerSection() {
               ) : (
                 <div className="text-center py-12">
                   <div className="text-4xl mb-4">📚</div>
-                  <h3 className="text-xl font-medium text-gray-800 mb-2">Select a material to start reviewing</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-xl font-bold text-black mb-2 bg-white inline-block px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    Select a material to start reviewing
+                  </h3>
+                  <p className="text-black font-medium mt-4">
                     Choose from the materials list in the sidebar to view content
                   </p>
                 </div>

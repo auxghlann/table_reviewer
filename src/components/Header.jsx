@@ -11,7 +11,7 @@ export default function Header() {
     { path: "/about", label: "About" },
     { path: "/exam", label: "Take Exam" },
     { path: "/reviewer", label: "Study Materials" },
-    { path: "/contact", label: "Contact" }
+    // { path: "/contact", label: "Contact" }
   ];
 
   const isActive = (path) => {
@@ -22,25 +22,25 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white border-b-4 border-black sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Table Reviewer" className="h-10 w-auto" />
-            <div className="ml-2 text-sm text-gray-500">Table Reviewer</div>
+            <img src={logo} alt="Table Reviewer" className="h-10 w-auto border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" />
+            <div className="ml-2 text-sm text-black font-bold">Table Reviewer</div>
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                className={`px-4 py-2 text-sm font-bold border-4 border-black transition-all ${
                   isActive(item.path)
-                    ? "bg-indigo-100 text-indigo-700"
-                    : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
+                    ? "bg-purple-400 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                    : "bg-white text-black hover:bg-purple-200 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px]"
                 }`}
               >
                 {item.label}
@@ -52,14 +52,14 @@ export default function Header() {
           <div className="md:hidden">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-indigo-600 focus:outline-none"
+              className="text-black border-4 border-black p-2 bg-purple-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all focus:outline-none"
               aria-label="Toggle mobile menu"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                 {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -68,17 +68,17 @@ export default function Header() {
 
         {/* Mobile navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-4">
-            <div className="flex flex-col space-y-2">
+          <div className="md:hidden pb-4 border-t-4 border-black mt-4 pt-4 bg-purple-50">
+            <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-left ${
+                  className={`px-4 py-2 text-sm font-bold border-4 border-black text-left transition-all ${
                     isActive(item.path)
-                      ? "bg-indigo-100 text-indigo-700"
-                      : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
+                      ? "bg-purple-400 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                      : "bg-white text-black hover:bg-purple-200 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                   }`}
                 >
                   {item.label}

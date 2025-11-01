@@ -98,17 +98,17 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6 flex items-start justify-center">
-      <div className="w-full max-w-3xl bg-white rounded-2xl shadow p-6">
+    <div className="min-h-screen bg-white p-6 flex items-start justify-center">
+      <div className="w-full max-w-3xl bg-purple-100 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-6">
         <header className="mb-6">
           {/* Back Button and Subject Info */}
           <div className="flex items-center justify-between mb-4">
             <button 
               onClick={goBackToSubjects}
-              className="flex items-center px-3 py-2 text-gray-600 hover:text-indigo-600 transition-colors"
+              className="flex items-center px-4 py-2 bg-white text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
               Back to Subjects
             </button>
@@ -116,48 +116,54 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
           
           {/* Subject Header */}
           {subject && (
-            <div className={`bg-gradient-to-r ${subject.color} p-4 rounded-lg text-white mb-4`}>
+            <div className="bg-purple-300 p-4 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-4">
               <div className="flex items-center">
                 <span className="text-2xl mr-3">{subject.icon}</span>
                 <div>
-                  <h1 className="text-xl font-bold">{subject.title}</h1>
-                  <p className="text-sm opacity-90">{subject.description}</p>
+                  <h1 className="text-xl font-bold text-black">{subject.title}</h1>
+                  <p className="text-sm text-black font-medium">{subject.description}</p>
                 </div>
               </div>
             </div>
           )}
           
           {/* Action Buttons */}
-          <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-800">
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <h2 className="text-lg font-bold text-black border-4 border-black bg-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               {subject ? `${subject.title} Exam` : 'Interactive Exam'}
             </h2>
             <div className="flex gap-2">
-              <button onClick={downloadJSON} className="px-3 py-1 bg-indigo-500 text-white rounded text-sm">Download JSON</button>
-              <button onClick={restart} className="px-3 py-1 bg-gray-200 rounded text-sm">Restart</button>
+              <button onClick={downloadJSON} className="px-4 py-2 bg-purple-500 text-white font-bold border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all text-sm">
+                Download JSON
+              </button>
+              <button onClick={restart} className="px-4 py-2 bg-white text-black font-bold border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all text-sm">
+                Restart
+              </button>
             </div>
           </div>
         </header>
 
         {!showResult ? (
           <div className="flex flex-col">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <div className="text-sm text-gray-500 mb-4">Question {index + 1} of {shuffled.length}</div>
-              <h2 className="text-lg font-medium mb-4 text-gray-800">{q?.question}</h2>
+            <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-6">
+              <div className="text-sm text-black font-bold mb-4 bg-purple-200 inline-block px-3 py-1 border-2 border-black">
+                Question {index + 1} of {shuffled.length}
+              </div>
+              <h2 className="text-lg font-bold mb-4 text-black">{q?.question}</h2>
 
               {q?.type === "tf" && (
                 <div className="space-y-3">
                   {["True", "False"].map(opt => (
-                    <label key={opt} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                    <label key={opt} className="flex items-start space-x-3 cursor-pointer hover:bg-purple-100 p-3 border-4 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
                       <input
                         type="radio"
                         name={`q-${q.id}`}
                         value={opt}
                         checked={answers[q.id] === opt}
                         onChange={(e) => recordAnswer(q.id, e.target.value)}
-                        className="mt-0.5"
+                        className="mt-0.5 w-5 h-5"
                       />
-                      <span className="text-sm text-gray-700">{opt}</span>
+                      <span className="text-sm text-black font-medium">{opt}</span>
                     </label>
                   ))}
                 </div>
@@ -166,16 +172,16 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
               {(q?.type === "mcq" || q?.type === "smcq") && (
                 <div className="space-y-3">
                   {q.options.map((opt, i) => (
-                    <label key={i} className="flex items-start space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                    <label key={i} className="flex items-start space-x-3 cursor-pointer hover:bg-purple-100 p-3 border-4 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
                       <input
                         type="radio"
                         name={`q-${q.id}`}
                         value={opt}
                         checked={answers[q.id] === opt}
                         onChange={(e) => recordAnswer(q.id, e.target.value)}
-                        className="mt-0.5"
+                        className="mt-0.5 w-5 h-5"
                       />
-                      <span className="text-sm text-gray-700">{String.fromCharCode(65 + i)}. {opt}</span>
+                      <span className="text-sm text-black font-medium">{String.fromCharCode(65 + i)}. {opt}</span>
                     </label>
                   ))}
                 </div>
@@ -185,7 +191,7 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
                 <div className="space-y-3">
                   <input
                     type="text"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border-4 border-black focus:outline-none bg-white font-medium shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                     placeholder="Type your answer here..."
                     value={answers[q.id] || ''}
                     onChange={(e) => recordAnswer(q.id, e.target.value)}
@@ -195,30 +201,30 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
             </div>
 
             {/* Navigation */}
-            <div className="flex justify-between items-center mt-6">
+            <div className="flex justify-between items-center mt-6 gap-4 flex-wrap">
               <button 
                 onClick={prev} 
                 disabled={index === 0}
-                className="px-4 py-2 bg-gray-200 text-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 transition-colors"
+                className="px-4 py-2 bg-white text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
               >
                 Previous
               </button>
               
-              <div className="text-sm text-gray-500">
+              <div className="text-sm text-black font-bold bg-purple-200 px-4 py-2 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                 {Object.keys(answers).length} of {shuffled.length} answered
               </div>
               
               {index === shuffled.length - 1 ? (
                 <button 
                   onClick={computeScore}
-                  className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+                  className="px-4 py-2 bg-purple-500 text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
                 >
                   Submit
                 </button>
               ) : (
                 <button 
                   onClick={next}
-                  className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition-colors"
+                  className="px-4 py-2 bg-purple-400 text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
                 >
                   Next
                 </button>
@@ -230,35 +236,37 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
             <div className="text-6xl mb-4">
               {score / shuffled.length >= 0.8 ? "🎉" : score / shuffled.length >= 0.6 ? "👍" : "📚"}
             </div>
-            <h2 className="text-2xl font-bold mb-2">Exam Complete!</h2>
-            <div className="text-lg mb-6">
-              Your Score: <span className="font-bold text-indigo-600">{score}/{shuffled.length}</span>
-              <span className="text-gray-500 ml-2">({Math.round((score / shuffled.length) * 100)}%)</span>
+            <h2 className="text-2xl font-bold mb-4 text-black border-4 border-black bg-white inline-block px-6 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              Exam Complete!
+            </h2>
+            <div className="text-lg mb-6 text-black font-bold">
+              Your Score: <span className="text-purple-600 bg-purple-200 px-3 py-1 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{score}/{shuffled.length}</span>
+              <span className="text-black ml-2">({Math.round((score / shuffled.length) * 100)}%)</span>
             </div>
             
             {/* Score breakdown */}
             <div className="max-w-md mx-auto mb-6">
-              <div className="bg-gray-100 rounded-full h-3 mb-2">
+              <div className="bg-white border-4 border-black h-6 mb-4">
                 <div 
-                  className="bg-indigo-600 h-3 rounded-full transition-all duration-500" 
+                  className="bg-purple-500 h-full transition-all duration-500 border-r-4 border-black" 
                   style={{ width: `${(score / shuffled.length) * 100}%` }}
                 ></div>
               </div>
-              <div className="text-sm text-gray-600 grid grid-cols-3 gap-2">
-                <div className="text-green-600">Correct: {score}</div>
-                <div className="text-red-600">Wrong: {shuffled.length - score}</div>
-                <div className="text-gray-500">Total: {shuffled.length}</div>
+              <div className="text-sm font-bold grid grid-cols-3 gap-2">
+                <div className="bg-purple-200 border-4 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">Correct: {score}</div>
+                <div className="bg-white border-4 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">Wrong: {shuffled.length - score}</div>
+                <div className="bg-purple-300 border-4 border-black p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">Total: {shuffled.length}</div>
               </div>
             </div>
 
-            <div className="flex gap-3 justify-center">
-              <button onClick={() => setShowReview(!showReview)} className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+            <div className="flex gap-3 justify-center flex-wrap">
+              <button onClick={() => setShowReview(!showReview)} className="px-6 py-2 bg-purple-400 text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
                 {showReview ? 'Hide' : 'Review'} Answers
               </button>
-              <button onClick={restart} className="px-6 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition-colors">
+              <button onClick={restart} className="px-6 py-2 bg-purple-500 text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
                 Try Again
               </button>
-              <button onClick={goBackToSubjects} className="px-6 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors">
+              <button onClick={goBackToSubjects} className="px-6 py-2 bg-white text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
                 Back to Subjects
               </button>
             </div>
@@ -267,8 +275,10 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
 
         {/* Answer Review Section */}
         {showReview && showResult && (
-          <div className="mt-6 border-t pt-6">
-            <h3 className="text-xl font-bold mb-4">Answer Review</h3>
+          <div className="mt-6 border-t-4 border-black pt-6">
+            <h3 className="text-xl font-bold mb-4 text-black border-4 border-black bg-white inline-block px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              Answer Review
+            </h3>
             <div className="space-y-4 max-h-96 overflow-y-auto">
               {shuffled.map((q, idx) => {
                 const userAnswer = answers[q.id];
@@ -302,17 +312,17 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
                 }
                 
                 return (
-                  <div key={q.id} className={`p-4 rounded-lg border ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
-                    <div className="flex items-start justify-between mb-2">
-                      <span className="text-sm font-medium text-gray-600">Question {idx + 1}</span>
-                      <span className={`text-sm px-2 py-1 rounded ${isCorrect ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                        {isCorrect ? 'Correct' : 'Incorrect'}
+                  <div key={q.id} className={`p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${isCorrect ? 'bg-purple-200' : 'bg-white'}`}>
+                    <div className="flex items-start justify-between mb-2 flex-wrap gap-2">
+                      <span className="text-sm font-bold text-black bg-white px-3 py-1 border-2 border-black">Question {idx + 1}</span>
+                      <span className={`text-sm px-3 py-1 font-bold border-2 border-black ${isCorrect ? 'bg-purple-300 text-black' : 'bg-white text-black'}`}>
+                        {isCorrect ? '✓ Correct' : '✗ Incorrect'}
                       </span>
                     </div>
-                    <p className="text-gray-800 mb-3">{q.question}</p>
-                    <div className="grid gap-2 text-sm">
-                      <div><strong>Your Answer:</strong> <span className={isCorrect ? 'text-green-600' : 'text-red-600'}>{userAnswerText}</span></div>
-                      <div><strong>Correct Answer:</strong> <span className="text-green-600">{correctAnswerText}</span></div>
+                    <p className="text-black font-medium mb-3">{q.question}</p>
+                    <div className="grid gap-2 text-sm font-medium">
+                      <div className="bg-white p-2 border-2 border-black"><strong>Your Answer:</strong> <span className={isCorrect ? 'text-purple-600' : 'text-black'}>{userAnswerText}</span></div>
+                      <div className="bg-purple-100 p-2 border-2 border-black"><strong>Correct Answer:</strong> <span className="text-black">{correctAnswerText}</span></div>
                     </div>
                   </div>
                 );

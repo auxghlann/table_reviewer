@@ -128,7 +128,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/contact" element={<Contact />} /> */}
           <Route path="/reviewer" element={<ReviewerSection />} />
           <Route path="/reviewer/:subjectId" element={<ReviewerSection />} />
           <Route path="/reviewer/:subjectId/:materialId" element={<ReviewerSection />} />
