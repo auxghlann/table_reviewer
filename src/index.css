@@ -24,3 +24,34 @@
     linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05) 76%, transparent 77%, transparent);
   background-size: 50px 50px;
 }
+
+/* Softer Neobrutalism - Add slight curves and reduce border width */
+/* Reduce border width from 4px to 2.5px for less aggressive outlines */
+.border-4 {
+  border-width: 2.5px !important;
+}
+
+.border-2 {
+  border-width: 1.5px !important;
+}
+
+/* Add subtle rounded corners to all bordered elements */
+/* This softens the sharp 90-degree angles */
+.border-4,
+.border-2,
+.border-black,
+button,
+input,
+textarea,
+select,
+[class*="bg-purple"],
+[class*="bg-white"] {
+  border-radius: 6px !important;
+}
+
+/* Slightly larger radius for cards and larger components */
+.shadow-\[8px_8px_0px_0px_rgba\(0\,0\,0\,1\)\],
+.shadow-\[6px_6px_0px_0px_rgba\(0\,0\,0\,1\)\],
+.shadow-\[12px_12px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+  border-radius: 8px !important;
+}
