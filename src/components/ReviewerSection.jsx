@@ -269,7 +269,13 @@ export default function ReviewerSection() {
               </button>
               <div className="flex items-center flex-wrap gap-3">
                 <button 
-                  onClick={() => setSelectedSubject(null)}
+                  onClick={() => {
+                    setSelectedSubject(null);
+                    setSelectedMaterial(null);
+                    setMaterials([]);
+                    setContent("");
+                    navigate('/reviewer');
+                  }}
                   className="text-black font-bold bg-white px-4 py-2 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all text-sm flex items-center"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
