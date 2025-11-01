@@ -23,9 +23,9 @@ export default function SubjectSelection({ setSelectedSubject }) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen grid-background-white">
       {/* Hero Section */}
-      <section className="bg-purple-100 py-16 border-b-4 border-black">
+      <section className="grid-background py-16 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold mb-6 text-black border-4 border-black bg-white inline-block px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             Choose Your Subject
@@ -36,8 +36,8 @@ export default function SubjectSelection({ setSelectedSubject }) {
         </div>
       </section>
 
-      {/* Subject Cards */}
-      <section className="py-16 bg-white">
+      {/* Subjects Grid */}
+      <section className="py-16 grid-background-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {subjects.map((subject) => (

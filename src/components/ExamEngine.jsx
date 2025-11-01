@@ -89,7 +89,7 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
   // Show loading if no questions are loaded yet
   if (!questions || questions.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 p-6 flex items-center justify-center">
+      <div className="min-h-screen grid-background p-6 flex items-center justify-center">
         <div className="text-center">
           <div className="text-lg text-gray-600">Loading exam questions...</div>
         </div>
@@ -98,7 +98,7 @@ export default function ExamEngine({ subject, questions, setSelectedSubject }) {
   }
 
   return (
-    <div className="min-h-screen bg-white p-6 flex items-start justify-center">
+    <div className="min-h-screen grid-background-white p-6 flex items-start justify-center">
       <div className="w-full max-w-3xl bg-purple-100 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-6">
         <header className="mb-6">
           {/* Back Button and Subject Info */}

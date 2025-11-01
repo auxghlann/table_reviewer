@@ -140,9 +140,9 @@ export default function ReviewerSection() {
   };
 
   return (
-    <div className="min-h-screen bg-purple-50">
+    <div className="min-h-screen grid-background">
       {/* Hero Section */}
-      <section className="bg-purple-100 py-16 border-b-4 border-black">
+      <section className="grid-background py-16 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold mb-6 text-black border-4 border-black bg-white inline-block px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             Study Materials
@@ -155,7 +155,7 @@ export default function ReviewerSection() {
 
       {/* Subject Cards Section (visible when no subject is selected) */}
       {!selectedSubject && (
-        <section className="py-16 bg-white">
+        <section className="py-16 grid-background-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-black border-4 border-black bg-purple-200 inline-block px-8 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
