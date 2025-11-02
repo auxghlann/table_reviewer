@@ -142,12 +142,12 @@ export default function ReviewerSection() {
   return (
     <div className="min-h-screen grid-background">
       {/* Hero Section */}
-      <section className="grid-background py-16 border-b-4 border-black">
+      <section className="grid-background py-8 md:py-16 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold mb-6 text-black border-4 border-black bg-white inline-block px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-black border-4 border-black bg-white inline-block px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             Study Materials
           </h1>
-          <p className="text-xl max-w-3xl mx-auto font-bold text-black mt-8">
+          <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto font-bold text-black mt-4 md:mt-8">
             Select a subject to review comprehensive study materials and enhance your learning.
           </p>
         </div>
@@ -212,36 +212,36 @@ export default function ReviewerSection() {
 
       {/* Reviewer Section with Sidebar (visible when subject is selected) */}
       {selectedSubject && (
-        <div className="flex min-h-[calc(100vh-30rem)] bg-white">
+        <div className="flex flex-col md:flex-row min-h-[calc(100vh-20rem)] md:min-h-[calc(100vh-30rem)] bg-white">
           {/* Sidebar */}
           <div 
-            className={`bg-purple-100 border-r-4 border-black transition-all duration-300 ${
-              sidebarOpen ? 'w-80' : 'w-0 overflow-hidden'
+            className={`bg-purple-100 border-b-4 md:border-b-0 md:border-r-4 border-black transition-all duration-300 ${
+              sidebarOpen ? 'w-full md:w-80' : 'w-full md:w-0 h-0 md:h-auto overflow-hidden'
             }`}
           >
-            <div className="p-4 border-b-4 border-black bg-purple-200">
+            <div className="p-3 md:p-4 border-b-4 border-black bg-purple-200">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <span className="text-2xl mr-2">{selectedSubject.icon}</span>
-                  <h3 className="font-bold truncate text-black">{selectedSubject.title}</h3>
+                  <span className="text-xl md:text-2xl mr-2">{selectedSubject.icon}</span>
+                  <h3 className="text-sm md:text-base font-bold truncate text-black">{selectedSubject.title}</h3>
                 </div>
               </div>
             </div>
             
-            <div className="p-4">
-              <h4 className="text-sm font-bold text-black mb-3 bg-white px-3 py-1 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] inline-block">MATERIALS</h4>
-              <ul className="space-y-2 mt-4">
+            <div className="p-3 md:p-4">
+              <h4 className="text-xs md:text-sm font-bold text-black mb-3 bg-white px-2 md:px-3 py-1 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] inline-block">MATERIALS</h4>
+              <ul className="space-y-2 mt-4 grid grid-cols-2 md:grid-cols-1 gap-2">
                 {materials.map(material => (
                   <li key={material.id}>
                     <button
                       onClick={() => handleMaterialSelect(material)}
-                      className={`w-full text-left px-3 py-2 text-sm font-bold border-4 border-black transition-all ${
+                      className={`w-full text-left px-2 md:px-3 py-2 text-xs md:text-sm font-bold border-4 border-black transition-all ${
                         selectedMaterial && selectedMaterial.id === material.id
                           ? 'bg-purple-400 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
                           : 'bg-white text-black hover:bg-purple-200 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px]'
                       }`}
                     >
-                      {material.title}
+                      <span className="line-clamp-2">{material.title}</span>
                     </button>
                   </li>
                 ))}
@@ -250,24 +250,24 @@ export default function ReviewerSection() {
           </div>
           
           {/* Main Content */}
-          <div className={`flex-grow bg-white transition-all duration-300 ${sidebarOpen ? 'pl-0' : 'pl-0'}`}>
+          <div className={`flex-grow bg-white transition-all duration-300 w-full md:w-auto ${sidebarOpen ? 'pl-0' : 'pl-0'}`}>
             {/* Toggle Button and Header */}
-            <div className="bg-purple-100 border-b-4 border-black p-4 flex items-center sticky top-0 z-10">
+            <div className="bg-purple-100 border-b-4 border-black p-2 md:p-4 flex items-center sticky top-0 z-10 flex-wrap gap-2">
               <button 
                 onClick={toggleSidebar}
-                className="mr-4 p-2 bg-white border-4 border-black text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+                className="mr-2 md:mr-4 p-1.5 md:p-2 bg-white border-4 border-black text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex-shrink-0"
               >
                 {sidebarOpen ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
                   </svg>
                 ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                   </svg>
                 )}
               </button>
-              <div className="flex items-center flex-wrap gap-3">
+              <div className="flex items-center flex-wrap gap-2 md:gap-3 flex-1">
                 <button 
                   onClick={() => {
                     setSelectedSubject(null);
@@ -276,16 +276,17 @@ export default function ReviewerSection() {
                     setContent("");
                     navigate('/reviewer');
                   }}
-                  className="text-black font-bold bg-white px-4 py-2 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all text-sm flex items-center"
+                  className="text-black font-bold bg-white px-2 py-1.5 md:px-4 md:py-2 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all text-xs md:text-sm flex items-center"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                   </svg>
-                  Back to Subjects
+                  <span className="hidden sm:inline">Back to Subjects</span>
+                  <span className="sm:hidden">Back</span>
                 </button>
                 
                 {selectedMaterial && (
-                  <h2 className="text-lg font-bold text-black bg-purple-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <h2 className="text-sm md:text-lg font-bold text-black bg-purple-300 px-2 py-1.5 md:px-4 md:py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] line-clamp-1 flex-1 md:flex-none">
                     {selectedMaterial.title}
                   </h2>
                 )}
@@ -293,27 +294,27 @@ export default function ReviewerSection() {
             </div>
             
             {/* Rendered Markdown Content */}
-            <div className="p-6">
+            <div className="p-3 md:p-6">
               {isLoading ? (
                 <div className="flex justify-center items-center h-64">
-                  <div className="w-16 h-16 border-4 border-black border-t-purple-500 animate-spin"></div>
+                  <div className="w-12 h-12 md:w-16 md:h-16 border-4 border-black border-t-purple-500 animate-spin"></div>
                 </div>
               ) : error ? (
-                <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-6 text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 md:p-6 text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10 text-purple-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                   </svg>
-                  <h3 className="text-lg font-bold text-black mb-2">{error}</h3>
+                  <h3 className="text-base md:text-lg font-bold text-black mb-2">{error}</h3>
                   <button 
                     onClick={() => loadMaterials(selectedSubject.id)} 
-                    className="mt-3 px-4 py-2 bg-purple-500 text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+                    className="mt-3 px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base bg-purple-500 text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
                   >
                     Try Again
                   </button>
                 </div>
               ) : selectedMaterial ? (
-                <div className="max-w-none">
-                  <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8">
+                <div className="max-w-none overflow-x-hidden">
+                  <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 md:p-8">
                     <ErrorBoundary 
                       resetAction={() => setContent(selectedMaterial.content)}
                       fallbackAction={() => setContent(String(selectedMaterial.content || '').replace(/[#*_`]/g, ''))}

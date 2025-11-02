@@ -3,37 +3,68 @@
   line-height: 1.6;
   color: #333;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
-/* Headers */
+/* Headers - Responsive sizing */
 .markdown h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin: 1.5rem 0 1rem;
+  margin: 1rem 0 0.75rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #eaeaea;
   color: #000;
 }
 
+@media (min-width: 768px) {
+  .markdown h1 {
+    font-size: 2rem;
+    margin: 1.5rem 0 1rem;
+  }
+}
+
 .markdown h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin: 1.5rem 0 0.75rem;
+  margin: 1rem 0 0.5rem;
   color: #000;
+}
+
+@media (min-width: 768px) {
+  .markdown h2 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 0.75rem;
+  }
 }
 
 .markdown h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 1.25rem 0 0.75rem;
-  color: #000;
-}
-
-.markdown h4 {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 1rem 0 0.5rem;
   color: #000;
+}
+
+@media (min-width: 768px) {
+  .markdown h3 {
+    font-size: 1.25rem;
+    margin: 1.25rem 0 0.75rem;
+  }
+}
+
+.markdown h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.5rem;
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .markdown h4 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+  }
 }
 
 /* Paragraphs */
@@ -64,20 +95,41 @@
   border-radius: 3px;
   padding: 0.2em 0.4em;
   font-family: 'Courier New', monospace;
-  font-size: 0.9em;
+  font-size: 0.85em;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+  .markdown code {
+    font-size: 0.9em;
+  }
 }
 
 .markdown pre {
   background-color: #f3f4f6;
   border-radius: 5px;
-  padding: 1rem;
+  padding: 0.75rem;
   overflow-x: auto;
   margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .markdown pre {
+    padding: 1rem;
+  }
 }
 
 .markdown pre code {
   background-color: transparent;
   padding: 0;
+  font-size: 0.8em;
+}
+
+@media (min-width: 768px) {
+  .markdown pre code {
+    font-size: 0.9em;
+  }
 }
 
 /* Blockquotes */
@@ -89,18 +141,40 @@
   font-style: italic;
 }
 
-/* Tables */
+/* Tables - Mobile responsive with horizontal scroll */
 .markdown table {
   border-collapse: collapse;
   width: 100%;
   margin: 1rem 0;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .markdown table {
+    display: table;
+    font-size: 1rem;
+  }
 }
 
 .markdown table th,
 .markdown table td {
   border: 1px solid #d1d5db;
-  padding: 0.5rem;
+  padding: 0.4rem;
   text-align: left;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+@media (min-width: 768px) {
+  .markdown table th,
+  .markdown table td {
+    padding: 0.5rem;
+    white-space: normal;
+    min-width: auto;
+  }
 }
 
 .markdown table th {
@@ -138,4 +212,31 @@
 .markdown pre {
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+  .markdown {
+    font-size: 0.95rem;
+  }
+  
+  .markdown p {
+    margin-bottom: 0.75rem;
+  }
+  
+  .markdown ul,
+  .markdown ol {
+    padding-left: 1.25rem;
+  }
+  
+  .markdown blockquote {
+    padding-left: 0.75rem;
+    margin: 0.75rem 0;
+  }
+  
+  /* Ensure images don't overflow */
+  .markdown img {
+    max-width: 100%;
+    height: auto;
+  }
 }
