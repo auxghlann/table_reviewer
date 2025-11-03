@@ -1,18 +1,40 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import logo from "../assets/logo.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { isAuthenticated, user, logout } = useAuth();
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
   
+  // Only show protected items if authenticated
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
-    { path: "/exam", label: "Take Exam" },
-    { path: "/reviewer", label: "Study Materials" },
-    // { path: "/contact", label: "Contact" }
-  ];
+    { path: "/", label: "Home", protected: false },
+    { path: "/about", label: "About", protected: false },
+    { path: "/exam", label: "Take Exam", protected: true },
+    { path: "/reviewer", label: "Study Materials", protected: true },
+  ].filter(item => !item.protected || isAuthenticated());
 
   const isActive = (path) => {
     if (path === "/") {
@@ -32,7 +54,7 @@ export default function Header() {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden md:flex space-x-4">
+          <nav className="hidden md:flex space-x-4 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -46,6 +68,45 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Auth Section */}
+            {isAuthenticated() ? (
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center justify-center text-xl"
+                >
+                  {user?.username?.charAt(0).toUpperCase() || "U"}
+                </button>
+                
+                {/* Dropdown Menu */}
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-50">
+                    <div className="px-4 py-3 border-b-4 border-black bg-purple-100">
+                      <p className="text-sm font-bold text-black">{user?.username}</p>
+                      <p className="text-xs text-gray-600">{user?.email}</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        logout();
+                        navigate("/login");
+                        setIsDropdownOpen(false);
+                      }}
+                      className="w-full px-4 py-3 text-left text-sm font-bold text-black hover:bg-red-100 transition-colors flex items-center gap-2"
+                    >
+                      <span>🚪</span> Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="px-4 py-2 text-sm font-bold border-4 border-black bg-purple-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+              >
+                Login
+              </Link>
+            )}
           </nav>
 
           {/* Mobile menu button */}
@@ -84,6 +145,41 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
+              
+              {/* Auth Section for Mobile */}
+              {isAuthenticated() ? (
+                <>
+                  <div className="px-4 py-3 bg-purple-100 border-4 border-black">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 text-white font-bold border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-xl flex-shrink-0">
+                        {user?.username?.charAt(0).toUpperCase() || "U"}
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold text-black">{user?.username}</p>
+                        <p className="text-xs text-gray-600">{user?.email}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      logout();
+                      navigate("/login");
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="px-4 py-3 text-sm font-bold border-4 border-black bg-red-400 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-left flex items-center gap-2"
+                  >
+                    <span>🚪</span> Logout
+                  </button>
+                </>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="px-4 py-2 text-sm font-bold border-4 border-black bg-purple-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-left"
+                >
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         )}

@@ -1,7 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Home() {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+
+  const handleProtectedClick = (e, path) => {
+    if (!isAuthenticated()) {
+      e.preventDefault();
+      navigate("/login");
+    }
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -16,12 +26,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               to="/exam"
+              onClick={(e) => handleProtectedClick(e, "/exam")}
               className="bg-purple-500 text-white px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
               Start Exam Now
             </Link>
             <Link
               to="/reviewer"
+              onClick={(e) => handleProtectedClick(e, "/reviewer")}
               className="bg-white text-purple-600 px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
               Study Materials
@@ -114,12 +126,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               to="/reviewer"
+              onClick={(e) => handleProtectedClick(e, "/reviewer")}
               className="bg-purple-400 text-black px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
               Study Materials
             </Link>
             <Link
               to="/exam"
+              onClick={(e) => handleProtectedClick(e, "/exam")}
               className="bg-white text-purple-600 px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
               Begin Assessment

@@ -1,14 +1,76 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate, useLocation, useParams } from "react-router-dom";
+import React, { useState, useEffect, lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route, useNavigate, useLocation, useParams, Navigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import SubjectSelection from "./pages/SubjectSelection";
-import ExamEngine from "./components/ExamEngine";
-import ReviewerSection from "./components/ReviewerSection";
 import subjectsData from "./data/subjects.json";
+
+// Lazy load all page components
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Login = lazy(() => import("./pages/Login"));
+const SubjectSelection = lazy(() => import("./pages/SubjectSelection"));
+const ExamEngine = lazy(() => import("./components/ExamEngine"));
+const ReviewerSection = lazy(() => import("./components/ReviewerSection"));
+
+// Loading Component
+function LoadingScreen() {
+  return (
+    <div className="flex justify-center items-center min-h-screen grid-background-white">
+      <div className="text-center">
+        <div className="w-16 h-16 border-4 border-black border-t-purple-500 rounded-full animate-spin mx-auto mb-4"></div>
+        <p className="text-black font-bold text-lg">Loading...</p>
+      </div>
+    </div>
+  );
+}
+
+// Protected Route Component
+function ProtectedRoute({ children }) {
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen grid-background-white">
+        <div className="text-center">
+          <div className="w-12 h-12 md:w-16 md:h-16 border-4 border-black border-t-purple-500 animate-spin mx-auto mb-4"></div>
+          <p className="text-black font-bold">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated()) {
+    return (
+      <div className="min-h-screen grid-background-white flex items-center justify-center py-8 px-4">
+        <div className="max-w-md w-full bg-purple-100 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-8 text-center">
+          <div className="text-5xl mb-4">🔒</div>
+          <h2 className="text-2xl font-bold text-black mb-4">Login Required</h2>
+          <p className="text-black font-medium mb-6">
+            You need to be logged in to access this feature.
+          </p>
+          <div className="flex flex-col gap-3">
+            <button
+              onClick={() => window.location.href = '/login'}
+              className="w-full bg-purple-500 text-white py-3 font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+            >
+              Go to Login
+            </button>
+            <button
+              onClick={() => window.location.href = '/'}
+              className="w-full bg-white text-black py-3 font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+            >
+              Back to Home
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return children;
+}
 
 function ExamRoute() {
   const { subjectId } = useParams();
@@ -82,6 +144,16 @@ function AppContent() {
   const location = useLocation();
   const [selectedSubject, setSelectedSubject] = useState(null);
   const [examQuestions, setExamQuestions] = useState([]);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+
+  // Add artificial delay for initial load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsInitialLoad(false);
+    }, 800); // 800ms delay
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Load exam questions when a subject is selected
   useEffect(() => {
@@ -121,20 +193,49 @@ function AppContent() {
     }
   };
 
+  if (isInitialLoad) {
+    return <LoadingScreen />;
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
-          <Route path="/reviewer" element={<ReviewerSection />} />
-          <Route path="/reviewer/:subjectId" element={<ReviewerSection />} />
-          <Route path="/reviewer/:subjectId/:materialId" element={<ReviewerSection />} />
-          <Route path="/exam" element={<SubjectSelection setSelectedSubject={setSelectedSubject} />} />
-          <Route path="/exam/:subjectId" element={<ExamRoute />} />
-        </Routes>
+        <Suspense fallback={<LoadingScreen />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            {/* <Route path="/contact" element={<Contact />} /> */}
+            
+            {/* Protected Routes - Require Login */}
+            <Route path="/reviewer" element={
+              <ProtectedRoute>
+                <ReviewerSection />
+              </ProtectedRoute>
+            } />
+            <Route path="/reviewer/:subjectId" element={
+              <ProtectedRoute>
+                <ReviewerSection />
+              </ProtectedRoute>
+            } />
+            <Route path="/reviewer/:subjectId/:materialId" element={
+              <ProtectedRoute>
+                <ReviewerSection />
+              </ProtectedRoute>
+            } />
+            <Route path="/exam" element={
+              <ProtectedRoute>
+                <SubjectSelection setSelectedSubject={setSelectedSubject} />
+              </ProtectedRoute>
+            } />
+            <Route path="/exam/:subjectId" element={
+              <ProtectedRoute>
+                <ExamRoute />
+              </ProtectedRoute>
+            } />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </div>
@@ -144,7 +245,9 @@ function AppContent() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AppContent />
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
     </BrowserRouter>
   );
 }

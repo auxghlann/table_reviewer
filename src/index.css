@@ -37,21 +37,26 @@
 
 /* Add subtle rounded corners to all bordered elements */
 /* This softens the sharp 90-degree angles */
-.border-4,
-.border-2,
-.border-black,
-button,
-input,
-textarea,
-select,
-[class*="bg-purple"],
-[class*="bg-white"] {
+.border-4:not(.rounded-full),
+.border-2:not(.rounded-full),
+.border-black:not(.rounded-full),
+button:not(.rounded-full),
+input:not(.rounded-full),
+textarea:not(.rounded-full),
+select:not(.rounded-full),
+[class*="bg-purple"]:not(.rounded-full),
+[class*="bg-white"]:not(.rounded-full) {
   border-radius: 6px !important;
 }
 
 /* Slightly larger radius for cards and larger components */
-.shadow-\[8px_8px_0px_0px_rgba\(0\,0\,0\,1\)\],
-.shadow-\[6px_6px_0px_0px_rgba\(0\,0\,0\,1\)\],
-.shadow-\[12px_12px_0px_0px_rgba\(0\,0\,0\,1\)\] {
+.shadow-\[8px_8px_0px_0px_rgba\(0\,0\,0\,1\)\]:not(.rounded-full),
+.shadow-\[6px_6px_0px_0px_rgba\(0\,0\,0\,1\)\]:not(.rounded-full),
+.shadow-\[12px_12px_0px_0px_rgba\(0\,0\,0\,1\)\]:not(.rounded-full) {
   border-radius: 8px !important;
+}
+
+/* Preserve rounded-full for circular elements like avatars */
+.rounded-full {
+  border-radius: 9999px !important;
 }
