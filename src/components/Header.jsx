@@ -6,6 +6,8 @@ import logo from "../assets/logo.png";
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const dropdownRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -27,6 +29,36 @@ export default function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isDropdownOpen]);
+
+  // Hide header on scroll down (mobile only)
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Only apply on mobile (screen width < 768px)
+      if (window.innerWidth < 768) {
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+          // Scrolling down & past 50px
+          setIsHeaderVisible(false);
+          setIsMobileMenuOpen(false); // Close menu when hiding
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up
+          setIsHeaderVisible(true);
+        }
+      } else {
+        // Always show on desktop
+        setIsHeaderVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
   
   // Only show protected items if authenticated
   const navItems = [
@@ -44,7 +76,11 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white border-b-4 border-black sticky top-0 z-50">
+    <header 
+      className={`bg-white border-b-4 border-black sticky top-0 z-50 transition-transform duration-300 ${
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
