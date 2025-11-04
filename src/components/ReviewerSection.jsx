@@ -43,6 +43,12 @@ export default function ReviewerSection() {
         // Invalid subject ID, redirect to reviewer home
         navigate("/reviewer");
       }
+    } else {
+      // No subjectId in URL, reset to subject selection view
+      setSelectedSubject(null);
+      setSelectedMaterial(null);
+      setMaterials([]);
+      setContent("");
     }
   }, [subjectId]);
 
