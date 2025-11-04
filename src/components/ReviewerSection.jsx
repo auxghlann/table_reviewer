@@ -173,7 +173,7 @@ export default function ReviewerSection() {
                   <div className="bg-purple-300 p-4 border-b-4 border-black">
                     <div className="flex items-center mb-2">
                       <div className="text-3xl">{subject.icon}</div>
-                      <h3 className="text-xl font-bold ml-3 text-black">{subject.title.split(' ')[0]}</h3>
+                      <h3 className="text-xl font-bold ml-3 text-black">{subject.title}</h3>
                     </div>
                   </div>
                   
