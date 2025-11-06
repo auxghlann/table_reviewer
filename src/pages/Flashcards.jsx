@@ -220,7 +220,7 @@ export default function Flashcards() {
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center justify-center gap-4">
               <button
                 onClick={handlePrevious}
                 disabled={currentIndex === 0}
@@ -234,13 +234,6 @@ export default function Flashcards() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
                 Previous
-              </button>
-
-              <button
-                onClick={() => setIsFlipped(!isFlipped)}
-                className="px-6 py-3 font-bold border-4 border-black bg-purple-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
-              >
-                Flip Card
               </button>
 
               <button
