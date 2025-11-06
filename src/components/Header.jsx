@@ -66,6 +66,7 @@ export default function Header() {
     { path: "/about", label: "About", protected: false },
     { path: "/exam", label: "Take Exam", protected: true },
     { path: "/reviewer", label: "Study Materials", protected: true },
+    { path: "/flashcards", label: "Flashcards", protected: true },
   ].filter(item => !item.protected || isAuthenticated());
 
   const isActive = (path) => {

@@ -60,3 +60,20 @@ select:not(.rounded-full),
 .rounded-full {
   border-radius: 9999px !important;
 }
+
+/* Flashcard 3D flip animations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}

@@ -1,0 +1,30 @@
+{
+  "subject": "CS Elective 3",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "What is Machine Learning?",
+      "back": "A subset of AI that enables systems to learn and improve from experience without being explicitly programmed, using algorithms and statistical models."
+    },
+    {
+      "id": 2,
+      "front": "Define Supervised Learning",
+      "back": "A type of machine learning where the algorithm learns from labeled training data to make predictions or decisions on new, unseen data."
+    },
+    {
+      "id": 3,
+      "front": "What is a Neural Network?",
+      "back": "A computing system inspired by biological neural networks, consisting of interconnected nodes (neurons) that process information using dynamic responses to inputs."
+    },
+    {
+      "id": 4,
+      "front": "Define Overfitting",
+      "back": "When a model learns the training data too well, including noise and outliers, resulting in poor performance on new, unseen data."
+    },
+    {
+      "id": 5,
+      "front": "What is Deep Learning?",
+      "back": "A subset of machine learning based on artificial neural networks with multiple layers, capable of learning hierarchical representations of data."
+    }
+  ]
+}

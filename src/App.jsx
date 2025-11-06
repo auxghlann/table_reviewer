@@ -14,6 +14,7 @@ const Login = lazy(() => import("./pages/Login"));
 const SubjectSelection = lazy(() => import("./pages/SubjectSelection"));
 const ExamEngine = lazy(() => import("./components/ExamEngine"));
 const ReviewerSection = lazy(() => import("./components/ReviewerSection"));
+const Flashcards = lazy(() => import("./pages/Flashcards"));
 
 // Loading Component
 function LoadingScreen() {
@@ -234,6 +235,21 @@ function AppContent() {
             <Route path="/exam/:subjectId" element={
               <ProtectedRoute>
                 <ExamRoute />
+              </ProtectedRoute>
+            } />
+            <Route path="/flashcards" element={
+              <ProtectedRoute>
+                <Flashcards />
+              </ProtectedRoute>
+            } />
+            <Route path="/flashcards/:subjectId" element={
+              <ProtectedRoute>
+                <Flashcards />
+              </ProtectedRoute>
+            } />
+            <Route path="/flashcards/:subjectId/:cardId" element={
+              <ProtectedRoute>
+                <Flashcards />
               </ProtectedRoute>
             } />
           </Routes>

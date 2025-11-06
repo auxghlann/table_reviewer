@@ -23,7 +23,7 @@ export default function Home() {
           <p className="text-xl mb-8 max-w-3xl mx-auto text-black font-medium">
             Test your knowledge with this comprehensive examination platform. 
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center flex-wrap">
             <Link
               to="/exam"
               onClick={(e) => handleProtectedClick(e, "/exam")}
@@ -37,6 +37,13 @@ export default function Home() {
               className="bg-white text-purple-600 px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
               Study Materials
+            </Link>
+            <Link
+              to="/flashcards"
+              onClick={(e) => handleProtectedClick(e, "/flashcards")}
+              className="bg-purple-400 text-black px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+            >
+              Flashcards
             </Link>
             <Link
               to="/about"
