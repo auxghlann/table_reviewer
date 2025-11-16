@@ -227,7 +227,7 @@ export default function StudyMaterials() {
         <section className="py-16 grid-background-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-black border-4 border-black bg-purple-200 inline-block px-8 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <h2 className="text-2xl md:text-3xl font-bold text-black mb-4 inline-block border-b-4 border-black pb-2">
                 Choose a Subject
               </h2>
             </div>
