@@ -28,7 +28,7 @@ export default function SubjectSelection({ setSelectedSubject }) {
       <section className="grid-background py-16 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold mb-6 text-black border-4 border-black bg-white inline-block px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            Choose Your Subject
+            Exam Platform
           </h1>
           <p className="text-xl text-black font-medium max-w-2xl mx-auto mt-8">
             Select from our available examination subjects to test your knowledge and enhance your learning.
