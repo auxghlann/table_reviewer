@@ -16,7 +16,7 @@ const FALLBACK_CONTENT = {
   advancedTopics: "# Advanced Topics\n\nThis section delves into more complex aspects of the subject.\n\n## Complex Ideas\n\n- Advanced concept 1\n- Advanced concept 2\n- Advanced concept 3"
 };
 
-export default function ReviewerSection() {
+export default function StudyMaterials() {
   const { subjectId, materialId } = useParams();
   const navigate = useNavigate();
   const [subjects, setSubjects] = useState([]);

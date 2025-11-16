@@ -11,9 +11,9 @@ const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Login = lazy(() => import("./pages/Login"));
-const SubjectSelection = lazy(() => import("./pages/SubjectSelection"));
+const TakeExam = lazy(() => import("./pages/TakeExam"));
 const ExamEngine = lazy(() => import("./components/ExamEngine"));
-const ReviewerSection = lazy(() => import("./pages/ReviewerSection"));
+const StudyMaterials = lazy(() => import("./pages/StudyMaterials"));
 const Flashcards = lazy(() => import("./pages/Flashcards"));
 
 // Loading Component
@@ -214,22 +214,22 @@ function AppContent() {
             {/* Protected Routes - Require Login */}
             <Route path="/reviewer" element={
               <ProtectedRoute>
-                <ReviewerSection />
+                <StudyMaterials />
               </ProtectedRoute>
             } />
             <Route path="/reviewer/:subjectId" element={
               <ProtectedRoute>
-                <ReviewerSection />
+                <StudyMaterials />
               </ProtectedRoute>
             } />
-            <Route path="/reviewer/:subjectId/:materialId" element={
+            <Route path="/reviewer/:subjectId/:docId" element={
               <ProtectedRoute>
-                <ReviewerSection />
+                <StudyMaterials />
               </ProtectedRoute>
             } />
             <Route path="/exam" element={
               <ProtectedRoute>
-                <SubjectSelection setSelectedSubject={setSelectedSubject} />
+                <TakeExam setSelectedSubject={setSelectedSubject} />
               </ProtectedRoute>
             } />
             <Route path="/exam/:subjectId" element={

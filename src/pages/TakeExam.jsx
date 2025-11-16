@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import subjectsData from "../data/subjects.json";
 
-export default function SubjectSelection({ setSelectedSubject }) {
+export default function TakeExam({ setSelectedSubject }) {
   const navigate = useNavigate();
   
   // Load subjects from JSON file
