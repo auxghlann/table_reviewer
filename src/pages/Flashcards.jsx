@@ -42,11 +42,14 @@ export default function Flashcards() {
         navigate("/flashcards");
       }
     } else {
+      // Clear all state when no subject is selected
       setSelectedSubject(null);
       setGroups([]);
       setSelectedGroup(null);
       setFlashcards([]);
       setCurrentCard(null);
+      setCurrentIndex(0);
+      setIsFlipped(false);
     }
   }, [subjectId, navigate]);
 
@@ -60,10 +63,11 @@ export default function Flashcards() {
       } else {
         navigate(`/flashcards/${subjectId}`);
       }
-    } else if (!groupId && groups.length > 0) {
+    } else if (!groupId) {
       setSelectedGroup(null);
       setFlashcards([]);
       setCurrentCard(null);
+      setCurrentIndex(0);
     }
   }, [groupId, groups, subjectId, navigate]);
 
@@ -75,10 +79,18 @@ export default function Flashcards() {
         setCurrentIndex(index);
         setCurrentCard(flashcards[index]);
         setIsFlipped(false);
+      } else {
+        // Invalid card ID, go back to group selection
+        navigate(`/flashcards/${subjectId}/${groupId}`);
       }
-    } else if (flashcards.length > 0 && !cardId && selectedGroup) {
-      // Auto-select first card
-      navigate(`/flashcards/${subjectId}/${groupId}/1`);
+    } else if (!cardId && flashcards.length > 0 && selectedGroup && groupId) {
+      // Only auto-select first card when we explicitly have a groupId in URL
+      // This prevents auto-navigation when browsing back
+      navigate(`/flashcards/${subjectId}/${groupId}/1`, { replace: true });
+    } else if (!cardId) {
+      setCurrentCard(null);
+      setCurrentIndex(0);
+      setIsFlipped(false);
     }
   }, [cardId, flashcards, selectedGroup, subjectId, groupId, navigate]);
 
@@ -149,7 +161,21 @@ export default function Flashcards() {
   };
 
   const handleBackToGroups = () => {
+    setIsFlipped(false);
+    setCurrentCard(null);
+    setCurrentIndex(0);
     navigate(`/flashcards/${subjectId}`);
+  };
+
+  const handleBackToSubjects = () => {
+    setSelectedSubject(null);
+    setGroups([]);
+    setSelectedGroup(null);
+    setFlashcards([]);
+    setCurrentCard(null);
+    setCurrentIndex(0);
+    setIsFlipped(false);
+    navigate('/flashcards');
   };
 
   return (
@@ -167,7 +193,7 @@ export default function Flashcards() {
       </section>
 
       {/* Subject Selection (when no subject selected) */}
-      {!selectedSubject && (
+      {!subjectId && (
         <section className="py-8 md:py-16 grid-background-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
@@ -204,13 +230,13 @@ export default function Flashcards() {
       )}
 
       {/* Group/Set Selection (when subject is selected but no group selected) */}
-      {selectedSubject && !selectedGroup && (
+      {subjectId && !groupId && selectedSubject && (
         <section className="py-8 md:py-16 grid-background-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="mb-8 flex items-center justify-between flex-wrap gap-4">
               <button
-                onClick={() => navigate('/flashcards')}
+                onClick={handleBackToSubjects}
                 className="bg-white text-black px-3 py-2 md:px-4 md:py-2 text-sm font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center gap-2"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -260,7 +286,7 @@ export default function Flashcards() {
       )}
 
       {/* Flashcard Viewer (when group is selected) */}
-      {selectedSubject && selectedGroup && currentCard && (
+      {subjectId && groupId && cardId && currentCard && (
         <section className="py-8 md:py-16 grid-background-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
