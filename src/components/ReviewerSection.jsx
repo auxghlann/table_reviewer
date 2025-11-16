@@ -24,6 +24,8 @@ export default function ReviewerSection() {
   const [materials, setMaterials] = useState([]);
   const [selectedMaterial, setSelectedMaterial] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [tocOpen, setTocOpen] = useState(true);
+  const [headings, setHeadings] = useState([]);
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -60,6 +62,22 @@ export default function ReviewerSection() {
       }
     }
   }, [materialId, materials]);
+
+  // Extract headings from markdown content for table of contents
+  useEffect(() => {
+    if (content) {
+      const headingRegex = /^(#{1,6})\s+(.+)$/gm;
+      const matches = [...content.matchAll(headingRegex)];
+      const extractedHeadings = matches.map((match, index) => ({
+        level: match[1].length,
+        text: match[2],
+        id: `heading-${index}-${match[2].toLowerCase().replace(/[^\w]+/g, '-')}`
+      }));
+      setHeadings(extractedHeadings);
+    } else {
+      setHeadings([]);
+    }
+  }, [content]);
 
   // Load materials for a subject
   const loadMaterials = async (subjectId) => {
@@ -145,6 +163,51 @@ export default function ReviewerSection() {
     setSidebarOpen(!sidebarOpen);
   };
 
+  const toggleToc = () => {
+    setTocOpen(!tocOpen);
+  };
+
+  const scrollToHeading = (headingId) => {
+    const element = document.getElementById(headingId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // Custom renderers for ReactMarkdown to add IDs to headings
+  const customRenderers = {
+    h1: ({node, children, ...props}) => {
+      const text = children?.toString() || '';
+      const id = `heading-${headings.findIndex(h => h.text === text)}-${text.toLowerCase().replace(/[^\w]+/g, '-')}`;
+      return <h1 id={id} {...props}>{children}</h1>;
+    },
+    h2: ({node, children, ...props}) => {
+      const text = children?.toString() || '';
+      const id = `heading-${headings.findIndex(h => h.text === text)}-${text.toLowerCase().replace(/[^\w]+/g, '-')}`;
+      return <h2 id={id} {...props}>{children}</h2>;
+    },
+    h3: ({node, children, ...props}) => {
+      const text = children?.toString() || '';
+      const id = `heading-${headings.findIndex(h => h.text === text)}-${text.toLowerCase().replace(/[^\w]+/g, '-')}`;
+      return <h3 id={id} {...props}>{children}</h3>;
+    },
+    h4: ({node, children, ...props}) => {
+      const text = children?.toString() || '';
+      const id = `heading-${headings.findIndex(h => h.text === text)}-${text.toLowerCase().replace(/[^\w]+/g, '-')}`;
+      return <h4 id={id} {...props}>{children}</h4>;
+    },
+    h5: ({node, children, ...props}) => {
+      const text = children?.toString() || '';
+      const id = `heading-${headings.findIndex(h => h.text === text)}-${text.toLowerCase().replace(/[^\w]+/g, '-')}`;
+      return <h5 id={id} {...props}>{children}</h5>;
+    },
+    h6: ({node, children, ...props}) => {
+      const text = children?.toString() || '';
+      const id = `heading-${headings.findIndex(h => h.text === text)}-${text.toLowerCase().replace(/[^\w]+/g, '-')}`;
+      return <h6 id={id} {...props}>{children}</h6>;
+    }
+  };
+
   return (
     <div className="min-h-screen grid-background">
       {/* Hero Section */}
@@ -219,7 +282,7 @@ export default function ReviewerSection() {
       {/* Reviewer Section with Sidebar (visible when subject is selected) */}
       {selectedSubject && (
         <div className="flex flex-col md:flex-row min-h-[calc(100vh-20rem)] md:min-h-[calc(100vh-30rem)] bg-white">
-          {/* Sidebar */}
+          {/* Left Sidebar - Materials */}
           <div 
             className={`bg-purple-100 border-b-4 md:border-b-0 md:border-r-4 border-black transition-all duration-300 ${
               sidebarOpen ? 'w-full md:w-80' : 'w-full md:w-0 h-0 md:h-auto overflow-hidden'
@@ -256,100 +319,149 @@ export default function ReviewerSection() {
           </div>
           
           {/* Main Content */}
-          <div className={`flex-grow bg-white transition-all duration-300 w-full md:w-auto ${sidebarOpen ? 'pl-0' : 'pl-0'}`}>
-            {/* Toggle Button and Header */}
-            <div className="bg-purple-100 border-b-4 border-black p-2 md:p-4 flex items-center sticky top-0 z-10 flex-wrap gap-2">
-              <button 
-                onClick={toggleSidebar}
-                className="mr-2 md:mr-4 p-1.5 md:p-2 bg-white border-4 border-black text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex-shrink-0"
-              >
-                {sidebarOpen ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-                  </svg>
-                )}
-              </button>
-              <div className="flex items-center flex-wrap gap-2 md:gap-3 flex-1">
+          <div className="flex-grow bg-white flex flex-col md:flex-row">
+            {/* Content Area */}
+            <div className="flex-grow">
+              {/* Toggle Button and Header */}
+              <div className="bg-purple-100 border-b-4 border-black p-2 md:p-4 flex items-center sticky top-0 z-10 flex-wrap gap-2">
                 <button 
-                  onClick={() => {
-                    setSelectedSubject(null);
-                    setSelectedMaterial(null);
-                    setMaterials([]);
-                    setContent("");
-                    navigate('/reviewer');
-                  }}
-                  className="text-black font-bold bg-white px-2 py-1.5 md:px-4 md:py-2 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all text-xs md:text-sm flex items-center"
+                  onClick={toggleSidebar}
+                  className="mr-2 md:mr-4 p-1.5 md:p-2 bg-white border-4 border-black text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex-shrink-0"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                  </svg>
-                  <span className="hidden sm:inline">Back to Subjects</span>
-                  <span className="sm:hidden">Back</span>
+                  {sidebarOpen ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                  )}
                 </button>
-                
-                {selectedMaterial && (
-                  <h2 className="text-sm md:text-lg font-bold text-black bg-purple-300 px-2 py-1.5 md:px-4 md:py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] line-clamp-1 flex-1 md:flex-none">
-                    {selectedMaterial.title}
-                  </h2>
+                <div className="flex items-center flex-wrap gap-2 md:gap-3 flex-1">
+                  <button 
+                    onClick={() => {
+                      setSelectedSubject(null);
+                      setSelectedMaterial(null);
+                      setMaterials([]);
+                      setContent("");
+                      navigate('/reviewer');
+                    }}
+                    className="text-black font-bold bg-white px-2 py-1.5 md:px-4 md:py-2 border-4 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all text-xs md:text-sm flex items-center"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-4 md:w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    <span className="hidden sm:inline">Back to Subjects</span>
+                    <span className="sm:hidden">Back</span>
+                  </button>
+                  
+                  {selectedMaterial && (
+                    <h2 className="text-sm md:text-lg font-bold text-black bg-purple-300 px-2 py-1.5 md:px-4 md:py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] line-clamp-1 flex-1 md:flex-none">
+                      {selectedMaterial.title}
+                    </h2>
+                  )}
+                </div>
+              </div>
+              
+              {/* Rendered Markdown Content */}
+              <div className="p-3 md:p-6">
+                {isLoading ? (
+                  <div className="flex justify-center items-center h-64">
+                    <div className="w-12 h-12 md:w-16 md:h-16 border-4 border-black border-t-purple-500 animate-spin"></div>
+                  </div>
+                ) : error ? (
+                  <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 md:p-6 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10 text-purple-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <h3 className="text-base md:text-lg font-bold text-black mb-2">{error}</h3>
+                    <button 
+                      onClick={() => loadMaterials(selectedSubject.id)} 
+                      className="mt-3 px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base bg-purple-500 text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+                    >
+                      Try Again
+                    </button>
+                  </div>
+                ) : selectedMaterial ? (
+                  <div className="max-w-none overflow-x-hidden">
+                    <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 md:p-8">
+                      <ErrorBoundary 
+                        resetAction={() => setContent(selectedMaterial.content)}
+                        fallbackAction={() => setContent(String(selectedMaterial.content || '').replace(/[#*_`]/g, ''))}
+                        showDetails={false}
+                      >
+                        {/* Wrap in div with markdown class since react-markdown v10+ doesn't accept className prop */}
+                        <div className="markdown">
+                          <ReactMarkdown 
+                            key={selectedMaterial.id}
+                            remarkPlugins={[remarkGfm]}
+                            components={customRenderers}
+                          >
+                            {String(content || selectedMaterial.content || '')}
+                          </ReactMarkdown>
+                        </div>
+                      </ErrorBoundary>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="text-center py-12">
+                    <div className="text-4xl mb-4">📚</div>
+                    <h3 className="text-xl font-bold text-black mb-2 bg-white inline-block px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                      Select a material to start reviewing
+                    </h3>
+                    <p className="text-black font-medium mt-4">
+                      Choose from the materials list in the sidebar to view content
+                    </p>
+                  </div>
                 )}
               </div>
             </div>
-            
-            {/* Rendered Markdown Content */}
-            <div className="p-3 md:p-6">
-              {isLoading ? (
-                <div className="flex justify-center items-center h-64">
-                  <div className="w-12 h-12 md:w-16 md:h-16 border-4 border-black border-t-purple-500 animate-spin"></div>
-                </div>
-              ) : error ? (
-                <div className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 md:p-6 text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 md:h-10 md:w-10 text-purple-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
-                  <h3 className="text-base md:text-lg font-bold text-black mb-2">{error}</h3>
+
+            {/* Right Sidebar - Table of Contents */}
+            {selectedMaterial && headings.length > 0 && (
+              <div 
+                className={`bg-purple-50 border-t-4 md:border-t-0 md:border-l-4 border-black transition-all duration-300 ${
+                  tocOpen ? 'w-full md:w-64' : 'w-full md:w-0 h-0 md:h-auto overflow-hidden'
+                }`}
+              >
+                <div className="p-3 md:p-4 border-b-4 border-black bg-purple-200 flex items-center justify-between sticky top-0">
+                  <h4 className="text-xs md:text-sm font-bold text-black">ON THIS PAGE</h4>
                   <button 
-                    onClick={() => loadMaterials(selectedSubject.id)} 
-                    className="mt-3 px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base bg-purple-500 text-white font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+                    onClick={toggleToc}
+                    className="md:hidden p-1 bg-white border-2 border-black"
                   >
-                    Try Again
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d={tocOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
+                    </svg>
                   </button>
                 </div>
-              ) : selectedMaterial ? (
-                <div className="max-w-none overflow-x-hidden">
-                  <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 md:p-8">
-                    <ErrorBoundary 
-                      resetAction={() => setContent(selectedMaterial.content)}
-                      fallbackAction={() => setContent(String(selectedMaterial.content || '').replace(/[#*_`]/g, ''))}
-                      showDetails={false}
-                    >
-                      {/* Wrap in div with markdown class since react-markdown v10+ doesn't accept className prop */}
-                      <div className="markdown">
-                        <ReactMarkdown 
-                          key={selectedMaterial.id}
-                          remarkPlugins={[remarkGfm]}
+                
+                <nav className="p-3 md:p-4 max-h-[calc(100vh-20rem)] overflow-y-auto">
+                  <ul className="space-y-1">
+                    {headings.map((heading, index) => (
+                      <li 
+                        key={index}
+                        style={{ paddingLeft: `${(heading.level - 1) * 0.75}rem` }}
+                      >
+                        <button
+                          onClick={() => scrollToHeading(heading.id)}
+                          className={`text-left w-full text-xs md:text-sm py-1.5 px-2 border-l-4 transition-all ${
+                            heading.level === 1 
+                              ? 'border-purple-600 font-bold text-black hover:bg-purple-200' 
+                              : heading.level === 2
+                              ? 'border-purple-400 font-semibold text-black hover:bg-purple-100'
+                              : 'border-purple-200 text-gray-700 hover:bg-purple-50'
+                          }`}
                         >
-                          {String(content || selectedMaterial.content || '')}
-                        </ReactMarkdown>
-                      </div>
-                    </ErrorBoundary>
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center py-12">
-                  <div className="text-4xl mb-4">📚</div>
-                  <h3 className="text-xl font-bold text-black mb-2 bg-white inline-block px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    Select a material to start reviewing
-                  </h3>
-                  <p className="text-black font-medium mt-4">
-                    Choose from the materials list in the sidebar to view content
-                  </p>
-                </div>
-              )}
-            </div>
+                          {heading.text}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+            )}
           </div>
         </div>
       )}
