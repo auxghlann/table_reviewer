@@ -1,5 +1,8 @@
 {
-  "subject": "CS Elective 3",
+  "id": "machine-learning",
+  "title": "Machine Learning Basics",
+  "description": "Fundamental concepts of machine learning and AI",
+  "icon": "🤖",
   "flashcards": [
     {
       "id": 1,

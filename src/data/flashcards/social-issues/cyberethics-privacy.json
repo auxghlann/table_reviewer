@@ -1,5 +1,8 @@
 {
-  "subject": "Social Issues",
+  "id": "cyberethics-privacy",
+  "title": "Cyberethics & Privacy",
+  "description": "Ethical issues and privacy concerns in digital society",
+  "icon": "🌐",
   "flashcards": [
     {
       "id": 1,

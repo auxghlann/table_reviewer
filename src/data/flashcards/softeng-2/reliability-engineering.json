@@ -1,0 +1,138 @@
+{
+  "id": "reliability-engineering",
+  "title": "Reliability Engineering",
+  "description": "Metrics, testing, and engineering practices for reliable systems",
+  "icon": "📊",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "What measures consistent performance, as distinct from availability (uptime)?",
+      "back": "Reliability"
+    },
+    {
+      "id": 2,
+      "front": "What concept assumes failures are inevitable and focuses on recovery and continued service?",
+      "back": "Resilience"
+    },
+    {
+      "id": 3,
+      "front": "The process of verifying or confirming the identity of users or systems before granting access.",
+      "back": "Authentication"
+    },
+    {
+      "id": 4,
+      "front": "What practice promotes/improves reliability and reduces cost by using (reusing) proven, tested components?",
+      "back": "Software reuse"
+    },
+    {
+      "id": 5,
+      "front": "What type of processes must be well-documented, standardized, repeatable, and auditable to ensure consistent performance?",
+      "back": "Dependable processes"
+    },
+    {
+      "id": 6,
+      "front": "What are the two main strategies for increasing dependability and reducing the risk of total failure?",
+      "back": "Redundancy and diversity"
+    },
+    {
+      "id": 7,
+      "front": "What are common threats to system dependability?",
+      "back": "Human error and malicious attacks"
+    },
+    {
+      "id": 8,
+      "front": "What methods can mathematically prove that a program meets its specification and logical correctness?",
+      "back": "Formal verification methods"
+    },
+    {
+      "id": 9,
+      "front": "Prevents errors during design and development through reviews and inspections.",
+      "back": "Fault Avoidance"
+    },
+    {
+      "id": 10,
+      "front": "Handles errors at runtime, ensuring the system remains operational.",
+      "back": "Fault Tolerance"
+    },
+    {
+      "id": 11,
+      "front": "Identifies and isolates problems for correction.",
+      "back": "Fault Detection"
+    },
+    {
+      "id": 12,
+      "front": "Specifies how the system restores functions after an error.",
+      "back": "Recovery Requirement"
+    },
+    {
+      "id": 13,
+      "front": "The resilience process phase involving early detection of failures or attacks.",
+      "back": "Recognition Phase"
+    },
+    {
+      "id": 14,
+      "front": "The process of restoring full functionality after recovery.",
+      "back": "Reinstatement"
+    },
+    {
+      "id": 15,
+      "front": "Uses multiple, diverse software versions, developed independently and running in parallel, to increase reliability and detect faults.",
+      "back": "N-Version Programming"
+    },
+    {
+      "id": 16,
+      "front": "A reliability metric representing the number of system failures per unit of operational time; measures how often failures occur.",
+      "back": "ROCOF (Rate of Occurrence of Failures)"
+    },
+    {
+      "id": 17,
+      "front": "The chance that a system will fail when a service request is made (e.g., 0.001 = 1/1000).",
+      "back": "POFOD (Probability of Failure on Demand)"
+    },
+    {
+      "id": 18,
+      "front": "A metric used for continuous service systems (like VisaNet) that measures service uptime.",
+      "back": "AVAIL (Availability Metric)"
+    },
+    {
+      "id": 19,
+      "front": "Ensures that users cannot deny performing specific actions (supports accountability).",
+      "back": "Non-Repudiation"
+    },
+    {
+      "id": 20,
+      "front": "Enforces legal and industry standards to ensure systems meet safety/security requirements and that organizations follow established laws.",
+      "back": "Regulation and Compliance"
+    },
+    {
+      "id": 21,
+      "front": "A formal, documented set of organizational rules that define data protection, access control, and information handling; ensures standard and compliant security practices.",
+      "back": "Security Policy"
+    },
+    {
+      "id": 22,
+      "front": "Identifies potential threats, vulnerabilities, and impacts to mitigate risks effectively.",
+      "back": "Risk Assessment"
+    },
+    {
+      "id": 23,
+      "front": "The discipline dedicated to designing, implementing, and maintaining systems protected against attacks, keeping them dependable and resilient; applies protection measures across the system's life cycle.",
+      "back": "Security Engineering"
+    },
+    {
+      "id": 24,
+      "front": "Involves policies, training, and procedures that minimize human-related risks.",
+      "back": "Human and Organizational Security"
+    },
+    {
+      "id": 25,
+      "front": "What are examples of dependability threats that may compromise system integrity?",
+      "back": "Technical faults, human errors, and intentional attacks"
+    },
+    {
+      "id": 26,
+      "front": "What are among the most common causes of cybersecurity incidents?",
+      "back": "Human error and poor system design"
+    }
+  ]
+}

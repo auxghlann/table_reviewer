@@ -1,0 +1,143 @@
+{
+  "id": "dependable-systems",
+  "title": "Dependable Systems",
+  "description": "Core concepts of system dependability, reliability, and fault tolerance",
+  "icon": "🛡️",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "Uses spare or backup components to prevent total system failure when one part fails, strengthening dependability and ensuring service continuity.",
+      "back": "Redundancy"
+    },
+    {
+      "id": 2,
+      "front": "Refers to operational readiness or system uptime; measures how often the system is accessible when needed (e.g., 99.999% uptime).",
+      "back": "Availability"
+    },
+    {
+      "id": 3,
+      "front": "The system's ability to continue operating correctly even when hardware or software faults occur, ensuring continuity and control.",
+      "back": "Fault Tolerance"
+    },
+    {
+      "id": 4,
+      "front": "Ensures that information is accessible only to authorized users; protects data from unauthorized access, disclosure, and maintains privacy.",
+      "back": "Confidentiality"
+    },
+    {
+      "id": 5,
+      "front": "Detects invalid or incorrect inputs before processing; supports data validation.",
+      "back": "Checking Requirement"
+    },
+    {
+      "id": 6,
+      "front": "The capacity to maintain service and functionality under stress, attacks, or partial failures; emphasizes anticipating, resisting, recovering, and reinstating systems.",
+      "back": "Resilience"
+    },
+    {
+      "id": 7,
+      "front": "Guards the system's integrity, protecting data, processes, and users from internal and external threats; an essential part of dependability.",
+      "back": "Security"
+    },
+    {
+      "id": 8,
+      "front": "The process of restoring critical services and operations after a system disruption.",
+      "back": "Recovery"
+    },
+    {
+      "id": 9,
+      "front": "The system's ability to provide limited or partial operation after a failure or attack.",
+      "back": "Survivability"
+    },
+    {
+      "id": 10,
+      "front": "Ensures the system operates without causing harm to people, property, or the environment.",
+      "back": "Safety"
+    },
+    {
+      "id": 11,
+      "front": "Refers to how easily a system can be repaired or modified after failure.",
+      "back": "Maintainability"
+    },
+    {
+      "id": 12,
+      "front": "Ensures data remains accurate, consistent, and unaltered by unauthorized users.",
+      "back": "Integrity"
+    },
+    {
+      "id": 13,
+      "front": "The discipline that focuses on a system's ability to recognize, resist, recover, and reinstate operations during and after disruptions, supporting continuous service.",
+      "back": "Resilience Engineering"
+    },
+    {
+      "id": 14,
+      "front": "Represents justified confidence in the system's ability to operate correctly and reliably; focuses on reliability, safety, and security, not just performance speed.",
+      "back": "Dependability"
+    },
+    {
+      "id": 15,
+      "front": "Recognize that dependability depends on people, processes, and technology working together.",
+      "back": "Sociotechnical Systems"
+    },
+    {
+      "id": 16,
+      "front": "Uses different components or versions to prevent common-mode failures.",
+      "back": "Diversity"
+    },
+    {
+      "id": 17,
+      "front": "The challenge of reusing software that requires significant modification for new contexts.",
+      "back": "Adaptation Cost"
+    },
+    {
+      "id": 18,
+      "front": "Legal or formal actions ensuring compliance with safety and security standards.",
+      "back": "Regulatory Enforcement"
+    },
+    {
+      "id": 19,
+      "front": "Steps within resilience to restore and fully reestablish services after disruption.",
+      "back": "Recovery and Reinstatement"
+    },
+    {
+      "id": 20,
+      "front": "What is promoted by systems or logs that record user activities, especially within security operations?",
+      "back": "Accountability and traceability"
+    },
+    {
+      "id": 21,
+      "front": "What strategy strengthens dependability by preventing total system failure through backups?",
+      "back": "Redundancy"
+    },
+    {
+      "id": 22,
+      "front": "What type of system automatically detects, manages, and recovers from faults during operation without a full shutdown?",
+      "back": "Fault-tolerant system"
+    },
+    {
+      "id": 23,
+      "front": "What concept focuses on limiting information access to authorized entities?",
+      "back": "Confidentiality"
+    },
+    {
+      "id": 24,
+      "front": "What mathematical approaches complement testing by verifying or proving system/software correctness?",
+      "back": "Formal methods"
+    },
+    {
+      "id": 25,
+      "front": "What type of system includes the interaction and combination of people (human), technology (technical), and organizational structure to achieve dependability?",
+      "back": "Sociotechnical system"
+    },
+    {
+      "id": 26,
+      "front": "What ensures that systems follow safety, legal, and regulatory standards?",
+      "back": "Compliance"
+    },
+    {
+      "id": 27,
+      "front": "What measures uptime, as distinct from reliability (consistent performance)?",
+      "back": "Availability"
+    }
+  ]
+}

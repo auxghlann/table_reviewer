@@ -1,5 +1,8 @@
 {
-  "subject": "Ethics",
+  "id": "professional-ethics",
+  "title": "Professional Ethics",
+  "description": "Core ethical principles and professional conduct",
+  "icon": "⚖️",
   "flashcards": [
     {
       "id": 1,
