@@ -3,9 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import subjectsData from "../data/subjects.json";
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "../components/ErrorBoundary";
 import { loadReviewMaterials, createFallbackMaterial } from "../utils/contentLoader";
-import "./markdown.css";
+import "../components/markdown.css";
 
 // Fallback content in case of loading errors
 const FALLBACK_CONTENT = {

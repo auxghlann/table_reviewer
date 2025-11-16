@@ -13,7 +13,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Login = lazy(() => import("./pages/Login"));
 const SubjectSelection = lazy(() => import("./pages/SubjectSelection"));
 const ExamEngine = lazy(() => import("./components/ExamEngine"));
-const ReviewerSection = lazy(() => import("./components/ReviewerSection"));
+const ReviewerSection = lazy(() => import("./pages/ReviewerSection"));
 const Flashcards = lazy(() => import("./pages/Flashcards"));
 
 // Loading Component
@@ -247,7 +247,12 @@ function AppContent() {
                 <Flashcards />
               </ProtectedRoute>
             } />
-            <Route path="/flashcards/:subjectId/:cardId" element={
+            <Route path="/flashcards/:subjectId/:groupId" element={
+              <ProtectedRoute>
+                <Flashcards />
+              </ProtectedRoute>
+            } />
+            <Route path="/flashcards/:subjectId/:groupId/:cardId" element={
               <ProtectedRoute>
                 <Flashcards />
               </ProtectedRoute>
