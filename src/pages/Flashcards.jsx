@@ -2,11 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import subjectsData from "../data/subjects.json";
 
+/**
+ * Flashcards Component with Grouping Architecture
+ * 
+ * Structure:
+ * 1. Subject Selection - Shows all available subjects as square cards
+ * 2. Group Selection - Shows flashcard sets within the selected subject as square cards
+ * 3. Flashcard Viewer - Shows individual flashcards with flip animation
+ * 
+ * File Organization:
+ * - Each subject has its own folder: /data/flashcards/{subject-id}/
+ * - Each flashcard set is a separate JSON file within the subject folder
+ * - Files are dynamically loaded using Vite's glob import
+ */
 export default function Flashcards() {
-  const { subjectId, cardId } = useParams();
+  const { subjectId, groupId, cardId } = useParams();
   const navigate = useNavigate();
   const [subjects, setSubjects] = useState([]);
   const [selectedSubject, setSelectedSubject] = useState(null);
+  const [groups, setGroups] = useState([]);
+  const [selectedGroup, setSelectedGroup] = useState(null);
   const [flashcards, setFlashcards] = useState([]);
   const [currentCard, setCurrentCard] = useState(null);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -22,16 +37,35 @@ export default function Flashcards() {
       const subject = subjectsData.find(s => s.id === subjectId);
       if (subject) {
         setSelectedSubject(subject);
-        loadFlashcards(subjectId);
+        loadGroups(subjectId);
       } else {
         navigate("/flashcards");
       }
     } else {
       setSelectedSubject(null);
+      setGroups([]);
+      setSelectedGroup(null);
       setFlashcards([]);
       setCurrentCard(null);
     }
   }, [subjectId, navigate]);
+
+  // Handle group selection from URL
+  useEffect(() => {
+    if (groupId && groups.length > 0) {
+      const group = groups.find(g => g.id === groupId);
+      if (group) {
+        setSelectedGroup(group);
+        setFlashcards(group.flashcards || []);
+      } else {
+        navigate(`/flashcards/${subjectId}`);
+      }
+    } else if (!groupId && groups.length > 0) {
+      setSelectedGroup(null);
+      setFlashcards([]);
+      setCurrentCard(null);
+    }
+  }, [groupId, groups, subjectId, navigate]);
 
   // Handle card navigation from URL
   useEffect(() => {
@@ -42,45 +76,58 @@ export default function Flashcards() {
         setCurrentCard(flashcards[index]);
         setIsFlipped(false);
       }
-    } else if (flashcards.length > 0 && !cardId && selectedSubject) {
+    } else if (flashcards.length > 0 && !cardId && selectedGroup) {
       // Auto-select first card
-      navigate(`/flashcards/${subjectId}/1`);
+      navigate(`/flashcards/${subjectId}/${groupId}/1`);
     }
-  }, [cardId, flashcards, selectedSubject, subjectId, navigate]);
+  }, [cardId, flashcards, selectedGroup, subjectId, groupId, navigate]);
 
-  const loadFlashcards = async (subjectId) => {
+  const loadGroups = async (subjectId) => {
     try {
-      let flashcardsModule;
+      let flashcardFiles;
       
+      // Use Vite's glob import to get all flashcard files for the subject
       switch (subjectId) {
         case 'softeng-2':
-          flashcardsModule = await import('../data/flashcards/softeng2_flashcards.json');
+          flashcardFiles = import.meta.glob('../data/flashcards/softeng-2/*.json', { eager: true });
           break;
         case 'cs-elective-3':
-          flashcardsModule = await import('../data/flashcards/elective3_flashcards.json');
+          flashcardFiles = import.meta.glob('../data/flashcards/cs-elective-3/*.json', { eager: true });
           break;
         case 'social-issues':
-          flashcardsModule = await import('../data/flashcards/soci_flashcards.json');
+          flashcardFiles = import.meta.glob('../data/flashcards/social-issues/*.json', { eager: true });
           break;
         case 'ethics':
-          flashcardsModule = await import('../data/flashcards/ethics_flashcards.json');
+          flashcardFiles = import.meta.glob('../data/flashcards/ethics/*.json', { eager: true });
           break;
         default:
           console.error('Unknown subject ID:', subjectId);
-          setFlashcards([]);
+          setGroups([]);
           return;
       }
       
-      const data = flashcardsModule.default || flashcardsModule;
-      setFlashcards(data.flashcards || []);
+      // Convert the files object to an array of groups
+      const groupsArray = Object.values(flashcardFiles).map(module => {
+        const data = module.default || module;
+        return {
+          ...data,
+          cardCount: data.flashcards?.length || 0
+        };
+      });
+      
+      setGroups(groupsArray);
     } catch (error) {
-      console.error('Error loading flashcards:', error);
-      setFlashcards([]);
+      console.error('Error loading flashcard groups:', error);
+      setGroups([]);
     }
   };
 
   const handleSubjectSelect = (subject) => {
     navigate(`/flashcards/${subject.id}`);
+  };
+
+  const handleGroupSelect = (group) => {
+    navigate(`/flashcards/${subjectId}/${group.id}`);
   };
 
   const handleCardClick = () => {
@@ -90,19 +137,19 @@ export default function Flashcards() {
   const handleNext = () => {
     if (currentIndex < flashcards.length - 1) {
       const newIndex = currentIndex + 1;
-      navigate(`/flashcards/${subjectId}/${newIndex + 1}`);
+      navigate(`/flashcards/${subjectId}/${groupId}/${newIndex + 1}`);
     }
   };
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
       const newIndex = currentIndex - 1;
-      navigate(`/flashcards/${subjectId}/${newIndex + 1}`);
+      navigate(`/flashcards/${subjectId}/${groupId}/${newIndex + 1}`);
     }
   };
 
-  const handleBackToSubjects = () => {
-    navigate('/flashcards');
+  const handleBackToGroups = () => {
+    navigate(`/flashcards/${subjectId}`);
   };
 
   return (
@@ -121,31 +168,30 @@ export default function Flashcards() {
 
       {/* Subject Selection (when no subject selected) */}
       {!selectedSubject && (
-        <section className="py-16 grid-background-white">
+        <section className="py-8 md:py-16 grid-background-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-black mb-4 inline-block border-b-4 border-black pb-2">
                 Choose a Subject
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {subjects.map((subject) => (
                 <div
                   key={subject.id}
-                  className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all overflow-hidden cursor-pointer"
+                  className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all cursor-pointer group aspect-square flex flex-col"
                   onClick={() => handleSubjectSelect(subject)}
                 >
-                  <div className="bg-purple-200 border-b-4 border-black p-4 flex items-center">
-                    <span className="text-4xl mr-4">{subject.icon}</span>
-                    <div>
-                      <h3 className="text-xl font-bold text-black">{subject.title}</h3>
-                      <p className="text-sm text-black font-medium">{subject.code}</p>
-                    </div>
+                  <div className="bg-purple-200 border-b-4 border-black p-3 md:p-4 flex items-center justify-center">
+                    <span className="text-4xl md:text-5xl">{subject.icon}</span>
                   </div>
-                  <div className="p-6">
-                    <p className="text-black font-medium mb-4">{subject.description}</p>
-                    <button className="w-full bg-purple-500 text-white py-2 text-sm font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-                      Study Flashcards
+                  <div className="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-sm md:text-base font-bold text-black mb-1 line-clamp-2">{subject.title}</h3>
+                      <p className="text-xs text-black font-medium opacity-70">{subject.code}</p>
+                    </div>
+                    <button className="w-full bg-purple-500 text-white py-1.5 md:py-2 text-xs md:text-sm font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all mt-2">
+                      View Sets
                     </button>
                   </div>
                 </div>
@@ -155,15 +201,15 @@ export default function Flashcards() {
         </section>
       )}
 
-      {/* Flashcard Viewer (when subject is selected) */}
-      {selectedSubject && currentCard && (
-        <section className="py-16 grid-background-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Group/Set Selection (when subject is selected but no group selected) */}
+      {selectedSubject && !selectedGroup && (
+        <section className="py-8 md:py-16 grid-background-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="mb-8 flex items-center justify-between flex-wrap gap-4">
               <button
-                onClick={handleBackToSubjects}
-                className="bg-white text-black px-4 py-2 font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center gap-2"
+                onClick={() => navigate('/flashcards')}
+                className="bg-white text-black px-3 py-2 md:px-4 md:py-2 text-sm font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center gap-2"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -171,8 +217,61 @@ export default function Flashcards() {
                 Back to Subjects
               </button>
               <div className="flex items-center gap-3">
-                <span className="text-2xl">{selectedSubject.icon}</span>
+                <span className="text-2xl md:text-3xl">{selectedSubject.icon}</span>
                 <h2 className="text-xl md:text-2xl font-bold text-black">{selectedSubject.title}</h2>
+              </div>
+            </div>
+
+            <div className="text-center mb-8">
+              <h3 className="text-xl md:text-2xl font-bold text-black mb-2 inline-block border-b-4 border-black pb-2">
+                Choose a Flashcard Set
+              </h3>
+              <p className="text-sm md:text-base text-black font-medium mt-3">
+                Select a set to start studying
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {groups.map((group) => (
+                <div
+                  key={group.id}
+                  className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all cursor-pointer group aspect-square flex flex-col"
+                  onClick={() => handleGroupSelect(group)}
+                >
+                  <div className="bg-purple-300 border-b-4 border-black p-3 md:p-4 flex items-center justify-center flex-grow">
+                    <span className="text-5xl md:text-6xl">{group.icon}</span>
+                  </div>
+                  <div className="p-3 md:p-4 bg-purple-100">
+                    <h4 className="text-sm md:text-base font-bold text-black mb-1 line-clamp-2">{group.title}</h4>
+                    <p className="text-xs text-black font-medium">
+                      {group.cardCount} {group.cardCount === 1 ? 'card' : 'cards'}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Flashcard Viewer (when group is selected) */}
+      {selectedSubject && selectedGroup && currentCard && (
+        <section className="py-8 md:py-16 grid-background-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header */}
+            <div className="mb-8 flex items-center justify-between flex-wrap gap-4">
+              <button
+                onClick={handleBackToGroups}
+                className="bg-white text-black px-3 py-2 md:px-4 md:py-2 text-sm font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Sets
+              </button>
+              <div className="flex items-center gap-2 md:gap-3 flex-wrap">
+                <span className="text-xl md:text-2xl">{selectedGroup.icon}</span>
+                <h2 className="text-lg md:text-xl font-bold text-black">{selectedGroup.title}</h2>
               </div>
             </div>
 
