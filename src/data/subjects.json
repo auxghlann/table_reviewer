@@ -8,6 +8,7 @@
     "duration": "Self-paced",
     "difficulty": "Beginner",
     "icon": "⚙️",
+    "svgIcon": "/subject_icon/soft-eng.svg",
     "color": "from-teal-500 to-cyan-600",
     "questionsFile": "/src/data/questions/softeng2_prelims.json"
   },
@@ -20,6 +21,7 @@
     "duration": "Self-paced",
     "difficulty": "Intermediate",
     "icon": "🤖",
+    "svgIcon": "/subject_icon/cs-elective.svg",
     "color": "from-blue-500 to-indigo-600",
     "questionsFile": "/src/data/questions/elective3_prelims.json"
   },
@@ -32,6 +34,7 @@
     "duration": "Self-paced",
     "difficulty": "Beginner",
     "icon": "🌍",
+    "svgIcon": "/subject_icon/social issues.svg",
     "color": "from-green-500 to-emerald-600",
     "questionsFile": "/src/data/questions/soci_prelims.json"
   },
@@ -44,6 +47,7 @@
     "duration": "Self-paced",
     "difficulty": "Intermediate",
     "icon": "⚖️",
+    "svgIcon": "/subject_icon/ethics.svg",
     "color": "from-purple-500 to-violet-600",
     "questionsFile": "/src/data/questions/ethics_prelims.json"
   }

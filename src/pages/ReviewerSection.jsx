@@ -231,46 +231,26 @@ export default function ReviewerSection() {
                 Choose a Subject
               </h2>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {subjects.map((subject) => (
                 <div
                   key={subject.id}
                   onClick={() => handleSubjectSelect(subject)}
-                  className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all cursor-pointer"
+                  className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all cursor-pointer aspect-square flex flex-col"
                 >
-                  {/* Card Header */}
-                  <div className="bg-purple-300 p-4 border-b-4 border-black">
-                    <div className="flex items-center mb-2">
-                      <div className="text-3xl">{subject.icon}</div>
-                      <h3 className="text-xl font-bold ml-3 text-black">{subject.title}</h3>
-                    </div>
+                  {/* SVG Logo Area - Takes up most of the card */}
+                  <div className="flex-1 flex items-center justify-center p-6 md:p-8 bg-gradient-to-br from-purple-50 to-white overflow-hidden">
+                    <img 
+                      src={subject.svgIcon} 
+                      alt={subject.title}
+                      className="w-full h-full object-contain drop-shadow-lg"
+                    />
                   </div>
-                  
-                  {/* Card Body */}
-                  <div className="p-5">
-                    <p className="text-black font-medium text-sm mb-4">
-                      Review materials for {subject.title}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {subject.topics.slice(0, 2).map((topic, index) => (
-                        <span
-                          key={index}
-                          className="px-2 py-1 bg-purple-100 text-black font-medium border-2 border-black text-xs"
-                        >
-                          {topic}
-                        </span>
-                      ))}
-                      {subject.topics.length > 2 && (
-                        <span className="px-2 py-1 bg-purple-200 text-black font-medium border-2 border-black text-xs">
-                          +{subject.topics.length - 2} more
-                        </span>
-                      )}
-                    </div>
-                    <button
-                      className="w-full bg-purple-500 text-white py-2 text-sm font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
-                    >
-                      View Materials
-                    </button>
+                  {/* Title Area at Bottom - Fixed height */}
+                  <div className="bg-gradient-to-r from-purple-600 to-purple-500 border-t-4 border-black p-3 md:p-4 flex-shrink-0">
+                    <h3 className="text-xs md:text-sm lg:text-base font-bold text-white text-center leading-tight">
+                      {subject.title}
+                    </h3>
                   </div>
                 </div>
               ))}
@@ -290,8 +270,12 @@ export default function ReviewerSection() {
           >
             <div className="p-3 md:p-4 border-b-4 border-black bg-purple-200">
               <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <span className="text-xl md:text-2xl mr-2">{selectedSubject.icon}</span>
+                <div className="flex items-center gap-2">
+                  <img 
+                    src={selectedSubject.svgIcon} 
+                    alt={selectedSubject.title}
+                    className="w-6 h-6 md:w-8 md:h-8 object-contain"
+                  />
                   <h3 className="text-sm md:text-base font-bold truncate text-black">{selectedSubject.title}</h3>
                 </div>
               </div>
