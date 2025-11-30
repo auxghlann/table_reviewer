@@ -1,0 +1,108 @@
+{
+  "id": "internet-anonymity-concepts",
+  "title": "Internet Anonymity",
+  "description": "Key concepts related to online anonymity, privacy layers, and anonymity tools.",
+  "icon": "🕶️",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "The state of protecting a user's identity while still allowing them to interact, communicate, or access services online.",
+      "back": "Anonymity"
+    },
+    {
+      "id": 2,
+      "front": "A concept that shares similarities with Rebus puzzles—both involve hidden information, careful interpretation, and critical thinking.",
+      "back": "Internet Anonymity"
+    },
+    {
+      "id": 3,
+      "front": "A type of anonymity where the user's identity is fully hidden with no traceable actions, often achieved with strict tools like Tor.",
+      "back": "Complete Anonymity"
+    },
+    {
+      "id": 4,
+      "front": "Adopting a consistent fake identity—such as a username or avatar—that builds reputation without linking to real identity.",
+      "back": "Pseudonymity"
+    },
+    {
+      "id": 5,
+      "front": "The form of anonymity where even with a fake name, identity can be uncovered through behavioral patterns or metadata.",
+      "back": "Pseudonymity"
+    },
+    {
+      "id": 6,
+      "front": "Hiding only select information (e.g., name, cookies) while leaving other details like IP or location exposed.",
+      "back": "Partial / Selective Anonymity"
+    },
+    {
+      "id": 7,
+      "front": "A situation where anonymity changes depending on the activity, such as being anonymous in comments but identified when purchasing online.",
+      "back": "Contextual Anonymity"
+    },
+    {
+      "id": 8,
+      "front": "The technical layer of anonymity focused on hiding the user's IP address using tools like VPNs, proxies, or Tor.",
+      "back": "IP-level Anonymity"
+    },
+    {
+      "id": 9,
+      "front": "The practice of minimizing identifiable behavioral patterns like typing speed or browsing style to resist fingerprinting.",
+      "back": "Behavioral Anonymity"
+    },
+    {
+      "id": 10,
+      "front": "A tool that routes traffic through a single secure server to hide your IP, often used for privacy and bypassing restrictions.",
+      "back": "VPN (Virtual Private Network)"
+    },
+    {
+      "id": 11,
+      "front": "A tool that routes traffic through multiple nodes around the world, encrypting data in layers to maximize anonymity.",
+      "back": "Tor (The Onion Router)"
+    },
+    {
+      "id": 12,
+      "front": "The tool that is generally faster and preferred for activities like gaming or streaming.",
+      "back": "VPN"
+    },
+    {
+      "id": 13,
+      "front": "A privacy tool where the provider could still see your data if they log activity, requiring trust in the service.",
+      "back": "VPN"
+    },
+    {
+      "id": 14,
+      "front": "The tool best suited for high-risk anonymity needs like activism, whistleblowing, and avoiding identity exposure.",
+      "back": "Tor"
+    },
+    {
+      "id": 15,
+      "front": "The technical layer of anonymity that focuses on hiding the user's IP address using tools like VPNs, Tor, or proxy servers.",
+      "back": "IP-level Anonymity"
+    },
+    {
+      "id": 16,
+      "front": "The practice of avoiding specific patterns (like typing speed or browsing habits) that could link actions to a specific identity to counter fingerprinting.",
+      "back": "Behavioral Anonymity"
+    },
+    {
+      "id": 17,
+      "front": "A tool that creates a secure tunnel and routes traffic through ONE private server to hide your IP address.",
+      "back": "VPN (Virtual Private Network)"
+    },
+    {
+      "id": 18,
+      "front": "Which tool is considered the BEST for a balance of PRIVACY + SPEED?",
+      "back": "VPN"
+    },
+    {
+      "id": 19,
+      "front": "Which tool is considered the BEST for ANONYMITY + HIDING IDENTITY?",
+      "back": "Tor"
+    },
+    {
+      "id": 20,
+      "front": "This puzzle concept is analogous to internet anonymity because both involve hidden information, critical thinking, and careful interpretation.",
+      "back": "Rebus Puzzle"
+    }
+  ]
+}
