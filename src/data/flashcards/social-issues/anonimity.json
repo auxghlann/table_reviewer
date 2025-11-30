@@ -76,33 +76,28 @@
     },
     {
       "id": 15,
-      "front": "The technical layer of anonymity that focuses on hiding the user's IP address using tools like VPNs, Tor, or proxy servers.",
-      "back": "IP-level Anonymity"
-    },
-    {
-      "id": 16,
-      "front": "The practice of avoiding specific patterns (like typing speed or browsing habits) that could link actions to a specific identity to counter fingerprinting.",
-      "back": "Behavioral Anonymity"
-    },
-    {
-      "id": 17,
       "front": "A tool that creates a secure tunnel and routes traffic through ONE private server to hide your IP address.",
       "back": "VPN (Virtual Private Network)"
     },
     {
-      "id": 18,
+      "id": 16,
       "front": "Which tool is considered the BEST for a balance of PRIVACY + SPEED?",
       "back": "VPN"
     },
     {
-      "id": 19,
+      "id": 17,
       "front": "Which tool is considered the BEST for ANONYMITY + HIDING IDENTITY?",
       "back": "Tor"
     },
     {
-      "id": 20,
+      "id": 18,
       "front": "This puzzle concept is analogous to internet anonymity because both involve hidden information, critical thinking, and careful interpretation.",
       "back": "Rebus Puzzle"
+    },
+    {
+      "id": 19,
+      "front": "The technical layer of anonymity provided by apps that do not require identity verification, such as Signal.",
+      "back": "Application-level Anonymity"
     }
   ]
 }
