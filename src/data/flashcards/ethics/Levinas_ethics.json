@@ -1,0 +1,108 @@
+{
+  "id": "levinas-master-set",
+  "title": "Levinas Ethics",
+  "description": "Comprehensive review of Emmanuel Levinas, Ethics of Care, and Phenomenology of the Other",
+  "icon": "🧠",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "Who is the philosopher associated with 'Ethics as First Philosophy'?",
+      "back": "Emmanuel Levinas"
+    },
+    {
+      "id": 2,
+      "front": "What is 'Theodicy'?",
+      "back": "The attempt to justify God's goodness despite the existence of evil (often implying suffering has a divine purpose)."
+    },
+    {
+      "id": 3,
+      "front": "Why did Levinas reject Theodicy?",
+      "back": "After the Holocaust, he believed nothing can justify the suffering of others; it is useless and we must simply respond with compassion."
+    },
+    {
+      "id": 4,
+      "front": "What is 'The Sameness of Things' in Levinas' critique?",
+      "back": "The tendency of Western philosophy to group all people under one label ('Beings'), erasing their individual differences."
+    },
+    {
+      "id": 5,
+      "front": "What concept refers to the unique identity of a person that cannot be 'totalized'?",
+      "back": "The Singularity of Things"
+    },
+    {
+      "id": 6,
+      "front": "According to Levinas, where do we encounter traces of the 'Infinite Good'?",
+      "back": "In the Face of the Other."
+    },
+    {
+      "id": 7,
+      "front": "What is the primary command or 'First Word' of the Face?",
+      "back": "\"Thou Shalt Not Kill\""
+    },
+    {
+      "id": 8,
+      "front": "How does Levinas describe the status of the Other relative to the Self?",
+      "back": "The Other is Superior (possessing Highness, Holiness, and Divinity)."
+    },
+    {
+      "id": 9,
+      "front": "Does Levinas believe responsibility is a choice?",
+      "back": "No. Responsibility is 'incumbent' on us; the mere presence of the Other makes us responsible."
+    },
+    {
+      "id": 10,
+      "front": "What is the 'Ethics of Care'?",
+      "back": "A normative ethical theory emphasizing relationships, responsiveness, and context over universal rules."
+    },
+    {
+      "id": 11,
+      "front": "Why is the Ethics of Care sometimes called 'feminine morality'?",
+      "back": "It is associated with natural impulses of compassion and caregiving historically linked to women/child-bearing."
+    },
+    {
+      "id": 12,
+      "front": "How does the Ethics of Care differ from Utilitarianism?",
+      "back": "It refuses to sacrifice one person for the good of the group; it seeks to maximize everyone's needs through relationship."
+    },
+    {
+      "id": 13,
+      "front": "How did Hegel view the 'Other'?",
+      "back": "As a counter-entity or object needed to define the Self."
+    },
+    {
+      "id": 14,
+      "front": "How did Husserl view the 'Other'?",
+      "back": "As an 'Alter-Ego' (another version of the Self), known through Intersubjectivity."
+    },
+    {
+      "id": 15,
+      "front": "What term does Levinas use to criticize Western philosophy's tendency to reduce the Other to the Self?",
+      "back": "Totalization (or Egology)."
+    },
+    {
+      "id": 16,
+      "front": "What is the 'Welcome Approach'?",
+      "back": "Levinas' alternative to totalization: treating the Other as a stranger to be welcomed, not analyzed."
+    },
+    {
+      "id": 17,
+      "front": "Which modern personality exemplifies Levinas' ethics by supporting coffee farmers in Africa?",
+      "back": "Hugh Jackman"
+    },
+    {
+      "id": 18,
+      "front": "Which quote from Dostoyevsky does Levinas often cite regarding responsibility?",
+      "back": "\"We are all responsible for everyone and everything, and I am more than all others.\""
+    },
+    {
+      "id": 19,
+      "front": "What is 'Peacemaking Justice'?",
+      "back": "An ancient approach to justice involving compassion, connectedness, and mindfulness."
+    },
+    {
+      "id": 20,
+      "front": "According to Levinas, does the search for God end in heaven?",
+      "back": "No, it ends at the face of the neighbor."
+    }
+  ]
+}
