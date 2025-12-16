@@ -1,0 +1,158 @@
+{
+  "id": "ethics-and-responsibility-identification",
+  "title": "Ethics and Ethical Responsibility (Identification)",
+  "description": "Identification review covering definitions, theories, and key concepts in ethics.",
+  "icon": "⚖️",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "The branch of philosophy that studies right and wrong in human conduct, derived from the Greek word for 'character'.",
+      "back": "Ethics"
+    },
+    {
+      "id": 2,
+      "front": "The Greek word meaning 'character', from which the term Ethics is derived.",
+      "back": "Ethos"
+    },
+    {
+      "id": 3,
+      "front": "The 'rulebook' of right and wrong, distinct from the study of why those rules exist.",
+      "back": "Morality"
+    },
+    {
+      "id": 4,
+      "front": "The study of why moral rules make sense; the reasoned judgment behind morality.",
+      "back": "Ethics"
+    },
+    {
+      "id": 5,
+      "front": "The three conditions required for a human action to be considered 'ethical'.",
+      "back": "Conscious, Willing, and Accountable"
+    },
+    {
+      "id": 6,
+      "front": "The set of rules or standards that come from external sources like society, professions, or laws.",
+      "back": "Ethics"
+    },
+    {
+      "id": 7,
+      "front": "The internal beliefs and values about right and wrong, shaped by upbringing and culture.",
+      "back": "Morals"
+    },
+    {
+      "id": 8,
+      "front": "Structured frameworks or systems of reasoning used to explain and justify moral judgments.",
+      "back": "Ethical Theories"
+    },
+    {
+      "id": 9,
+      "front": "The method of argumentation that derives general principles from specific examples.",
+      "back": "Induction"
+    },
+    {
+      "id": 10,
+      "front": "The method of argumentation that applies general principles to specific situations.",
+      "back": "Deduction"
+    },
+    {
+      "id": 11,
+      "front": "The ethical theory where the morality of an action is judged solely by its results or outcomes.",
+      "back": "Consequentialism"
+    },
+    {
+      "id": 12,
+      "front": "The subtype of consequentialism where the right action is the one that benefits the individual the most.",
+      "back": "Egoism"
+    },
+    {
+      "id": 13,
+      "front": "The subtype of consequentialism where the right action produces the greatest good for the greatest number of people.",
+      "back": "Utilitarianism"
+    },
+    {
+      "id": 14,
+      "front": "The ethical view that the right action benefits others, even at a cost to oneself.",
+      "back": "Altruism"
+    },
+    {
+      "id": 15,
+      "front": "The ethical theory stating that rightness is based on duty and intention, regardless of the outcome.",
+      "back": "Deontology"
+    },
+    {
+      "id": 16,
+      "front": "The philosopher most associated with Deontology and the idea of doing the right thing for the right reason.",
+      "back": "Immanuel Kant"
+    },
+    {
+      "id": 17,
+      "front": "The theory that ethical actions are those that align with natural human capacities for happiness and fulfillment.",
+      "back": "Human Nature Theory"
+    },
+    {
+      "id": 18,
+      "front": "The belief that there is no universal right or wrong, and that morality depends on context or culture.",
+      "back": "Relativism"
+    },
+    {
+      "id": 19,
+      "front": "The ethical theory that claims pleasure is the highest good and the main goal of life.",
+      "back": "Hedonism"
+    },
+    {
+      "id": 20,
+      "front": "The view that ethical statements do not state facts but merely express feelings or emotions.",
+      "back": "Emotivism"
+    },
+    {
+      "id": 21,
+      "front": "The mental process of interpreting experiences, foreseeing consequences, and linking facts to values.",
+      "back": "Reasoning"
+    },
+    {
+      "id": 22,
+      "front": "The structure that validates reasoning and keeps moral thinking consistent.",
+      "back": "Logic"
+    },
+    {
+      "id": 23,
+      "front": "The first step in the Ethical Decision-Making Cycle.",
+      "back": "Identify the Problem"
+    },
+    {
+      "id": 24,
+      "front": "The act of exposing illegal, immoral, or harmful acts within an organization to stop wrongdoing.",
+      "back": "Whistle-Blowing"
+    },
+    {
+      "id": 25,
+      "front": "The type of whistle-blowing where wrongdoing is reported to parties outside the organization, such as the media.",
+      "back": "External Whistle-Blowing"
+    },
+    {
+      "id": 26,
+      "front": "Software tools that hide a sender's identity to allow for anonymous whistle-blowing.",
+      "back": "Remailers"
+    },
+    {
+      "id": 27,
+      "front": "The act of creating a hostile or offensive environment based on personal attributes.",
+      "back": "Harassment"
+    },
+    {
+      "id": 28,
+      "front": "The act of making biased decisions or denying opportunities based on irrelevant personal traits.",
+      "back": "Discrimination"
+    },
+    {
+      "id": 29,
+      "front": "The ability to act on one's ethical values and do what is right, even when it is difficult or risky.",
+      "back": "Moral Courage"
+    },
+    {
+      "id": 30,
+      "front": "The core ethical tension in whistle-blowing cases.",
+      "back": "Loyalty vs. Duty"
+    }
+  ]
+}

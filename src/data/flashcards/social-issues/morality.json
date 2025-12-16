@@ -1,0 +1,208 @@
+{
+  "id": "soci-prelim-law-morality",
+  "title": "Morality, Rules & Law (Comprehensive)",
+  "description": "Complete review of Morality foundations, the Metal Rules of Conduct, and the distinction between Law and Ethics.",
+  "icon": "⚖️",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "What is the definition of 'Morality' according to the module?",
+      "back": "Social conventions about right and wrong that form a consensus and act as a 'survival script' for daily living."
+    },
+    {
+      "id": 2,
+      "front": "What three virtues does morality build to shape character?",
+      "back": "Love, compassion, and justice."
+    },
+    {
+      "id": 3,
+      "front": "Which three acts are listed as 'Universally Condemned' across cultures?",
+      "back": "Murder, theft, and arson."
+    },
+    {
+      "id": 4,
+      "front": "What are the two types of 'Rules of Conduct' identified by James Moor?",
+      "back": "1. Directives (authoritative orders)\n2. Social Policies (broad frameworks)"
+    },
+    {
+      "id": 5,
+      "front": "What distinguishes a 'Directive' from a 'Social Policy'?",
+      "back": "Directives are legally binding specific mandates (e.g., laws), while Social Policies are broad frameworks addressing complex issues (e.g., welfare, education)."
+    },
+    {
+      "id": 6,
+      "front": "According to Bernard Gert, what are the two main purposes of a Moral System?",
+      "back": "To prevent harm/evil and to promote human flourishing."
+    },
+    {
+      "id": 7,
+      "front": "What are the 4 characteristics that define a Moral System?",
+      "back": "1. Public (known to all)\n2. Informal (no official judges)\n3. Rational (based on logic)\n4. Impartial (applies fairly to all)"
+    },
+    {
+      "id": 8,
+      "front": "What is the 'Golden Rule'?",
+      "back": "\"Do unto others as you would have them do unto you.\" (Focus on Kindness/Positive Action)"
+    },
+    {
+      "id": 9,
+      "front": "What is the 'Silver Rule'?",
+      "back": "\"Do NOT do unto others what you don't want done to you.\" (Focus on Avoiding Harm)"
+    },
+    {
+      "id": 10,
+      "front": "What is the 'Bronze Rule'?",
+      "back": "\"Repay kindness with kindness.\" (Focus on Reciprocity/Mirroring)"
+    },
+    {
+      "id": 11,
+      "front": "What is the 'Iron Rule'?",
+      "back": "\"Do unto others before they do unto you.\" (Focus on Aggression/Preemptive Strike)"
+    },
+    {
+      "id": 12,
+      "front": "What is the 'Tin Rule'?",
+      "back": "\"Pay homage to those above you and intimidate those below you.\" (Focus on Bullying/Hierarchy)"
+    },
+    {
+      "id": 13,
+      "front": "What is the 'Nepotism Rule'?",
+      "back": "\"Give precedence to relatives and do as you like to others.\" (Focus on Favoritism/Loyalty)"
+    },
+    {
+      "id": 14,
+      "front": "How is 'Law' defined in the reviewer?",
+      "back": "A rule of conduct recognized by custom or formal enactment by a community or group."
+    },
+    {
+      "id": 15,
+      "front": "Can an act be legal but immoral? Give an example from the text.",
+      "back": "Yes. Example: Abortion or Slavery (depending on the era/context)."
+    },
+    {
+      "id": 16,
+      "front": "What is 'Natural Law'?",
+      "back": "Unwritten, universal law discovered by reason and innate sense of right/wrong (e.g., Respecting parents)."
+    },
+    {
+      "id": 17,
+      "front": "What is 'Conventional Law'?",
+      "back": "Rules created by people or government to maintain order (e.g., Traffic rules, Paying taxes)."
+    },
+    {
+      "id": 18,
+      "front": "What is 'Declarative Law'?",
+      "back": "A form of conventional law that simply affirms/states what is already naturally right (e.g., Laws against murder)."
+    },
+    {
+      "id": 19,
+      "front": "What is 'Determinative Law'?",
+      "back": "A form of conventional law that creates specific rules to resolve disputes or address issues (e.g., Contract laws)."
+    },
+    {
+      "id": 20,
+      "front": "How does the 'Formation' of Morality differ from Law?",
+      "back": "Morality emerges from tradition and experience over time; Law is written and formally enacted by authorities."
+    },
+    {
+      "id": 21,
+      "front": "How does the 'Enforcement' of Morality differ from Law?",
+      "back": "Morality is self-enforced or enforced by social pressure; Law is enforced by the government, police, and courts."
+    },
+    {
+      "id": 22,
+      "front": "What is the nature of punishment for breaking a Moral code?",
+      "back": "Internal/Individual penalties: Guilt, shame, loss of reputation."
+    },
+    {
+      "id": 23,
+      "front": "What is the nature of punishment for breaking a Law?",
+      "back": "External/Physical penalties: Fines, imprisonment, civil damages."
+    },
+    {
+      "id": 24,
+      "front": "What does the module say is the 'common purpose' of both Law and Morality?",
+      "back": "To guide human behavior, maintain order, and protect values."
+    },
+    {
+      "id": 25,
+      "front": "Which type of law anchors our rights to self-preservation, liberty, and property?",
+      "back": "Natural Law"
+    },
+    {
+      "id": 26,
+      "front": "Which 'Metal Rule' is associated with the phrase 'Repay kindness with kindness'?",
+      "back": "The Bronze Rule"
+    },
+    {
+      "id": 27,
+      "front": "What distinguishes a 'Legal Act' from a 'Moral Act'?",
+      "back": "Legal Acts follow the government's rules; Moral Acts follow personal conscience and inner sense of right."
+    },
+    {
+      "id": 28,
+      "front": "Who is the author associated with the 'Rules of Conduct' (Directive vs. Social Policy)?",
+      "back": "James Moor (2004)"
+    },
+    {
+      "id": 29,
+      "front": "Who is the philosopher associated with the 'Moral System' and its 4 characteristics?",
+      "back": "Bernard Gert (2005)"
+    },
+    {
+      "id": 30,
+      "front": "Which characteristic of a moral system ensures that rules apply to everyone equally?",
+      "back": "Impartiality"
+    },
+    {
+      "id": 31,
+      "front": "\"Do unto others as you would have them do unto you.\"",
+      "back": "The Golden Rule"
+    },
+    {
+      "id": 32,
+      "front": "\"Do not treat others in ways you don't want to be treated.\"",
+      "back": "The Silver Rule"
+    },
+    {
+      "id": 33,
+      "front": "\"Repay kindness with kindness.\"",
+      "back": "The Bronze Rule"
+    },
+    {
+      "id": 34,
+      "front": "\"Do unto others as you like, before they do it unto you.\"",
+      "back": "The Iron Rule"
+    },
+    {
+      "id": 35,
+      "front": "\"Pay homage to those above you and intimidate those below you.\"",
+      "back": "The Tin Rule"
+    },
+    {
+      "id": 36,
+      "front": "\"Give precedence in all things close to relatives and do as you like to others.\"",
+      "back": "The Nepotism Rule"
+    },
+    {
+      "id": 37,
+      "front": "Treat others as you want to be treated.",
+      "back": "The Golden Rule (Simplified)"
+    },
+    {
+      "id": 38,
+      "front": "Avoid doing what you don't want done to you.",
+      "back": "The Silver Rule (Simplified)"
+    },
+    {
+      "id": 39,
+      "front": "Treat others as they treat you. (Reciprocity)",
+      "back": "The Bronze Rule (Simplified)"
+    },
+    {
+      "id": 40  ,
+      "front": "Do unto others before they do unto you. (Preemptive Strike)",
+      "back": "The Iron Rule (Simplified)"
+    }
+  ]
+}

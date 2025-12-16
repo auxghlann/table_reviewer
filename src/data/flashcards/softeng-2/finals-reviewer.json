@@ -1,0 +1,368 @@
+{
+  "id": "software-engineering-2-final-review",
+  "title": "Software Engineering 2 - Final Exam Reviewer",
+  "description": "Comprehensive review covering reliability, security, integration, SQL, and core software engineering concepts.",
+  "icon": "🚀",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "Measures failure rate over time (e.g., 'failures per hour').",
+      "back": "ROCOF (Rate of Occurrence of Failure)"
+    },
+    {
+      "id": 2,
+      "front": "Probability of failure on a single demand (e.g., '1 in 10,000 requests').",
+      "back": "POFOD (Probability of Failure on Demand)"
+    },
+    {
+      "id": 3,
+      "front": "System uptime percentage (e.g., 99.9% uptime).",
+      "back": "AVAIL (Availability)"
+    },
+    {
+      "id": 4,
+      "front": "Average time between failures (used for non-repairable systems).",
+      "back": "MTTF (Mean Time To Failure)"
+    },
+    {
+      "id": 5,
+      "front": "Average time to repair a failure.",
+      "back": "MTTR (Mean Time To Repair)"
+    },
+    {
+      "id": 6,
+      "front": "Ensures information is not disclosed to unauthorized parties (e.g., encryption).",
+      "back": "Confidentiality"
+    },
+    {
+      "id": 7,
+      "front": "Ensures information is accurate and unaltered (e.g., checksums, access controls).",
+      "back": "Integrity (Security Principle)"
+    },
+    {
+      "id": 8,
+      "front": "Ensures information and systems are accessible when needed (e.g., redundancy, backups).",
+      "back": "Availability (Security Principle)"
+    },
+    {
+      "id": 9,
+      "front": "Resilience phase: Identifying potential threats or disruptions.",
+      "back": "Recognition"
+    },
+    {
+      "id": 10,
+      "front": "Resilience phase: Building systems to withstand impact.",
+      "back": "Resistance"
+    },
+    {
+      "id": 11,
+      "front": "Resilience phase: Restoring functionality after failure.",
+      "back": "Recovery"
+    },
+    {
+      "id": 12,
+      "front": "Resilience phase: Returning to normal operations with improvements.",
+      "back": "Reinstatement"
+    },
+    {
+      "id": 13,
+      "front": "Integration approach where all modules are integrated at once; considered risky with bugs hard to locate.",
+      "back": "Big Bang Integration"
+    },
+    {
+      "id": 14,
+      "front": "Integration approach where high-level modules are tested first; requires stubs for lower modules.",
+      "back": "Top-Down Integration"
+    },
+    {
+      "id": 15,
+      "front": "Integration approach where low-level modules are tested first; requires drivers for higher modules.",
+      "back": "Bottom-Up Integration"
+    },
+    {
+      "id": 16,
+      "front": "Integration approach where modules are integrated in small groups; makes debugging easier.",
+      "back": "Incremental Integration"
+    },
+    {
+      "id": 17,
+      "front": "Combines top-down and bottom-up integration approaches; balanced but complex.",
+      "back": "Sandwich/Hybrid Integration"
+    },
+    {
+      "id": 18,
+      "front": "Used to simulate lower-level modules (common in Top-Down integration).",
+      "back": "Stubs"
+    },
+    {
+      "id": 19,
+      "front": "Used to simulate higher-level modules (common in Bottom-Up integration).",
+      "back": "Drivers"
+    },
+    {
+      "id": 20,
+      "front": "The goal is to make code maintainable, reusable, and testable.",
+      "back": "Purpose of Coding Management"
+    },
+    {
+      "id": 21,
+      "front": "Rules for naming, formatting, and commenting code.",
+      "back": "Coding Standards"
+    },
+    {
+      "id": 22,
+      "front": "The practice of building systems from reusable modules.",
+      "back": "Component-Based Development"
+    },
+    {
+      "id": 23,
+      "front": "Tracks code changes and enables collaboration.",
+      "back": "Version Control (VCS)"
+    },
+    {
+      "id": 24,
+      "front": "Integrated environments used for coding, debugging, and testing.",
+      "back": "IDE Tools"
+    },
+    {
+      "id": 25,
+      "front": "Tools that detect issues in code without executing it.",
+      "back": "Static Analysis Tools"
+    },
+    {
+      "id": 26,
+      "front": "What are the steps in the Change Management Process?",
+      "back": "1. Identify the change request\n2. Evaluate impact and feasibility\n3. Approve (or reject) formally\n4. Implement the change\n5. Test the implemented change\n6. Update documentation to reflect changes"
+    },
+    {
+      "id": 27,
+      "front": "Challenge where software must run on multiple platforms/devices.",
+      "back": "Heterogeneity"
+    },
+    {
+      "id": 28,
+      "front": "Challenge where systems must adapt quickly to new requirements.",
+      "back": "Rapid Change"
+    },
+    {
+      "id": 29,
+      "front": "Challenge where systems grow large with complex interactions.",
+      "back": "Scalability & Complexity"
+    },
+    {
+      "id": 30,
+      "front": "Challenge ensuring systems are safe, reliable, and secure.",
+      "back": "Dependability & Security"
+    },
+    {
+      "id": 31,
+      "front": "Defines what is inside the system (controllable).",
+      "back": "System Boundary"
+    },
+    {
+      "id": 32,
+      "front": "Defines external factors affecting the system (e.g., regulations).",
+      "back": "Context Boundary"
+    },
+    {
+      "id": 33,
+      "front": "Elements that provide data to the system (e.g., sensors).",
+      "back": "Sources"
+    },
+    {
+      "id": 34,
+      "front": "Elements that receive output from the system (e.g., reports, actuators).",
+      "back": "Sinks"
+    },
+    {
+      "id": 35,
+      "front": "Occurs when missing external requirements lead to system failure.",
+      "back": "Validation Blind Spots"
+    },
+    {
+      "id": 36,
+      "front": "Any person or organization influencing or affected by the system.",
+      "back": "Stakeholder"
+    },
+    {
+      "id": 37,
+      "front": "Process of gathering requirements through interviews, surveys, and workshops.",
+      "back": "Elicitation"
+    },
+    {
+      "id": 38,
+      "front": "Process of resolving conflicting stakeholder requirements.",
+      "back": "Validation & Negotiation"
+    },
+    {
+      "id": 39,
+      "front": "Keeping requirements consistent and updated.",
+      "back": "Requirements Management"
+    },
+    {
+      "id": 40,
+      "front": "Defines what the system does (e.g., 'process payment').",
+      "back": "Functional Requirements"
+    },
+    {
+      "id": 41,
+      "front": "Defines how the system should behave (e.g., 'must be encrypted').",
+      "back": "Non-functional Requirements (Constraints)"
+    },
+    {
+      "id": 42,
+      "front": "Comments located inside the code.",
+      "back": "Internal Documentation"
+    },
+    {
+      "id": 43,
+      "front": "Manuals and specifications located outside the code.",
+      "back": "External Documentation"
+    },
+    {
+      "id": 44,
+      "front": "Describes the system environment and interfaces.",
+      "back": "System Context Documentation"
+    },
+    {
+      "id": 45,
+      "front": "Diagrams that show how actors interact with system functions.",
+      "back": "Use Case Diagrams"
+    },
+    {
+      "id": 46,
+      "front": "Prevents unauthorized data modification.",
+      "back": "Integrity (Software Quality)"
+    },
+    {
+      "id": 47,
+      "front": "How easy it is for new users to learn the system.",
+      "back": "Learnability"
+    },
+    {
+      "id": 48,
+      "front": "Components can be used in other projects.",
+      "back": "Reusability"
+    },
+    {
+      "id": 49,
+      "front": "System performance under load (response time).",
+      "back": "Time Behaviour"
+    },
+    {
+      "id": 50,
+      "front": "Delivers accurate, error-free results.",
+      "back": "Functional Correctness"
+    },
+    {
+      "id": 51,
+      "front": "SQL constraint that ensures uniqueness and not null (no duplicate rows).",
+      "back": "PRIMARY KEY"
+    },
+    {
+      "id": 52,
+      "front": "Concept guaranteed by the primary key (no duplicate rows).",
+      "back": "Entity Integrity"
+    },
+    {
+      "id": 53,
+      "front": "SQL command that removes a table and its structure completely.",
+      "back": "DROP TABLE"
+    },
+    {
+      "id": 54,
+      "front": "SQL command that removes all rows but keeps the table structure.",
+      "back": "TRUNCATE TABLE"
+    },
+    {
+      "id": 55,
+      "front": "SQL command that removes specific rows with conditions.",
+      "back": "DELETE"
+    },
+    {
+      "id": 56,
+      "front": "SQL data type for storing dates.",
+      "back": "DATE"
+    },
+    {
+      "id": 57,
+      "front": "Research focus on preventing failures, attacks, and unsafe behavior.",
+      "back": "Dependability & Security"
+    },
+    {
+      "id": 58,
+      "front": "Research focus on updating software safely over time.",
+      "back": "Maintenance & Evolution"
+    },
+    {
+      "id": 59,
+      "front": "Research focus on modernizing outdated systems.",
+      "back": "Software Evolution & Legacy Systems"
+    },
+    {
+      "id": 60,
+      "front": "Research focus on connecting theory with practical development.",
+      "back": "Bridging Research & Industry"
+    },
+    {
+      "id": 61,
+      "front": "What type of systems are Formal Methods best suited for (not simple ones)?",
+      "back": "Complex, large-scale systems"
+    },
+    {
+      "id": 62,
+      "front": "Which integration approach is considered the most risky?",
+      "back": "Big Bang Integration"
+    },
+    {
+      "id": 63,
+      "front": "Which integration approach starts with lower-level modules?",
+      "back": "Bottom-up Integration"
+    },
+    {
+      "id": 64,
+      "front": "Do regulations contribute to reducing operational risks?",
+      "back": "Yes, Regulations"
+    },
+    {
+      "id": 65,
+      "front": "What do Stubs simulate in testing?",
+      "back": "Lower-level modules"
+    },
+    {
+      "id": 66,
+      "front": "What do Drivers simulate in testing?",
+      "back": "Higher-level modules"
+    },
+    {
+      "id": 67,
+      "front": "Change Management Process Step 1",
+      "back": "Identify the change request"
+    },
+        {
+      "id": 68,
+      "front": "Change Management Process Step 2",
+      "back": "Evaluate impact and feasibility"
+    },
+        {
+      "id": 69,
+      "front": "Change Management Process Step 3",
+      "back": "Approve (or reject) formally"
+    },
+        {
+      "id": 70,
+      "front": "Change Management Process Step 4",
+      "back": "Implement the change"
+    },
+        {
+      "id": 71,
+      "front": "Change Management Process Step 5",
+      "back": "Test   the implemented change"
+    },
+        {
+      "id": 72,
+      "front": "Change Management Process Step 6",
+      "back": "Update documentation to reflect changes"
+    }
+  ]
+}
