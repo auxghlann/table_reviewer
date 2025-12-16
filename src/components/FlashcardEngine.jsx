@@ -297,17 +297,15 @@ export default function FlashcardEngine() {
               {groups.map((group) => (
                 <div
                   key={group.id}
-                  className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all cursor-pointer group"
+                  className="bg-gradient-to-r from-purple-600 to-purple-500 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all cursor-pointer group p-6 md:p-8"
                   onClick={() => handleGroupSelect(group)}
                 >
-                  <div className="bg-gradient-to-r from-purple-600 to-purple-500 p-6 md:p-8">
-                    <h4 className="text-lg md:text-xl font-bold text-white mb-2">
-                      {group.title}
-                    </h4>
-                    <p className="text-sm text-white opacity-90 font-medium">
-                      {group.cardCount} {group.cardCount === 1 ? 'card' : 'cards'}
-                    </p>
-                  </div>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-2">
+                    {group.title}
+                  </h4>
+                  <p className="text-sm text-white opacity-90 font-medium">
+                    {group.cardCount} {group.cardCount === 1 ? 'card' : 'cards'}
+                  </p>
                 </div>
               ))}
             </div>
