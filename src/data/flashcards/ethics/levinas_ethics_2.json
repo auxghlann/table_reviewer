@@ -1,0 +1,358 @@
+{
+  "id": "levinas-ethics-first-philosophy",
+  "title": "Levinas: Ethics as First Philosophy",
+  "description": "Comprehensive identification review covering Emmanuel Levinas' philosophy, the Face, responsibility, and the Other.",
+  "icon": "🕎",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "A 20th-century French philosopher of Jewish descent whose life and work were deeply shaped by the Holocaust.",
+      "back": "Emmanuel Levinas (1905-1995)"
+    },
+    {
+      "id": 2,
+      "front": "The country where Emmanuel Levinas was originally from.",
+      "back": "Lithuania"
+    },
+    {
+      "id": 3,
+      "front": "The traumatic event that forced Levinas to rethink good, evil, free will, and God's role in suffering.",
+      "back": "The Holocaust (his family in Lithuania was murdered during WWII)"
+    },
+    {
+      "id": 4,
+      "front": "An attempt to justify God's goodness despite the existence of evil, implying there is a divine reason for suffering.",
+      "back": "Theodicy"
+    },
+    {
+      "id": 5,
+      "front": "Levinas' response to theodicy after the Holocaust.",
+      "back": "Theodicy is dead; nothing can justify the suffering of others"
+    },
+    {
+      "id": 6,
+      "front": "According to Levinas, what God does NOT do regarding suffering.",
+      "back": "God does not 'will' suffering for a higher purpose"
+    },
+    {
+      "id": 7,
+      "front": "The traditional starting points of philosophy before Levinas.",
+      "back": "Metaphysics (what is real?) or Theology (who is God?)"
+    },
+    {
+      "id": 8,
+      "front": "What Levinas argued should be the 'First Philosophy.'",
+      "back": "Ethics"
+    },
+    {
+      "id": 9,
+      "front": "According to Levinas, the most fundamental human experience.",
+      "back": "Encountering another person"
+    },
+    {
+      "id": 10,
+      "front": "The level at which we feel responsibility when we face someone else, before thinking or analyzing.",
+      "back": "Precognitive level"
+    },
+    {
+      "id": 11,
+      "front": "What reacts to the Other before our brains even catch up, according to Levinas.",
+      "back": "Our bodies and 'sensibility'"
+    },
+    {
+      "id": 12,
+      "front": "What Levinas says suffering engages when we encounter it.",
+      "back": "US (we are engaged to respond)"
+    },
+    {
+      "id": 13,
+      "front": "What we should NOT do when seeing someone in pain, according to Levinas.",
+      "back": "Try to explain it away (like saying 'It's God's will')"
+    },
+    {
+      "id": 14,
+      "front": "What we should do when seeing someone in pain, according to Levinas.",
+      "back": "Engage our compassion and be present"
+    },
+    {
+      "id": 15,
+      "front": "How God acts in the world according to Levinas.",
+      "back": "Through US; by helping others, we bring God into the world"
+    },
+    {
+      "id": 16,
+      "front": "The Western philosophical tendency to group everyone under one label, treating people as a collective mass rather than individuals.",
+      "back": "The Sameness of Things (or Totality)"
+    },
+    {
+      "id": 17,
+      "front": "The assumption that we can surpass our differences because we all 'think in the same manner.'",
+      "back": "The logic of Sameness"
+    },
+    {
+      "id": 18,
+      "front": "The risk created when Western philosophy groups everyone as 'Beings.'",
+      "back": "Totality (treating people as a collective mass)"
+    },
+    {
+      "id": 19,
+      "front": "The concept drawn from Hebrew teachings that insists on uniqueness giving us our true identity.",
+      "back": "Singularity of Things"
+    },
+    {
+      "id": 20,
+      "front": "What gives us our true identity according to Levinas' concept of Singularity.",
+      "back": "Our uniqueness"
+    },
+    {
+      "id": 21,
+      "front": "The nature of the 'Good' in Levinas' philosophy.",
+      "back": "Infinite (cannot be fully captured or defined by one person)"
+    },
+    {
+      "id": 22,
+      "front": "What philosophy is ultimately searching for according to Levinas.",
+      "back": "The 'Central Good'"
+    },
+    {
+      "id": 23,
+      "front": "How we can encounter traces of the Infinite Good.",
+      "back": "By embracing uniqueness (respecting each person's singularity)"
+    },
+    {
+      "id": 24,
+      "front": "What happens when we force everyone to be the 'same.'",
+      "back": "We lose the Good"
+    },
+    {
+      "id": 25,
+      "front": "What we open the door to when we respect each person's singularity.",
+      "back": "The Infinite"
+    },
+    {
+      "id": 26,
+      "front": "What the Good is not, according to Levinas.",
+      "back": "A static object (it is an encounter)"
+    },
+    {
+      "id": 27,
+      "front": "Where the Good is found according to Levinas.",
+      "back": "In the unique face of the Other"
+    },
+    {
+      "id": 28,
+      "front": "Levinas' most famous concept explaining how the mere presence of another person creates ethical obligation.",
+      "back": "The Face"
+    },
+    {
+      "id": 29,
+      "front": "The only way we encounter the infinite Good, since we cannot capture it directly.",
+      "back": "Through The Face"
+    },
+    {
+      "id": 30,
+      "front": "What the Face witnesses or testifies to.",
+      "back": "The Good (or God)"
+    },
+    {
+      "id": 31,
+      "front": "How Levinas describes the Other (the stranger) in relation to oneself.",
+      "back": "Superior (holding 'Highness' or 'Holiness')"
+    },
+    {
+      "id": 32,
+      "front": "Why the Other is considered superior according to Levinas.",
+      "back": "They carry a trace of the Divine"
+    },
+    {
+      "id": 33,
+      "front": "What you cannot do to the Other according to Levinas.",
+      "back": "Possess or change them to be like you"
+    },
+    {
+      "id": 34,
+      "front": "The nature of the Other's difference.",
+      "back": "Radically different and holy"
+    },
+    {
+      "id": 35,
+      "front": "When the Face displays ethics most clearly.",
+      "back": "When it is weak or powerless (like a stranger, widow, or orphan)"
+    },
+    {
+      "id": 36,
+      "front": "The paradox of the Face in Levinas' ethics.",
+      "back": "The Face is exposed and vulnerable (you could hurt it), yet it issues a divine command: 'Thou Shalt Not Kill'"
+    },
+    {
+      "id": 37,
+      "front": "The divine command issued by the vulnerable Face.",
+      "back": "Thou Shalt Not Kill"
+    },
+    {
+      "id": 38,
+      "front": "How God speaks to us according to Levinas.",
+      "back": "Through humanity (through the face of others)"
+    },
+    {
+      "id": 39,
+      "front": "What you are hearing when you look at the vulnerable face of a stranger.",
+      "back": "A command from the Infinite"
+    },
+    {
+      "id": 40,
+      "front": "What draws you in and makes you responsible without your choice.",
+      "back": "The Face of the Other"
+    },
+    {
+      "id": 41,
+      "front": "Where the search for God ends according to Levinas.",
+      "back": "At the Face of your neighbor (not in heaven)"
+    },
+    {
+      "id": 42,
+      "front": "What comes before freedom and thinking in Levinas' ethics.",
+      "back": "Responsibility"
+    },
+    {
+      "id": 43,
+      "front": "The nature of responsibility according to Levinas.",
+      "back": "Incumbent on me (whether I accept it or not)"
+    },
+    {
+      "id": 44,
+      "front": "What the face forbids us to do according to Levinas.",
+      "back": "Kill"
+    },
+    {
+      "id": 45,
+      "front": "What the nakedness or vulnerability of the face orders us to do.",
+      "back": "Serve it, not destroy it"
+    },
+    {
+      "id": 46,
+      "front": "In philosophy, what 'the Other' simply refers to.",
+      "back": "Another human being who is not you"
+    },
+    {
+      "id": 47,
+      "front": "What determines whether we treat the Other ethically or just use them.",
+      "back": "How we think about this other person"
+    },
+    {
+      "id": 48,
+      "front": "The two major philosophers (Phenomenologists) who focused heavily on the Self before Levinas.",
+      "back": "Hegel and Husserl"
+    },
+    {
+      "id": 49,
+      "front": "How pre-Levinas philosophers (like Hegel and Husserl) viewed the Self.",
+      "back": "The Self (Subject) is king; it's all about me"
+    },
+    {
+      "id": 50,
+      "front": "How pre-Levinas philosophers viewed the Other.",
+      "back": "As an object to be studied and understood"
+    },
+    {
+      "id": 51,
+      "front": "The 'Mirror Effect' in pre-Levinas philosophy.",
+      "back": "Thinking 'that person is just like me; they are an alter-ego'"
+    },
+    {
+      "id": 52,
+      "front": "Levinas' term for forcing people to fit into your understanding of the world.",
+      "back": "Totalization"
+    },
+    {
+      "id": 53,
+      "front": "What Levinas called viewing others only as reflections of yourself.",
+      "back": "Arrogant (stripping away their uniqueness)"
+    },
+    {
+      "id": 54,
+      "front": "Levinas' first radical shift regarding the Other.",
+      "back": "The Other is NOT an object"
+    },
+    {
+      "id": 55,
+      "front": "What the Other will always be to you, according to Levinas.",
+      "back": "A mystery (you cannot fully know or possess them)"
+    },
+    {
+      "id": 56,
+      "front": "What you should respect instead of trying to analyze the Other.",
+      "back": "Their difference (their 'alterity')"
+    },
+    {
+      "id": 57,
+      "front": "Levinas' approach to the Other instead of understanding them.",
+      "back": "The 'Welcome Approach' (welcome them)"
+    },
+    {
+      "id": 58,
+      "front": "Your primary job regarding the Other according to Levinas.",
+      "back": "To welcome them, not to understand them"
+    },
+    {
+      "id": 59,
+      "front": "Levinas' most famous claim about philosophy.",
+      "back": "Ethics is First Philosophy"
+    },
+    {
+      "id": 60,
+      "front": "Where traditional philosophy starts.",
+      "back": "With knowledge (trying to figure out what things are)"
+    },
+    {
+      "id": 61,
+      "front": "Where Levinas' philosophy starts.",
+      "back": "With responsibility (responding to the person in front of you)"
+    },
+    {
+      "id": 62,
+      "front": "What you are even before you think, speak, or analyze.",
+      "back": "Responsible for the person facing you"
+    },
+    {
+      "id": 63,
+      "front": "How traditional philosophy treats the Other.",
+      "back": "As an object or a version of the Self"
+    },
+    {
+      "id": 64,
+      "front": "How Levinas treats the Other.",
+      "back": "As a superior Stranger who demands our respect"
+    },
+    {
+      "id": 65,
+      "front": "The philosophy of knowing that focuses on the Self.",
+      "back": "Egology"
+    },
+    {
+      "id": 66,
+      "front": "The philosophy of welcoming that focuses on the Other.",
+      "back": "Ethics (Levinas' approach)"
+    },
+    {
+      "id": 67,
+      "front": "The shift Levinas made from traditional philosophy.",
+      "back": "From a philosophy of knowing (Egology) to a philosophy of welcoming (Ethics)"
+    },
+    {
+      "id": 68,
+      "front": "The property of being different or 'other' that should be respected.",
+      "back": "Alterity"
+    },
+    {
+      "id": 69,
+      "front": "The three characteristics the Other holds according to Levinas.",
+      "back": "Highness, Holiness, and Divinity"
+    },
+    {
+      "id": 70,
+      "front": "Ellen DeGeneres' quote that echoes Levinas' philosophy.",
+      "back": "Sometimes you can't see yourself clearly until you see yourself through the eyes of another"
+    }
+  ]
+}
