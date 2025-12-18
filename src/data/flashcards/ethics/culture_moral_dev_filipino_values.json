@@ -1,0 +1,183 @@
+{
+  "id": "culture-moral-development-module-17",
+  "title": "Culture, Moral Development & Filipino Values (Module 17)",
+  "description": "Identification review covering moral agency, culture's role in moral development, cultural relativism, and Filipino values.",
+  "icon": "🌏",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "A being capable of distinguishing right from wrong and morally accountable for actions.",
+      "back": "Moral agent"
+    },
+    {
+      "id": 2,
+      "front": "According to Pekarsky, what are the two questions regarding culture's role in moral development?",
+      "back": "How does culture influence moral development? What responsibility does culture have in guiding moral growth?"
+    },
+    {
+      "id": 3,
+      "front": "What is the Latin origin of the word 'culture'?",
+      "back": "Cultus (meaning care or nurturing)"
+    },
+    {
+      "id": 4,
+      "front": "According to Allan G. Johnson, what does culture include?",
+      "back": "The sum of symbols, ideas, experiences, material products, institutions, values, beliefs, art, laws, customs, and moral standards"
+    },
+    {
+      "id": 5,
+      "front": "What are the two types of culture?",
+      "back": "Material culture and non-material culture"
+    },
+    {
+      "id": 6,
+      "front": "What does material culture include?",
+      "back": "Tangible objects like tools, clothing, and artifacts"
+    },
+    {
+      "id": 7,
+      "front": "What does non-material culture include?",
+      "back": "Beliefs, laws, values, customs, and moral behavior"
+    },
+    {
+      "id": 8,
+      "front": "Why is non-material culture most significant in ethics?",
+      "back": "It sets moral standards and guides behavior"
+    },
+    {
+      "id": 9,
+      "front": "What is moral development?",
+      "back": "The process by which a person acquires moral sensibilities, attitudes, beliefs, skills, and dispositions to become morally mature"
+    },
+    {
+      "id": 10,
+      "front": "What are the three cultural mechanisms through which moral consciousness is learned?",
+      "back": "Imitation, indoctrination, and social conditioning"
+    },
+    {
+      "id": 11,
+      "front": "What are the five cultural providers that shape moral development?",
+      "back": "Family, school, church, government, and workplace"
+    },
+    {
+      "id": 12,
+      "front": "According to Merriam-Webster, what is cultural relativism?",
+      "back": "The view that a person's beliefs, values, and practices should be understood within their own culture, rather than judged by another culture's standards"
+    },
+    {
+      "id": 13,
+      "front": "What four areas do cultural differences exist in?",
+      "back": "Language, norms, rituals, and beliefs and practices"
+    },
+    {
+      "id": 14,
+      "front": "What is the common maxim associated with relativism?",
+      "back": "What is true to you may not be true to me"
+    },
+    {
+      "id": 15,
+      "front": "According to cultural relativism in ethics, when is an action morally right?",
+      "back": "If a society approves of it"
+    },
+    {
+      "id": 16,
+      "front": "What are the four implications of cultural relativism?",
+      "back": "Cannot criticize other societies for being different; Criticizing one's own culture becomes difficult; Idea of moral progress is challenged; Differences in customs don't necessarily mean differences in values"
+    },
+    {
+      "id": 17,
+      "front": "What are the five claims of cultural relativism?",
+      "back": "1) Different societies have different moral codes 2) Society's code determines what is right 3) No universal moral truth 4) No society's code has special status 5) Judging others is arrogant; tolerance required"
+    },
+    {
+      "id": 18,
+      "front": "What are five strengths of cultural relativism?",
+      "back": "Promotes cooperation and tolerance; Encourages respect for diversity; Reduces cultural bias; Allows authentic perspectives; Preserves cultural identity"
+    },
+    {
+      "id": 19,
+      "front": "What are five weaknesses of cultural relativism?",
+      "back": "Encourages moral subjectivism; Weakens shared moral standards; Risks chaos; Limits moral progress; Turns opinions into moral truths"
+    },
+    {
+      "id": 20,
+      "front": "What do Filipino values emphasize?",
+      "back": "Social harmony, group acceptance, and belongingness"
+    },
+    {
+      "id": 21,
+      "front": "What two concepts result from deviation from Filipino norms?",
+      "back": "Hiya (sense of shame) and concern for amor propio (self-esteem)"
+    },
+    {
+      "id": 22,
+      "front": "What are the eight core Filipino values?",
+      "back": "Pakikipag-kapwa tao, Family orientation, Joy and humor, Flexibility and adaptability, Faith and religiosity, Resiliency, Hard work and industry, Hospitality"
+    },
+    {
+      "id": 23,
+      "front": "What does 'Pakikipag-kapwa tao' mean?",
+      "back": "Shared identity and respect for others; foundation of unity, bayanihan, hospitality"
+    },
+    {
+      "id": 24,
+      "front": "What are the five long-held ambivalent Filipino values?",
+      "back": "Bahala Na, Utang na Loob, Hiya, Palabra de Honor, Padrino System"
+    },
+    {
+      "id": 25,
+      "front": "What does 'Bahala Na' represent?",
+      "back": "Trust in God; may inspire courage or lead to passivity"
+    },
+    {
+      "id": 26,
+      "front": "What does 'Utang na Loob' mean?",
+      "back": "Deep sense of gratitude and reciprocity"
+    },
+    {
+      "id": 27,
+      "front": "What does 'Hiya' represent?",
+      "back": "Shame as weakness or virtue of self-restraint"
+    },
+    {
+      "id": 28,
+      "front": "What does 'Palabra de Honor' refer to?",
+      "back": "Declining value of verbal commitment"
+    },
+    {
+      "id": 29,
+      "front": "What does the 'Padrino System' represent?",
+      "back": "Patronage system leading to favoritism and corruption"
+    },
+    {
+      "id": 30,
+      "front": "According to Shalom Schwartz (2014), what are the eight universal value domains?",
+      "back": "Power, Achievement, Pleasure, Self-direction, Benevolence, Tradition, Conformity, Security"
+    },
+    {
+      "id": 31,
+      "front": "What does it mean that values are 'bi-polar'?",
+      "back": "Each value has positive and negative dimensions depending on how they are practiced"
+    },
+    {
+      "id": 32,
+      "front": "What do communities function as in relation to moral development?",
+      "back": "Moral agents responsible for nurturing moral development"
+    },
+    {
+      "id": 33,
+      "front": "Is moral consciousness innate or developed?",
+      "back": "Not innate; developed gradually through interaction with society and culture"
+    },
+    {
+      "id": 34,
+      "front": "What is the relationship between people and culture?",
+      "back": "People make culture, but culture also makes people"
+    },
+    {
+      "id": 35,
+      "front": "What is the foundation of Filipino unity according to core values?",
+      "back": "Pakikipag-kapwa tao (shared identity and respect)"
+    }
+  ]
+}
