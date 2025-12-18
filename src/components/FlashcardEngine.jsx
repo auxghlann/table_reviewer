@@ -349,20 +349,58 @@ export default function FlashcardEngine() {
 
             {/* Flashcard */}
             <div
-              className="relative h-96 cursor-pointer mb-8 perspective-1000"
-              onClick={handleCardClick}
+              className="relative h-96 mb-8 perspective-1000"
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
             >
+              {/* Left Arrow - Desktop only */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePrevious();
+                }}
+                disabled={currentIndex === 0}
+                className={`hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all ${
+                  currentIndex === 0
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-50'
+                    : 'bg-white text-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:scale-110'
+                }`}
+                aria-label="Previous card"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Right Arrow - Desktop only */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNext();
+                }}
+                disabled={currentIndex === flashcards.length - 1}
+                className={`hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all ${
+                  currentIndex === flashcards.length - 1
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-50'
+                    : 'bg-white text-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:scale-110'
+                }`}
+                aria-label="Next card"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
               <div
-                className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${
+                className={`relative w-full h-full transition-transform duration-500 transform-style-3d cursor-pointer ${
                   isFlipped ? 'rotate-y-180' : ''
                 }`}
+                onClick={handleCardClick}
               >
                 {/* Front of card */}
                 <div className="absolute w-full h-full backface-hidden">
-                  <div className="w-full h-full bg-purple-100 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 flex flex-col items-center justify-center">
+                  <div className="w-full h-full bg-purple-100 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 md:px-20 flex flex-col items-center justify-center">
                     <p className="text-sm font-bold text-purple-600 mb-4">QUESTION</p>
                     <p className="text-xl md:text-2xl font-bold text-black text-center">{currentCard.front}</p>
                     <p className="text-sm text-gray-600 mt-6 font-medium">Click to reveal answer</p>
@@ -371,46 +409,13 @@ export default function FlashcardEngine() {
 
                 {/* Back of card */}
                 <div className="absolute w-full h-full backface-hidden rotate-y-180">
-                  <div className="w-full h-full bg-purple-400 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 flex flex-col items-center justify-center">
+                  <div className="w-full h-full bg-purple-400 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 md:px-20 flex flex-col items-center justify-center">
                     <p className="text-sm font-bold text-white mb-4">ANSWER</p>
                     <p className="text-lg md:text-xl font-bold text-black text-center">{currentCard.back}</p>
                     <p className="text-sm text-gray-800 mt-6 font-medium">Click to see question</p>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Navigation Buttons - Hidden on mobile */}
-            <div className="hidden md:flex items-center justify-center gap-4">
-              <button
-                onClick={handlePrevious}
-                disabled={currentIndex === 0}
-                className={`px-6 py-3 font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2 ${
-                  currentIndex === 0
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    : 'bg-white text-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px]'
-                }`}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-                Previous
-              </button>
-
-              <button
-                onClick={handleNext}
-                disabled={currentIndex === flashcards.length - 1}
-                className={`px-6 py-3 font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2 ${
-                  currentIndex === flashcards.length - 1
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    : 'bg-white text-black hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px]'
-                }`}
-              >
-                Next
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
 
             {/* Swipe instruction for mobile */}
