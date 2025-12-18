@@ -1,0 +1,158 @@
+{
+  "id": "ethics-and-taxation-module-16",
+  "title": "Ethics and Taxation (Module 16)",
+  "description": "Identification review covering taxation ethics, ethical frameworks applied to taxation, and types of justice in taxation.",
+  "icon": "💰",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "What does taxation involve?",
+      "back": "The collection of resources to support government services and promote social welfare"
+    },
+    {
+      "id": 2,
+      "front": "Why is taxation closely linked to justice?",
+      "back": "It affects the distribution of resources and opportunities in society"
+    },
+    {
+      "id": 3,
+      "front": "The ethical framework that focuses on maximizing overall happiness or satisfaction in taxation.",
+      "back": "Utilitarianism"
+    },
+    {
+      "id": 4,
+      "front": "What is the utilitarian goal in taxation?",
+      "back": "Equal enjoyment or happiness, not necessarily equal income"
+    },
+    {
+      "id": 5,
+      "front": "What must utilitarians balance in taxation?",
+      "back": "Equality vs. efficiency"
+    },
+    {
+      "id": 6,
+      "front": "What five public services are utilitarians concerned with in taxation?",
+      "back": "Healthcare, infrastructure, security, housing, and education"
+    },
+    {
+      "id": 7,
+      "front": "The ethical framework that focuses on moral character rather than outcomes or rules in taxation.",
+      "back": "Virtue Ethics"
+    },
+    {
+      "id": 8,
+      "front": "What are the three key virtues in taxation according to virtue ethics?",
+      "back": "Honesty, moral duty, and good conduct"
+    },
+    {
+      "id": 9,
+      "front": "What are three unethical taxpayer behaviors according to virtue ethics?",
+      "back": "Tax evasion, fraud and deception, and dishonesty and misconduct"
+    },
+    {
+      "id": 10,
+      "front": "The ethical framework that emphasizes duties, obligations, and moral rules without relying on calculating consequences.",
+      "back": "Deontology"
+    },
+    {
+      "id": 11,
+      "front": "What are the two key duties in taxation according to deontology?",
+      "back": "Respect property rights and fulfill obligations to society"
+    },
+    {
+      "id": 12,
+      "front": "What is the deontological moral reasoning for paying taxes?",
+      "back": "Anyone who benefits from public goods has a duty to pay taxes to avoid injustice or theft"
+    },
+    {
+      "id": 13,
+      "front": "The concept where everyone receives the same share.",
+      "back": "Equality"
+    },
+    {
+      "id": 14,
+      "front": "The concept where everyone receives what is due based on situation or capacity.",
+      "back": "Equity"
+    },
+    {
+      "id": 15,
+      "front": "What type of taxation reflects equity?",
+      "back": "Progressive taxation"
+    },
+    {
+      "id": 16,
+      "front": "How does progressive taxation work?",
+      "back": "Higher income → higher tax; Lower income → lower or zero tax"
+    },
+    {
+      "id": 17,
+      "front": "The type of justice involving fair exchange between individuals in taxation.",
+      "back": "Commutative Justice"
+    },
+    {
+      "id": 18,
+      "front": "What does commutative justice include in taxation?",
+      "back": "Paying taxes properly and earning income honestly"
+    },
+    {
+      "id": 19,
+      "front": "What principle applies to commutative justice?",
+      "back": "No work, no pay"
+    },
+    {
+      "id": 20,
+      "front": "The type of justice that involves giving people what they are due.",
+      "back": "Distributive Justice"
+    },
+    {
+      "id": 21,
+      "front": "How does distributive justice apply to taxation?",
+      "back": "Adjusting tax burden according to income"
+    },
+    {
+      "id": 22,
+      "front": "The type of justice involving obligations of citizens to follow laws and regulations.",
+      "back": "Legal Justice"
+    },
+    {
+      "id": 23,
+      "front": "What three areas does legal justice cover?",
+      "back": "Compliance with tax laws, traffic rules, and environmental laws"
+    },
+    {
+      "id": 24,
+      "front": "The type of justice that seeks to reduce poverty and inequality.",
+      "back": "Social Justice"
+    },
+    {
+      "id": 25,
+      "front": "What is the aim of social justice in taxation?",
+      "back": "To close the gap between rich and poor"
+    },
+    {
+      "id": 26,
+      "front": "What five areas does taxation support according to social justice?",
+      "back": "Infrastructure, education, healthcare, basic social services, and overall societal development"
+    },
+    {
+      "id": 27,
+      "front": "What does paying taxes sustain?",
+      "back": "Social cooperation, fairness, and national development"
+    },
+    {
+      "id": 28,
+      "front": "What is taxation considered to support as a whole?",
+      "back": "The whole package of social justice"
+    },
+    {
+      "id": 29,
+      "front": "What are utilitarians concerned with in taxation: equal distribution or total social benefit?",
+      "back": "Total social benefit (not equal distribution)"
+    },
+    {
+      "id": 30,
+      "front": "According to deontology, what two things should anyone who benefits from public goods do?",
+      "back": "Recognize their duty to pay taxes and avoid committing injustice or theft by not paying"
+    }
+  ]
+}

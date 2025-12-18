@@ -1,0 +1,133 @@
+{
+  "id": "justice-and-fairness-module-15",
+  "title": "Justice and Fairness (Module 15)",
+  "description": "Identification review covering justice principles, distributive justice theories, and Rawls' theory of justice as fairness.",
+  "icon": "⚖️",
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "The principle that states 'Equals should be treated equally and unequals unequally.'",
+      "back": "Aristotle's Principle of Justice"
+    },
+    {
+      "id": 2,
+      "front": "The practice of giving benefits to certain individuals without a justifiable reason.",
+      "back": "Favoritism"
+    },
+    {
+      "id": 3,
+      "front": "The practice of imposing burdens on people who are no different from others who are not burdened.",
+      "back": "Discrimination"
+    },
+    {
+      "id": 4,
+      "front": "The type of justice that evaluates which frameworks for distributing benefits and burdens are morally preferable.",
+      "back": "Distributive Justice"
+    },
+    {
+      "id": 5,
+      "front": "The view of justice that states everyone should receive the same or be treated equally.",
+      "back": "Egalitarianism (Justice as Equality)"
+    },
+    {
+      "id": 6,
+      "front": "The view of justice based on productivity, effort, or contribution with private ownership of capital.",
+      "back": "Capitalist Justice"
+    },
+    {
+      "id": 7,
+      "front": "The view of justice emphasizing public or collective ownership of the means of production with government-controlled distribution.",
+      "back": "Socialism"
+    },
+    {
+      "id": 8,
+      "front": "The view of justice advocated by Robert Nozick that emphasizes freedom from coercion and minimal government intervention.",
+      "back": "Libertarianism"
+    },
+    {
+      "id": 9,
+      "front": "The philosopher who developed the theory of 'Justice as Fairness' with principles chosen under conditions of equality.",
+      "back": "John Rawls"
+    },
+    {
+      "id": 10,
+      "front": "Rawls' principle stating that every individual has equal rights to basic liberties.",
+      "back": "Principle of Equal Liberty"
+    },
+    {
+      "id": 11,
+      "front": "The Rawlsian principle stating that inequalities are acceptable only if they benefit the least advantaged.",
+      "back": "Difference Principle"
+    },
+    {
+      "id": 12,
+      "front": "The Rawlsian principle stating that everyone must have an equal chance to access privileged positions.",
+      "back": "Fair Equality of Opportunity"
+    },
+    {
+      "id": 13,
+      "front": "What are the seven primary social goods in Rawls' theory?",
+      "back": "Rights, liberties, power, opportunities, income, welfare, and self-respect"
+    },
+    {
+      "id": 14,
+      "front": "According to Rawls, which primary social good is considered the most important?",
+      "back": "Self-respect"
+    },
+    {
+      "id": 15,
+      "front": "Why is self-respect considered the most important social good?",
+      "back": "It motivates individuals to pursue life plans responsibly"
+    },
+    {
+      "id": 16,
+      "front": "The type of justice requiring that punishment must be given to all and only those who are guilty.",
+      "back": "Retributive Justice"
+    },
+    {
+      "id": 17,
+      "front": "The type of justice requiring wrongdoers to compensate victims for losses suffered.",
+      "back": "Compensatory Justice"
+    },
+    {
+      "id": 18,
+      "front": "What does justice concern in terms of societal distribution?",
+      "back": "How benefits and burdens are fairly distributed among members of society"
+    },
+    {
+      "id": 19,
+      "front": "What is required for an action to be considered just?",
+      "back": "It must treat people according to morally relevant similarities and differences"
+    },
+    {
+      "id": 20,
+      "front": "What do both favoritism and discrimination violate?",
+      "back": "Fairness and equal treatment"
+    },
+    {
+      "id": 21,
+      "front": "What are the two parts of Rawls' Second Principle?",
+      "back": "Difference Principle and Fair Equality of Opportunity"
+    },
+    {
+      "id": 22,
+      "front": "What type of justice focuses on punishment for wrongdoing?",
+      "back": "Retributive Justice"
+    },
+    {
+      "id": 23,
+      "front": "What type of justice focuses on compensation for harm done?",
+      "back": "Compensatory Justice"
+    },
+    {
+      "id": 24,
+      "front": "What basic liberties does Rawls' Principle of Equal Liberty include?",
+      "back": "Freedom of speech, conscience, expression, property, and personal integrity"
+    },
+    {
+      "id": 25,
+      "front": "What does fairness NOT always mean according to Aristotle's principle?",
+      "back": "Sameness (fairness requires moral justification for unequal treatment)"
+    }
+  ]
+}
