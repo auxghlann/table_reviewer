@@ -2,12 +2,12 @@ import React from "react";
 
 export default function About() {
   return (
-    <div className="min-h-screen grid-background-white">
+    <div className="min-h-screen grid-background py-16">
       {/* Hero Section */}
-      <section className="grid-background py-16 border-b-4 border-black">
+      <section className="grid-background py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold mb-6 text-black border-4 border-black bg-white inline-block px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            About The Exam Platform
+            About The Reviewer Platform
           </h1>
           <p className="text-xl max-w-3xl mx-auto text-black font-medium mt-8">
             A comprehensive assessment tool designed to evaluate and enhance your understanding 
@@ -17,9 +17,9 @@ export default function About() {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 grid-background-white">
+      {/* <section className="py-16 grid-background-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg mx-auto">
+          <div className="prose prose-lg mx-auto"> */}
             {/* <h2 className="text-3xl font-bold text-black mb-6 border-b-4 border-black pb-2 inline-block">Our Mission</h2>
             <p className="text-lg text-black font-medium mb-8">
               We believe that understanding Artificial Intelligence is crucial in today's rapidly 
@@ -62,7 +62,7 @@ export default function About() {
               </div>
             </div> */}
 
-            <h2 className="text-3xl font-bold text-black mb-6 border-b-4 border-black pb-2 inline-block">Key Features</h2>
+            {/* <h2 className="text-3xl font-bold text-black mb-6 border-b-4 border-black pb-2 inline-block">Key Features</h2>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="text-center bg-purple-300 p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <div className="text-3xl mb-3">⚡</div>
@@ -79,7 +79,7 @@ export default function About() {
                 <h4 className="font-bold mb-2 text-black">Unlimited Attempts</h4>
                 <p className="text-sm text-black font-medium">Take the exam as many times as you want</p>
               </div>
-            </div>
+            </div> */}
 
             {/* <h2 className="text-3xl font-bold text-black mb-6 border-b-4 border-black pb-2 inline-block">Who This Is For</h2>
             <div className="bg-purple-100 p-6 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mb-8">
@@ -91,7 +91,7 @@ export default function About() {
               </ul>
             </div> */}
 
-            <h2 className="text-3xl font-bold text-black mb-6 border-b-4 border-black pb-2 inline-block">Exam Structure</h2>
+            {/* <h2 className="text-3xl font-bold text-black mb-6 border-b-4 border-black pb-2 inline-block">Exam Structure</h2>
             <div className="bg-white p-6 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -113,13 +113,13 @@ export default function About() {
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> */}
+          {/* </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="bg-purple-500 py-12 border-t-4 border-black">
+      {/* <section className="bg-purple-500 py-12 border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4 inline-block border-4 border-black bg-black px-8 py-3 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
             Ready to Get Started?
@@ -131,7 +131,7 @@ export default function About() {
             Take the Exam
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

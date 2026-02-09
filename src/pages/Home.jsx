@@ -13,9 +13,9 @@ export default function Home() {
     }
   };
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen grid-background py-20 ">
       {/* Hero Section */}
-      <section className="grid-background py-20 border-b-4 border-black">
+      <section className="grid-background py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold mb-6 text-black border-4 border-black bg-white inline-block px-8 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             Sana makagraduate hehe
@@ -24,30 +24,30 @@ export default function Home() {
             Test your knowledge with this comprehensive examination platform. 
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center flex-wrap">
-            <Link
+            {/* <Link
               to="/exam"
               onClick={(e) => handleProtectedClick(e, "/exam")}
               className="bg-purple-500 text-white px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
               Start Exam Now
-            </Link>
+            </Link> */}
             <Link
               to="/reviewer"
               onClick={(e) => handleProtectedClick(e, "/reviewer")}
-              className="bg-white text-purple-600 px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+              className="bg-purple-500 text-black px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
               Study Materials
             </Link>
             <Link
               to="/flashcards"
               onClick={(e) => handleProtectedClick(e, "/flashcards")}
-              className="bg-purple-400 text-black px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+              className="bg-purple-500 text-black px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
               Flashcards
             </Link>
             <Link
               to="/about"
-              className="bg-purple-300 text-black px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+              className="bg-purple-500 text-black px-8 py-4 text-lg font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
             >
               Learn More
             </Link>
@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 grid-background-white">
+      {/* <section className="py-16 grid-background-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-black mb-4 inline-block border-b-4 border-black pb-2">
@@ -95,10 +95,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Stats Section */}
-      <section className="bg-purple-500 py-16 border-y-4 border-black">
+      {/* <section className="bg-purple-500 py-16 border-y-4 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center text-white">
             <div className="bg-white text-black p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
@@ -119,10 +119,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-16 grid-background">
+      {/* <section className="py-16 grid-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-black mb-6 inline-block border-4 border-black bg-white px-8 py-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             Ready to Improve Your Knowledge?
@@ -147,7 +147,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
-  );
+  );  
 }
