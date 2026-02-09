@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Footer() {
-  const currentDate = "November 1, 2025";
+  const currentDate = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
     <footer className="bg-purple-500 text-black border-t-4 border-black">
@@ -10,15 +10,15 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="text-2xl font-bold text-black mb-4 border-4 border-black bg-white inline-block px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              Exam Platform
+              Reviewer Platform
             </div>
             <p className="text-black font-medium mb-4 mt-4">
               Comprehensive learning and assessment platform designed to test and improve 
               your knowledge of Computer Science fundamentals, applications, and advanced concepts.
             </p>
             <div className="text-sm text-black font-bold bg-purple-300 inline-block px-3 py-1 border-2 border-black">
-              © 2025 sleepdeprivedtable Exam Platform. All rights reserved.
-            </div>
+                © 2025 sleepdeprivedtable Reviewer Platform. All rights reserved.
+              </div>
           </div>
 
           {/* Quick Links */}

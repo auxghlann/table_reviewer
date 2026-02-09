@@ -11,7 +11,7 @@ const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Login = lazy(() => import("./pages/Login"));
-const TakeExam = lazy(() => import("./pages/TakeExam"));
+// const TakeExam = lazy(() => import("./pages/TakeExam"));
 const ExamEngine = lazy(() => import("./components/ExamEngine"));
 const StudyMaterials = lazy(() => import("./pages/StudyMaterials"));
 const Flashcards = lazy(() => import("./pages/Flashcards"));
@@ -227,7 +227,7 @@ function AppContent() {
                 <StudyMaterials />
               </ProtectedRoute>
             } />
-            <Route path="/exam" element={
+            {/* <Route path="/exam" element={
               <ProtectedRoute>
                 <TakeExam setSelectedSubject={setSelectedSubject} />
               </ProtectedRoute>
@@ -236,7 +236,7 @@ function AppContent() {
               <ProtectedRoute>
                 <ExamRoute />
               </ProtectedRoute>
-            } />
+            } /> */}
             <Route path="/flashcards" element={
               <ProtectedRoute>
                 <Flashcards />

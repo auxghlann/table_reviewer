@@ -64,7 +64,7 @@ export default function Header() {
   const navItems = [
     { path: "/", label: "Home", protected: false },
     { path: "/about", label: "About", protected: false },
-    { path: "/exam", label: "Take Exam", protected: true },
+    // { path: "/exam", label: "Take Exam", protected: true },
     { path: "/reviewer", label: "Study Materials", protected: true },
     { path: "/flashcards", label: "Flashcards", protected: true },
   ].filter(item => !item.protected || isAuthenticated());
