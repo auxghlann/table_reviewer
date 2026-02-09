@@ -1,4 +1,17 @@
 [
+    {
+    "id": "cs-elective-4",
+    "title": "CS - Elective 4",
+    "description": "Business Intelligence concepts covering data analysis, warehousing, and decision-making tools.",
+    "topics": ["Intro to BI", "Historical Perspective", "Data Collection", "Data Warehousing"],
+    "questions": 0,
+    "duration": "Self-paced",
+    "difficulty": "Intermediate",
+    "icon": "📊",
+    "svgIcon": "/subject_icon/cs-elective.svg",
+    "color": "from-orange-500 to-red-600",
+    "questionsFile": ""
+  },
   {
     "id": "softeng-2",
     "title": "Soft-Eng 2",

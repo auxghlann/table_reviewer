@@ -14,7 +14,8 @@ export const loadReviewMaterials = async (subjectId) => {
       'ethics': 'ethics',
       'softeng-2': 'softeng-2',
       'cs-elective-3': 'elective3',
-      'social-issues': 'soci'
+      'social-issues': 'soci',
+      'cs-elective-4': 'elective4'
     };
 
     const folderName = subjectFolderMap[subjectId];
