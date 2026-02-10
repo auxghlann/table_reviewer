@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import accountsData from "../../temp/accounts.json";
+import { userService } from '../supabase/userService';
 
 export default function Login() {
   const navigate = useNavigate();
   const { login, isAuthenticated } = useAuth();
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: ""
   });
   const [errors, setErrors] = useState({});
@@ -37,8 +37,8 @@ export default function Login() {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.email) {
-      newErrors.email = "Email or username is required";
+    if (!formData.username) {
+      newErrors.username = "Username is required";
     }
 
     if (!formData.password) {
@@ -49,20 +49,15 @@ export default function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (validateForm()) {
-      // Find user in accounts database
-      const user = accountsData.users.find(
-        u => (u.email === formData.email || u.username === formData.email) && 
-             u.password === formData.password
-      );
+      const user = await userService.signIn(formData.username, formData.password);
 
       if (user) {
         // Login successful
         const userData = {
-          email: user.email,
           username: user.username
         };
         login(userData);
@@ -70,8 +65,8 @@ export default function Login() {
       } else {
         // Login failed
         setErrors({ 
-          email: "Invalid email/username or password",
-          password: "Invalid email/username or password"
+          username: "Invalid username or password",
+          password: "Invalid username or password"
         });
       }
     }
@@ -93,21 +88,21 @@ export default function Login() {
         {/* Login Form */}
         <div className="bg-purple-100 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 md:p-8">
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Email/Username */}
+            {/* Username */}
             <div>
               {/* <label className="block text-sm font-bold text-black mb-2">
-                Email or Username
+                Username
               </label> */}
               <input
                 type="text"
-                name="email"
-                value={formData.email}
+                name="username"
+                value={formData.username}
                 onChange={handleChange}
-                className={`w-full p-3 border-4 ${errors.email ? 'border-red-500' : 'border-black'} focus:ring-0 focus:outline-none bg-white font-medium`}
-                placeholder="email or username"
+                className={`w-full p-3 border-4 ${errors.username ? 'border-red-500' : 'border-black'} focus:ring-0 focus:outline-none bg-white font-medium`}
+                placeholder="username"
               />
-              {errors.email && (
-                <p className="text-red-600 text-xs font-bold mt-1">{errors.email}</p>
+              {errors.username && (
+                <p className="text-red-600 text-xs font-bold mt-1">{errors.username}</p>
               )}
             </div>
 
