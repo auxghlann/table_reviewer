@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# gemini context
+.geminiignore
+GEMINI.md
+
+# Environment variables
+.env
+.env.*.local
